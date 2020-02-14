@@ -2,7 +2,7 @@ const container = document.getElementById('container');
 
 const renderManager = {
     renderNewPageToDom: (html) => {
-      container.innerHTML= html;
+      container.innerHTML = html;
     },
     renderSingleHtmlToContainer: (html, id) => {
         const element = document.getElementById(`${id}`);
