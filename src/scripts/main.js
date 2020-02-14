@@ -4,5 +4,10 @@
     or the dashboard should be rendered.
 */
 import kkMainManager from "./friends/kkMain.js";
+const activeUsers = {
+    "userId": 1
+}
 
-kkMainManager.kkRunIt();
+kkMainManager.kkRunIt(activeUsers.userId);
+
+
