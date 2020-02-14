@@ -1,5 +1,3 @@
-import apiKey from '../../../api/apiKey.js';
-
 const apiManager = {
 	getUserNews(activeUserId) {
 		return fetch(
@@ -8,7 +6,7 @@ const apiManager = {
 	},
 	getSiteUrl(url) {
 		return fetch(
-			`http://api.linkpreview.net/?key=${apiKey}&q=${url}`
+			`http://api.linkpreview.net/?key=&q=${url}`
 		).then(resp => resp.json());
 	},
 	addUserNews(newsObj) {
