@@ -1,3 +1,9 @@
-import article from "./articles/article.js";
+import article from './articles/main.js';
+import kkMainManager from './friends/kkMain.js';
 
-article.runIt();
+const activeUsers = {
+    "id": 1
+}
+
+article.runIt(activeUsers.id);
+kkMainManager.kkRunIt();
