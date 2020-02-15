@@ -58,18 +58,37 @@ const convert = {
 			})
 			.then(data => {
 				data.forEach(element => {
-					apiManager
-						.getSiteUrl()
-						.then(img => {
-							const cardImg = img.url;
-							document.getElementById(
-								`newsFeed-img--${element.id}`
-							).src = cardImg;
-						})
-						.then(() => {
-							eventListeners.deleteArticleEvt(element.id, activeUserId);
-							eventListeners.editArticleEvt(element.id, activeUserId);
-						});
+					if (element.img !== '') {
+						const cardImg = element.img;
+						document.getElementById(
+							`newsFeed-img--${element.id}`
+						).src = cardImg;
+
+						eventListeners.deleteArticleEvt(
+							element.id,
+							activeUserId
+						);
+						eventListeners.editArticleEvt(element.id, activeUserId);
+					} else {
+						apiManager
+							.getSiteUrl()
+							.then(img => {
+								const cardImg = img.url;
+								document.getElementById(
+									`newsFeed-img--${element.id}`
+								).src = cardImg;
+							})
+							.then(() => {
+								eventListeners.deleteArticleEvt(
+									element.id,
+									activeUserId
+								);
+								eventListeners.editArticleEvt(
+									element.id,
+									activeUserId
+								);
+							});
+					}
 				});
 			});
 	},
@@ -82,6 +101,8 @@ const convert = {
         <div class="modal-card">
             <div class="modal-card-text-container">
                 <div id="news-form">
+                
+                <input type="file" id="img-upload"/>
                     <input id="url-input" type="text" placeholder="Type Url">
                     <input id="title-input" type="text" placeholder="Type Title">
                     <textarea id="description-input" type="text" col="2000" row="3000" placeholder="Description"></textarea>

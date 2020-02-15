@@ -51,11 +51,12 @@ const eventManager = {
                 <button id="edit-article">Edit Article</button>
                 <button id="discard-article">Discard Article</button>
                 `
+                this.imgFilesEvt(btnId)
                 this.submitEditArticleEvt(activeUserId, btnId);
                 this.discardArticleEvt(activeUserId);
 				document
-					.getElementById('modal')
-					.classList.remove('hidden-item');
+                .getElementById('modal')
+                .classList.remove('hidden-item');
 				DOMManager.populateEditForm(btnId, activeUserId);
 			});
 	},
@@ -72,7 +73,22 @@ const eventManager = {
             dataManager.getUserInput(activeUserId, "edit", id);
             // console.log(userInpu)
 		});
-	},
+    },
+    imgFilesEvt(btnId){
+        // document.querySelector('input[type="file"]').addEventListener('change', function() {
+        //     if(btnId){
+        //         if (this.files && this.files[0]) {
+        //             console.log(btnId)
+        //             console.log(document.getElementById(`newsFeed-img--12`))
+        //             // let img = document.getElementById(`newsFeed-img--${btnId}`);  // $('img')[0]
+        //             // img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+        //             // console.log(URL.createObjectURL(this.files[0]))
+        //             // img.onload = imageIsLoaded;
+        //         }
+        //     }
+            
+        // });
+    }
 };
 
 export default eventManager;
