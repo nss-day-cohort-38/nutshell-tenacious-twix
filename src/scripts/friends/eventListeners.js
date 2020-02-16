@@ -25,6 +25,32 @@ const chatEventsManager = {
         }
         apiManager.postMessage(newMessage).then(domManager.addChatBoxInfo
         )
+        searchBar.value="";
+      }
+      
+    })
+  },
+  editButtonListener:()=> {
+    const chatField = document.getElementById('chat-field');
+    chatField.addEventListener('click', () => {
+      if(event.target.id.startsWith('editBtn-')) {
+        const chatId = event.target.id.split('-')[1]
+        const textField = document.getElementById(`text-${chatId}`)
+        const value = textField.innerHTML;
+        textField.innerHTML = `<input id="edit-form-${chatId}" type="text" value="${value}"><button type="button" id="submit-${chatId}">Submit</button>`
+        
+
+      }
+      else if(event.target.id.startsWith("submit-")){
+        // console.log(event)
+        const editId = event.target.id.split('-')[1];
+        const input = document.getElementById(`edit-form-${editId}`)
+        const userId = event.path[2].childNodes[3].childNodes[0].id.split('-')[2];
+        const newObj = {
+          userId: Number(userId),
+          message: input.value,
+        }
+        apiManager.editMessage(editId, newObj).then(domManager.addChatBoxInfo)
       }
     })
   }
@@ -39,6 +65,7 @@ const friendsEventManager = {
         chatEventsManager.addDeleteEventListener(id);
         domManager.addChatBoxInfo()
         chatEventsManager.addSendMessageListener(id);
+        chatEventsManager.editButtonListener();
       })
     }
 }

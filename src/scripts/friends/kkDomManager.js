@@ -13,7 +13,6 @@ const domManager = {
           })
           
           friends.forEach(friendObj=> {
-              console.log(friendObj)
               apiManager.getUser(friendObj.friendId).then(arr=> {
                   arr.forEach(obj=> {
                     //   console.log(obj)
@@ -34,7 +33,6 @@ const domManager = {
             const chatField = document.getElementById('chat-field');
             chatField.innerHTML ="";
             arr.forEach(obj=> {
-                console.log(obj);
                 const html = htmlFactoryManager.generateMessageHtml(obj);
                 renderManager.renderSingleHtmlToContainer(html, 'chat-field');
             })

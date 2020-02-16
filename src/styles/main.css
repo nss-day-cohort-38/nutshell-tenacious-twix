@@ -1,20 +1,69 @@
+/* trial style */
+:root {
+	--primary-color: #F06543;
+	--white-text:  #E8E9EB;
+	--black-text: #313638;
+	--orange-accent: #F09D51;
+	--fierce-red: #F8333C;
+	--fierce-red-opactiy: rgba(248,51,60,0.8);;
+	--gold: #FCAB10;
+}
+* {
+	margin: 0;
+
+}
+body {
+	background-color: var(--white-text);
+}
+nav {
+	background-color: var(--fierce-red);
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+.buttons {
+	width: 30%;
+
+	
+}
 .navButton {
+	padding: 2%;
+	margin-left: 40px;
+	font-family: 'Rubik', sans-serif;
+	font-size: 15px;
+	background-color: var(--white-text);
+	color: var(--fierce-red);
+	border-radius: 5%;
+	transition: 0.3s ease ;
+}
+.navButton:hover {
+	color: var(--white-text);
+	background-color: #9e1927;
+	transition: 0.3s ease ;
+	border: 1px solid white;
+}
+button {
+	font-family: 'Rubik', sans-serif;
+}
+
+
+
+
+
+/* end of trial style */
+/* .navButton {
 	float: right;
 	margin-left: 5px;
-}
+} */
 
 .heading {
-    font-size: x-large;
+	font-size: 95px;
+	font-family: 'Rubik', sans-serif;
+	color: white;
 }
 
-#chat-field{
-    border: 1px solid red;
-    width: 100%;
-    height:200px;
-    overflow:auto;
-    background-color:white;
-    color:black;
-}
+
 	/* font-size: x-large;
 } */
 
@@ -92,3 +141,88 @@
 .hidden-item {
     display: none;
 }
+
+
+/* Friends  and messages Styling */
+#friendsBody {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	
+}
+#top-container{
+	/* border: 1px dotted green; */
+	border-radius: 0px 10px 10px 0px;
+	width: 20%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 2%;
+	background-color: var(--fierce-red-opactiy);
+}
+#bottom-container {
+	border: 1px dotted red;
+	width: 45%;
+	margin-top: 2%;
+	margin-right: 20%;
+
+
+}
+#chat-field{
+    border: 1px solid red;
+    width: 100%;
+    height:600px;
+    overflow:auto;
+    background-color:white;
+    color:black;
+}
+.fwiends {
+	width: 40%;
+}
+#friends-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	font-family: 'Rubik', sans-serif;
+	width: 100%;
+    height:900px;
+	overflow:auto;
+}
+
+.kkcard {
+/* border: 1px dotted green; */
+width: 100%;
+background: var(--fierce-red-opactiy);
+background-color: white;
+font-family: 'Rubik', sans-serif;
+border-radius: 5%;
+display: flex;
+flex-direction: column;
+align-items: center;
+transition: 0.3s ease;
+
+}
+.kkcard:hover{
+	background-color: var(--gold);
+	color: white;
+
+	transition: 0.3s ease;
+}
+.friendProfPic{
+	border-radius: 5%;
+	 margin-top: 5%;
+	 width: 50%;
+}
+.friendsIntro{
+	color: var(--black-text);
+	margin-top: 1%;
+	margin-bottom: 1%;
+	margin-left: 1%;
+	font-size: 40px;
+	color: white;
+}
+.delete-btn {
+	align-self: flex-end;
+
+}
+

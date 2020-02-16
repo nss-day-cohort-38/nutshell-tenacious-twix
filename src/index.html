@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <title>Twixbook</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./styles/main.css">
-  <title>Twixbook</title>
-</head>
+  <body>
+    <nav>
+      <header class="heading">Twixbook</header>
+      <div class="buttons">
+        <button class="navButton" id="Home">Home</button>
+        <button class="navButton">Events</button>
+        <button class="navButton" id="friends-button">Friends</button>
+        <button class="navButton">Logout</button>
+      </div>
+    </nav>
 
-<body>
-  <nav>
-    <header class="heading">Twixbook</header>
-    <button class="navButton">Logout</button>
-    <button class="navButton" id ="friends-button">Friends</button>
-    <button class="navButton">Events</button>
-    <button class="navButton" id="Home">Home</button>
-  </nav>
+    <article id="container"></article>
 
-  <article id="container"></article>
+    <footer></footer>
 
-  <footer></footer>
-
-  <script type="module" src="scripts/main.js"></script>
-</body>
-
+    <script type="module" src="scripts/main.js"></script>
+  </body>
 </html>

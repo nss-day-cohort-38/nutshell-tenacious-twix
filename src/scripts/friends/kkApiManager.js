@@ -23,6 +23,21 @@ const apiManager = {
              body: JSON.stringify(message)
 
          }).then(r=>r.json());
+     },
+     deleteMessage: (id) => {
+       return fetch (`${baseUrl}messages/${id}`, {
+         method: 'DELETE',
+       }).then(r=>r.json());
+     },
+     editMessage: (id, object) => {
+       return fetch(`${baseUrl}messages/${id}`, {
+         method: "PUT",
+         headers: {
+           "content-type":"application/json"
+         },
+         body: JSON.stringify(object)
+       }).then(r=>r.json());
+       
      }
 
 }
