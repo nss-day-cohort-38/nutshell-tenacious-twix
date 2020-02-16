@@ -1,6 +1,6 @@
 .navButton {
-    float: right;
-    margin-left: 5px;
+	float: right;
+	margin-left: 5px;
 }
 
 .heading {
@@ -14,4 +14,81 @@
     overflow:auto;
     background-color:white;
     color:black;
+}
+	/* font-size: x-large;
+} */
+
+/* News Feed Styles */
+#article-container {
+	display: flex;
+	flex-direction: column;
+	margin: 15px;
+}
+.newsFeed-img-container {
+	width: 25%;
+}
+.newsFeed-img {
+	width: 100%;
+}
+
+.news-card {
+	display: flex;
+	/* Add shadows to create the "card" effect */
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	width: 100%;
+	margin: 10px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.news-card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.news-card-container {
+}
+
+.news-card-text-container {
+	padding: 2px 16px;
+}
+
+#news-form {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Modal Styles*/
+#modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	/* bring your own prefixes */
+	transform: translate(-50%, -50%);
+	width: 50%;
+	height: 500px;
+}
+
+.modal-card {
+	height: 500px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	width: 100%;
+	margin: 10px;
+	background-color: white;
+}
+
+/* On mouse-over, add a deeper shadow */
+.modal-card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-card-text-container {
+	display: flex;
+	flex-direction: column;
+	padding: 2px 16px;
+}
+
+.hidden-item {
+    display: none;
 }
