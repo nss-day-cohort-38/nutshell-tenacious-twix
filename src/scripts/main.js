@@ -7,5 +7,5 @@ const activeUsers = {
 }
 
 article.runIt(activeUsers.id);
-kkMainManager.kkRunIt();
 eventsMainManager.eventNavButton(activeUsers.id);
+kkMainManager.kkRunIt(activeUsers.id);

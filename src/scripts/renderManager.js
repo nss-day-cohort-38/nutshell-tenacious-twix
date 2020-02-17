@@ -4,6 +4,7 @@ const container = document.getElementById("container");
 
 const renderManager = {
   renderNewPageToDom: html => {
+    container.innerHTML = "";
     container.innerHTML = html;
   },
   renderSingleHtmlToContainer: (html, id) => {
@@ -19,7 +20,7 @@ const renderManager = {
   },
   renderEventsToContainer: (arr, func) => {
     container.innerHTML = "";
-    container.innerHTML = htmlManager.eventForm
+    container.innerHTML = htmlManager.eventForm;
     arr.forEach(event => {
       const eventHtml = func(event);
       container.innerHTML += eventHtml;
