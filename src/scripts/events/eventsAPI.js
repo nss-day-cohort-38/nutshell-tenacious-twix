@@ -5,6 +5,7 @@ const eventAPI = {
     ).then(resp => resp.json());
   },
   updateEvent(event) {
+      console.log(event);
     return fetch(`http://localhost:8088/events/${event.id}`, {
       method: "PUT",
       headers: {
@@ -23,15 +24,14 @@ const eventAPI = {
     });
   },
   refillEvent(eventId) {
-    const hiddenEntryId = document.querySelector("#entryId");
+    const hiddenEventId = document.querySelector("#eventId");
     const nameInput = document.querySelector("#nameInput");
     const locationInput = document.querySelector("#locationInput");
     const dateInput = document.querySelector("#dateInput");
     fetch(`http://localhost:8088/events/${eventId}`)
       .then(response => response.json())
       .then(event => {
-        hiddenEntryId.value = event.id;
-        activeUserId = event.userId;
+        hiddenEventId.value = event.id;
         nameInput.value = event.name;
         locationInput.value = event.location;
         dateInput.value = event.date;

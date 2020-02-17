@@ -3,7 +3,7 @@ const htmlManager = {
       <br>
       <div id="eventform">
       <form>
-      <input type="hidden" id="entryId" value="">
+      <input type="hidden" id="eventId" value="">
       
       <fieldset id="nameBox">
           <label id="nameLabel" class="label">Event:</label>
