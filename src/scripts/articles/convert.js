@@ -18,8 +18,14 @@ const convert = {
 		articleContainer.innerHTML = `
         <div id="modal"></div>
         <button id="open-add-news">Add News</button>
-        <div id="news-header"></div>
-        <div id="news-card-container"></div>
+        <div id="news-header">
+			<div class="ui text loader">Loading</div>
+	  	</div>
+		<div id="news-card-container">
+			<div class="ui active dimmer">
+				<div class="ui text loader">Loading</div>
+	  		</div>
+	  	</div>
         `;
 	},
 	newsCardHTML(activeUserId) {
@@ -34,16 +40,17 @@ const convert = {
 				return sortedData;
 
 			}).then(sortedData => {
-
+				const cardContainer = document.getElementById(
+					'news-card-container'
+				);
+				cardContainer.innerHTML = "";
 				sortedData.forEach(element => {
 					const id = element.id;
 					let url = element.url;
 
 					const title = element.title;
 					const synopsis = element.synopsis;
-					const cardContainer = document.getElementById(
-						'news-card-container'
-					);
+					
 
 					cardContainer.innerHTML += `
                     <div class="news-card">

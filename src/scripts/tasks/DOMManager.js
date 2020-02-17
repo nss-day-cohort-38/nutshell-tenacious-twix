@@ -9,22 +9,32 @@ const DOMManager = {
         this.createDivs();
     },
     renderMenuItems(sidebarHTML){
-        console.log(sidebarHTML)
         document.getElementById("sidebar-items").innerHTML = sidebarHTML;
     },
-    createDivs(){
+    createDivs(activeUsers){
         document.getElementById("sidebar-menu").innerHTML = `
             <div id="sidebar-top"></div>
-            <div id="sidebar-items"></div>
+            <div id="sidebar-items"></div></div>
             <div id="add-task-form"></div>
         `;
+
     },
     renderMenuTop(topHTML){
         document.getElementById("sidebar-top").innerHTML = topHTML;
     },
     renderAddTask(taskFormHTML){
-        document.getElementById("ass-task-forn").innerHTML = taskFormHTML;
+        document.getElementById("add-task-form").innerHTML = taskFormHTML;
+    },
+    renderSingleTask(id, taskHTML){
+        document.getElementById(`task--${id}`).innerHTML = taskHTML;
+    },
+    populateTaskInput(data){
+        document.getElementById("isEditingTask").value = true;
+        document.getElementById("task-text-input").value = data.task_text;
+        document.getElementById("task-date-input").value = data.complete_on;
+        document.getElementById("task-done-input").value = data.done;
     }
+
 
 
 }

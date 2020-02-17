@@ -7,5 +7,5 @@ const activeUsers = {
 }
 
 article.runIt(activeUsers.id);
-tasks.runIt();
+tasks.runIt(activeUsers.id);
 kkMainManager.kkRunIt(activeUsers.id);
