@@ -40,7 +40,8 @@ const domManager = {
             // console.log(filteredArr);
             filteredArr.forEach(obj=> {
                 const editButtonContainer = document.getElementById(`edit-Buttons-${obj.id}`)
-                editButtonContainer.innerHTML= `   <button id="editBtn-${obj.id}" type="button">Edit</button> `
+                editButtonContainer.innerHTML= `   <button id="editBtn-${obj.id}" type="button">Edit</button>
+                <button id="delete-${obj.id}" type="button">Delete</button> `
             })
         })
     },

@@ -51,6 +51,10 @@ const chatEventsManager = {
           message: input.value,
         }
         apiManager.editMessage(editId, newObj).then(domManager.addChatBoxInfo(userId))
+      } else if (event.target.id.startsWith('delete-')){
+        const deleteId = event.target.id.split('-')[1];
+        apiManager.deleteMessage(deleteId).then(domManager.addChatBoxInfo(id));
+        
       }
     })
   },
