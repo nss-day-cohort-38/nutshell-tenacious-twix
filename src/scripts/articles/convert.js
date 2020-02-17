@@ -12,10 +12,7 @@ const convert = {
 		this.newsHeaderHTML();
 		this.modalHTML();
 		document.getElementById('modal').classList.add('hidden-item');
-        eventListeners.addArticleEvt(activeUserId);
-        eventListeners.discardArticleEvt(activeUserId);
-
-		eventListeners.openAddArticleEvt();
+		eventListeners.openAddArticleEvt(activeUserId);
 	},
 	articleSections(articleContainer) {
 		articleContainer.innerHTML = `
@@ -26,39 +23,71 @@ const convert = {
         `;
 	},
 	newsCardHTML(activeUserId) {
-		apiManager.getUserNews(activeUserId).then(data => {
-			data.forEach(element => {
-				const id = element.id;
-				const url = element.url;
-				const title = element.title;
-				const synopsis = element.synopsis;
-				const cardContainer = document.getElementById(
-					'news-card-container'
-				);
-				let cardImg =
-					'https://www.ajactraining.org/wp-content/uploads/2019/09/image-placeholder.jpg';
+		apiManager
+			.getUserNews(activeUserId)
+			.then(data => {
 
-				cardContainer.innerHTML += `
+				const sortedData = data.sort(function(a, b) {
+					return b.id - a.id
+				})
+
+				return sortedData;
+
+			}).then(sortedData => {
+
+				sortedData.forEach(element => {
+					const id = element.id;
+					let url = element.url;
+
+					const title = element.title;
+					const synopsis = element.synopsis;
+					const cardContainer = document.getElementById(
+						'news-card-container'
+					);
+
+					cardContainer.innerHTML += `
                     <div class="news-card">
                         <div class="newsFeed-img-container">
-                            <img class="newsFeed-img" src="${cardImg}"></img>
+                        
+                            <img class="newsFeed-img" id="newsFeed-img--${id}" src="scripts/articles/spinner.svg" alt="spinner"></img>
                         </div>
                         <div class="news-card-text-container">
                             <p>${title}</p>
                             <p>${synopsis}</p>
-                            <a href="${url}">Link Here</a>
+                            <a href="${url}" target="_blank">Link Here</a>
                         </div>
-                        <button id="delete--${id}">Delete</button>
-                        <button id="edit--${id}">Edit</button>
+                        <div class="card-buttons">
+                        <button id="delete--${id}"><i class="trash alternate icon"></i></button>
+                        <button id="edit--${id}"><i class="edit icon"></i></button>
+                        </div>
                     </div>
                     `;
-			});
+				});
 
-			data.forEach(element => {
-				eventListeners.deleteArticleEvt(element.id, activeUserId);
-				eventListeners.editArticleEvt(element.id, activeUserId);
+				return sortedData;
+			})
+			.then(data => {
+				data.forEach(element => {
+					apiManager
+						.getSiteUrl()
+						.then(img => {
+							const cardImg = img.url;
+							document.getElementById(
+								`newsFeed-img--${element.id}`
+							).src = cardImg;
+						})
+						.then(() => {
+							eventListeners.deleteArticleEvt(
+								element.id,
+								activeUserId
+							);
+							eventListeners.editArticleEvt(
+								element.id,
+								activeUserId
+							);
+						});
+				});
 			});
-		});
 	},
 	newsHeaderHTML() {
 		document.getElementById('news-header').innerHTML = '<h1>News Feed</h1>';
@@ -69,12 +98,13 @@ const convert = {
         <div class="modal-card">
             <div class="modal-card-text-container">
                 <div id="news-form">
+                
                     <input id="url-input" type="text" placeholder="Type Url">
                     <input id="title-input" type="text" placeholder="Type Title">
                     <textarea id="description-input" type="text" col="2000" row="3000" placeholder="Description"></textarea>
                 </div>
-                <div><button id="add-article">Add Article</button></div>
-                <div><button id="discard-article">Discard Article</button></div>
+                <div id="modal-btn-container">
+                </div>
 
             </div>
         </div>

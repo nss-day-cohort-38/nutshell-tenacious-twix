@@ -16,10 +16,11 @@ const htmlManager = {
       </fieldset>
       
       <fieldset id="dateBox">
-        <label for="journalDate" class="label">Date:</label>
-        <input type="date" name="journalDate" id="journalDate">
+        <label for="dateInput" class="label">Date:</label>
+        <input type="date" name="dateInput" id="dateInput">
       </fieldset>
       </form>
+      <button id="update">Update events</button>
       </div>
       `,
     eventsHtmlCreator: events => {
@@ -29,6 +30,7 @@ const htmlManager = {
       <span>
       <button class="deleteButton" id=delete-${events.id}>Delete</button>
       <button class="editButton" id=edit-${events.id}>Edit</button>
+      </span>
       <div>${events.location}</div>
       <div>${events.date}</div>
       `;

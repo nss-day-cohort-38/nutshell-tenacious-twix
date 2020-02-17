@@ -9,24 +9,34 @@
 
 /* News Feed Styles */
 #article-container {
-	display: flex;
-	flex-direction: column;
+	/* display: flex; */
+	/* flex-direction: column; */
 	margin: 15px;
 }
 .newsFeed-img-container {
 	width: 25%;
 }
 .newsFeed-img {
-	width: 100%;
+    width: 100%;
+    background-color: gray;
 }
 
 .news-card {
 	display: flex;
+	justify-content: space-between;
+	/* align-content: stretch; */
 	/* Add shadows to create the "card" effect */
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
-	width: 100%;
+	width: 75%;
 	margin: 10px;
+}
+
+.card-buttons {
+	display: flex;
+	flex-direction: column;
+
+	/* align-self: flex-end; */
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -35,10 +45,10 @@
 }
 
 /* Add some padding inside the card container */
-.news-card-container {
-}
-
 .news-card-text-container {
+	display: flex;
+	width: 50%;
+	flex-direction: column;
 	padding: 2px 16px;
 }
 
@@ -47,12 +57,11 @@
 	flex-direction: column;
 }
 
-/* Modal Styles*/
+/* Modal Styles */
 #modal {
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	/* bring your own prefixes */
 	transform: translate(-50%, -50%);
 	width: 50%;
 	height: 500px;
@@ -60,17 +69,29 @@
 
 .modal-card {
 	height: 500px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
 	width: 100%;
 	margin: 10px;
 	background-color: white;
+	box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3);
+	/* for real browsers */
+	box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3);
 }
 
-/* On mouse-over, add a deeper shadow */
-.modal-card:hover {
-	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+#url-input, #title-input{
+    height: 30px;
+    font-size: 20px
 }
+
+#description-input {
+    height: 200px;
+    font-size: 20px;
+}
+
+#modal input {
+    margin: 10px;
+}
+
 
 .modal-card-text-container {
 	display: flex;
@@ -79,5 +100,11 @@
 }
 
 .hidden-item {
-    display: none;
+	display: none;
 }
+
+
+
+/* ************* */
+
+
