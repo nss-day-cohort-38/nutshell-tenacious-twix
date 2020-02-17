@@ -28,7 +28,8 @@ const convert = {
 			.then(data => {
 				data.forEach(element => {
 					const id = element.id;
-					const url = element.url;
+					let url = element.url;
+
 					const title = element.title;
 					const synopsis = element.synopsis;
 					const cardContainer = document.getElementById(
@@ -44,7 +45,7 @@ const convert = {
                         <div class="news-card-text-container">
                             <p>${title}</p>
                             <p>${synopsis}</p>
-                            <a href="${url}">Link Here</a>
+                            <a href="${url}" target="_blank">Link Here</a>
                         </div>
                         <div class="card-buttons">
                         <button id="delete--${id}">Delete</button>
@@ -58,37 +59,24 @@ const convert = {
 			})
 			.then(data => {
 				data.forEach(element => {
-					if (element.img !== '') {
-						const cardImg = element.img;
-						document.getElementById(
-							`newsFeed-img--${element.id}`
-						).src = cardImg;
-
-						eventListeners.deleteArticleEvt(
-							element.id,
-							activeUserId
-						);
-						eventListeners.editArticleEvt(element.id, activeUserId);
-					} else {
-						apiManager
-							.getSiteUrl()
-							.then(img => {
-								const cardImg = img.url;
-								document.getElementById(
-									`newsFeed-img--${element.id}`
-								).src = cardImg;
-							})
-							.then(() => {
-								eventListeners.deleteArticleEvt(
-									element.id,
-									activeUserId
-								);
-								eventListeners.editArticleEvt(
-									element.id,
-									activeUserId
-								);
-							});
-					}
+					apiManager
+						.getSiteUrl()
+						.then(img => {
+							const cardImg = img.url;
+							document.getElementById(
+								`newsFeed-img--${element.id}`
+							).src = cardImg;
+						})
+						.then(() => {
+							eventListeners.deleteArticleEvt(
+								element.id,
+								activeUserId
+							);
+							eventListeners.editArticleEvt(
+								element.id,
+								activeUserId
+							);
+						});
 				});
 			});
 	},
