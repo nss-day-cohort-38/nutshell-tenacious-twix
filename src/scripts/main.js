@@ -6,4 +6,4 @@ const activeUsers = {
 }
 
 article.runIt(activeUsers.id);
-kkMainManager.kkRunIt();
+kkMainManager.kkRunIt(activeUsers.id);

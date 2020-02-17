@@ -1,9 +1,12 @@
 import friendsEventManager from "./eventListeners.js";
 
 const kkMainManager = {
-    kkRunIt:() => {
+    kkRunIt:(id) => {
 
-      friendsEventManager.addFriendsNavBarListener();
+      friendsEventManager.addFriendsNavBarListener(id);
+  
+    
+           
 
     }
 }
