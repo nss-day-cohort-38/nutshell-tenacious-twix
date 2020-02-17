@@ -26,7 +26,16 @@ const convert = {
 		apiManager
 			.getUserNews(activeUserId)
 			.then(data => {
-				data.forEach(element => {
+
+				const sortedData = data.sort(function(a, b) {
+					return b.id - a.id
+				})
+
+				return sortedData;
+
+			}).then(sortedData => {
+
+				sortedData.forEach(element => {
 					const id = element.id;
 					let url = element.url;
 
@@ -48,14 +57,14 @@ const convert = {
                             <a href="${url}" target="_blank">Link Here</a>
                         </div>
                         <div class="card-buttons">
-                        <button id="delete--${id}">Delete</button>
-                        <button id="edit--${id}">Edit</button>
+                        <button id="delete--${id}"><i class="trash alternate icon"></i></button>
+                        <button id="edit--${id}"><i class="edit icon"></i></button>
                         </div>
                     </div>
                     `;
 				});
 
-				return data;
+				return sortedData;
 			})
 			.then(data => {
 				data.forEach(element => {
@@ -90,7 +99,6 @@ const convert = {
             <div class="modal-card-text-container">
                 <div id="news-form">
                 
-                <input type="file" id="img-upload"/>
                     <input id="url-input" type="text" placeholder="Type Url">
                     <input id="title-input" type="text" placeholder="Type Title">
                     <textarea id="description-input" type="text" col="2000" row="3000" placeholder="Description"></textarea>
