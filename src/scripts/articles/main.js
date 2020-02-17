@@ -10,5 +10,4 @@ const article = {
 
 export default article;
 
-// TODO: style modal
-// TODO: add loading for images
+// TODO: Look at photo's duplicateding every other reload
