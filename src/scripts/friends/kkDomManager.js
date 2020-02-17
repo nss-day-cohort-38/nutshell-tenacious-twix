@@ -3,10 +3,10 @@ import renderManager from "../renderManager.js";
 import htmlFactoryManager from "./kkHtmlFactories.js";
 
 const domManager = {
-  getFriendCardData: id => {
+  getFriendCardData: () => {
     const friendsList = document.getElementById("friends-container");
     friendsList.innerHTML = "";
-    apiManager.getFriendList(id, "friends").then(arr => {
+    apiManager.getFriendList(sessionStorage.getItem(`activeUsers`), "friends").then(arr => {
       arr.forEach(friendObj => {
         const html = htmlFactoryManager.generateFriendCardHtml(
           friendObj

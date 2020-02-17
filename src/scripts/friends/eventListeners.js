@@ -82,7 +82,7 @@ const chatEventsManager = {
     })
   },
   
-  addNickNameListener: (activeId, id) => {
+  addNickNameListener: (id) => {
     const textField = document.getElementById(`newName-${id}`)
     textField.addEventListener('keypress', () => {
 
@@ -90,30 +90,30 @@ const chatEventsManager = {
         // console.log(event)
         const friendId = (event.path[3].id.split('-')[1])
         const newObj = {
-          friendUserId: Number(activeId),
+          friendUserId: Number(sessionStorage.getItem(`activeUsers`)),
           userId: Number(event.path[2].id.split('-')[1]),
           nickName: textField.value
         }
         apiManager.updateNickName(newObj, friendId).then(() => {
-          domManager.getFriendCardData(activeId)
+          domManager.getFriendCardData()
         } )
       }
     })
   },
-  addFriendsContainerListener:(id) => {
+  addFriendsContainerListener:() => {
     const friendsContainer= document.getElementById('friends-container')
     friendsContainer.addEventListener('click', () => {
       if(event.target.id.startsWith('delete-')){
         const friendId = event.target.id.split('-')[1];
         apiManager.deleteFriend(friendId).then(() => {
-          domManager.getFriendCardData(id);
+          domManager.getFriendCardData();
         })
       } else if(event.target.id.startsWith('reName-')){
         const nNameID = event.target.id.split('-')[1];
         const value = event.path[1].firstElementChild.innerHTML
         const spanEl = document.getElementById(`nickName-${nNameID}`)
         spanEl.innerHTML = `<input type="text" class="text-width" value="${value}" id="newName-${nNameID}">`
-        chatEventsManager.addNickNameListener(id, nNameID);
+        chatEventsManager.addNickNameListener(nNameID);
       }
     })
   }
@@ -125,7 +125,7 @@ const friendsEventManager = {
       friendButton.addEventListener('click', () => {
         const html= mainDomManager.createMainDomHtml();
         renderManager.renderNewPageToDom(html);
-        domManager.getFriendCardData(sessionStorage.getItem(`activeUsers`))
+        domManager.getFriendCardData()
         chatEventsManager.addFriendsContainerListener(sessionStorage.getItem(`activeUsers`));
         domManager.addChatBoxInfo(sessionStorage.getItem(`activeUsers`))
         chatEventsManager.addSendMessageListener(sessionStorage.getItem(`activeUsers`));
