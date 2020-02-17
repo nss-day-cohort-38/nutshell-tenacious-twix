@@ -26,9 +26,8 @@ const convert = {
 	},
 	sideBarTop() {
         return `
-        
             <button class="sidebar-top-item" id="add-task">Add Task</button>
-            <button class="sidebar-top-item" id="unckeck-all">Check All</button>
+            <button class="sidebar-top-item" id="check-all">Check All</button>
             <button class="sidebar-top-item" id="uncheck-all">Uncheck All</button>
 
         `;
