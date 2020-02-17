@@ -20,7 +20,7 @@ const htmlManager = {
         <input type="date" name="dateInput" id="dateInput">
       </fieldset>
       </form>
-      <button id="update">Update events</button>
+      <button id="updateEvent">Update events</button>
       </div>
       `,
     eventsHtmlCreator: events => {

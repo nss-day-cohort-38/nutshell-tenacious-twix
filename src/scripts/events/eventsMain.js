@@ -1,7 +1,9 @@
-import eventsAddEventListener from "./eventListeners.js"
+import eventsEventListenerManager from "./eventListeners.js";
 
-const eventsMain = (activeUserId) => {
-    eventsAddEventListener(activeUserId)
-}
+const eventsMainManager = {
+  eventNavButton: activeUser => {
+    eventsEventListenerManager.eventsNav(activeUser);
+  }
+};
 
-export default eventsMain;
+export default eventsMainManager;
