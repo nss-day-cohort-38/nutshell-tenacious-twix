@@ -1,6 +1,7 @@
 import renderManager from "../renderManager.js";
 import mainDomManager from"./kkMainDomManager.js";
 import domManager from "./kkDomManager.js";
+
 import apiManager from "./kkApiManager.js";
 const friendButton = document.getElementById('friends-button');
 
@@ -120,15 +121,15 @@ const chatEventsManager = {
 }
 
 const friendsEventManager = {
-    addFriendsNavBarListener: (id) => {
+    addFriendsNavBarListener: () => {
       friendButton.addEventListener('click', () => {
         const html= mainDomManager.createMainDomHtml();
         renderManager.renderNewPageToDom(html);
-        domManager.getFriendCardData(id)
-        chatEventsManager.addFriendsContainerListener(id);
-        domManager.addChatBoxInfo(id)
-        chatEventsManager.addSendMessageListener(id);
-        chatEventsManager.editButtonListener(id);
+        domManager.getFriendCardData(sessionStorage.getItem(`activeUsers`))
+        chatEventsManager.addFriendsContainerListener(sessionStorage.getItem(`activeUsers`));
+        domManager.addChatBoxInfo(sessionStorage.getItem(`activeUsers`))
+        chatEventsManager.addSendMessageListener(sessionStorage.getItem(`activeUsers`));
+        chatEventsManager.editButtonListener(sessionStorage.getItem(`activeUsers`));
       })
     }
 }
