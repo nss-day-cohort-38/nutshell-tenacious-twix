@@ -11,7 +11,7 @@ const DOMManager = {
     renderMenuItems(sidebarHTML){
         document.getElementById("sidebar-items").innerHTML = sidebarHTML;
     },
-    createDivs(activeUsers){
+    createDivs(){
         document.getElementById("sidebar-menu").innerHTML = `
             <div id="sidebar-top"></div>
             <div id="add-task-form"></div>

@@ -288,10 +288,20 @@ margin-bottom: 5px;
 }
 
 
-.sidebar-button {
+#sidebar-button-div {
     display: flex;
     justify-content: flex-end;
+    position: fixed;
+    right: 0px;
+    top: 100px;
     /* z-index: 1; */
 
+}
+
+#sidebar-button {
+    transform: rotate(90deg);
+}
+#sidebar-menu {
+    z-index: 1;
 }
 

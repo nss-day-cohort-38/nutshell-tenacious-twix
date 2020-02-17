@@ -18,7 +18,7 @@ const convert = {
 
 			DOMManager.renderMenuTop(this.sideBarTop());
 			eventListeners.addTask();
-			$('.ui.sidebar').sidebar('show');
+			
 		});
 	},
 	sideBarHTML() {

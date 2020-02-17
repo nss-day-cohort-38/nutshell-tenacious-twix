@@ -10,6 +10,8 @@ const tasks = {
     runIt(){
         DOMManager.createDivs();
         convert.runIt();
+        eventListeners.openTask();
+        $('.ui.sidebar').sidebar('toggle');
     }
 }
 
