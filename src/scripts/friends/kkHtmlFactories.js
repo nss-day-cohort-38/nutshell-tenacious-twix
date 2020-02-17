@@ -13,8 +13,10 @@ const htmlFactoryManager = {
     return `
     <div class="kk-message"id="message-${obj.id}">
     <div id="text-${obj.id}">${obj.message}</div>
-    <p><a id="message-username-${obj.userId}">${obj.user.username}</a></p>
-    <button id="editBtn-${obj.id}" type="button">Edit</button> 
+    <p><a class="un" id="message-username-${obj.userId}">${obj.user.username}</a></p>
+    <div id="edit-Buttons-${obj.id}">
+
+    </div>
     </div>
     `
     }

@@ -28,13 +28,19 @@ const domManager = {
       const nameDisplay = document.getElementById('buttons-container')
       nameDisplay.innerHTML += `<button id="btn-${obj.id}" type"button">${obj.name}</button>`
     },
-    addChatBoxInfo:() => {
+    addChatBoxInfo:(id) => {
         apiManager.getMessages().then(arr=>{
             const chatField = document.getElementById('chat-field');
             chatField.innerHTML ="";
             arr.forEach(obj=> {
                 const html = htmlFactoryManager.generateMessageHtml(obj);
                 renderManager.renderSingleHtmlToContainer(html, 'chat-field');
+            })
+            const filteredArr = arr.filter(obj=> obj.userId ===id);
+            // console.log(filteredArr);
+            filteredArr.forEach(obj=> {
+                const editButtonContainer = document.getElementById(`edit-Buttons-${obj.id}`)
+                editButtonContainer.innerHTML= `   <button id="editBtn-${obj.id}" type="button">Edit</button> `
             })
         })
     },

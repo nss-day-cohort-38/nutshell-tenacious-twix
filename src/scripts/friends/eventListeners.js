@@ -23,14 +23,14 @@ const chatEventsManager = {
           "message":searchBar.value,
           "userId":id
         }
-        apiManager.postMessage(newMessage).then(domManager.addChatBoxInfo
+        apiManager.postMessage(newMessage).then(domManager.addChatBoxInfo(id)
         )
         searchBar.value="";
       }
       
     })
   },
-  editButtonListener:()=> {
+  editButtonListener:(id)=> {
     const chatField = document.getElementById('chat-field');
     chatField.addEventListener('click', () => {
       if(event.target.id.startsWith('editBtn-')) {
@@ -50,9 +50,12 @@ const chatEventsManager = {
           userId: Number(userId),
           message: input.value,
         }
-        apiManager.editMessage(editId, newObj).then(domManager.addChatBoxInfo)
+        apiManager.editMessage(editId, newObj).then(domManager.addChatBoxInfo(userId))
       }
     })
+  },
+  friendClickEventListener: (id) => {
+
   }
 }
 
@@ -63,9 +66,10 @@ const friendsEventManager = {
         renderManager.renderNewPageToDom(html);
         domManager.getFriendCardData(id)
         chatEventsManager.addDeleteEventListener(id);
-        domManager.addChatBoxInfo()
+        domManager.addChatBoxInfo(id)
         chatEventsManager.addSendMessageListener(id);
-        chatEventsManager.editButtonListener();
+        chatEventsManager.editButtonListener(id);
+        chatEventsManager.friendClickEventListener(id);
       })
     }
 }
