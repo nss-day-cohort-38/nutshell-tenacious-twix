@@ -4,7 +4,7 @@ const mainDomManager = {
       <div id="friendsBody">
       <div id="top-container">
     
-      <h1 class="friendsIntro">Here are you friends...</h1>
+      <h1 class="friendsIntro">Friends</h1>
       <br>
       <div class='fwiends'>
         <div id="friends-container">
