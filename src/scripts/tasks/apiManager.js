@@ -9,7 +9,8 @@ const apiManager = {
 
     },
     getTasks(){
-        return fetch()
+        return fetch("http://localhost:8088/tasks?userId=1&_sort=complete_on")
+        .then(resp => resp.json())
     }
 }
 

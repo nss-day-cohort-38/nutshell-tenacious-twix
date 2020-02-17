@@ -7,6 +7,9 @@ import validate from './validate.js'
 const eventListeners = {
     runIt(){
 
+    },
+    addTask(){
+        document.getElementById("")
     }
 }
 

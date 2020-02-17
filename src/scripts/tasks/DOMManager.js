@@ -9,14 +9,22 @@ const DOMManager = {
         this.createDivs();
     },
     renderMenuItems(sidebarHTML){
+        console.log(sidebarHTML)
         document.getElementById("sidebar-items").innerHTML = sidebarHTML;
     },
     createDivs(){
         document.getElementById("sidebar-menu").innerHTML = `
-            <div id="sidebar-top">Test</div>
+            <div id="sidebar-top"></div>
             <div id="sidebar-items"></div>
-        `
+            <div id="add-task-form"></div>
+        `;
     },
+    renderMenuTop(topHTML){
+        document.getElementById("sidebar-top").innerHTML = topHTML;
+    },
+    renderAddTask(taskFormHTML){
+        document.getElementById("ass-task-forn").innerHTML = taskFormHTML;
+    }
 
 
 }
