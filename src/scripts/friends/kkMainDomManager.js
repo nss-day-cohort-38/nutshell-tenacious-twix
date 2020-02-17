@@ -14,9 +14,7 @@ const mainDomManager = {
       
       <div id="bottom-container">
       <h1>Current Chat...</h1>
-      <div id="buttons-container">
-      <button type="button" id="btn-friendId">Friend Name</button>
-      </div>
+    
       <fieldset id="chat-box">
       <div id="chat-field">
 

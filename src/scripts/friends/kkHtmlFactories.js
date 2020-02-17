@@ -11,7 +11,7 @@ const htmlFactoryManager = {
     },
     generateMessageHtml: (obj) => {
     return `
-    <div id="message-${obj.id}">
+    <div class="kk-message"id="message-${obj.id}">
     <div id="text-${obj.id}">${obj.message}</div>
     <p><a id="message-username-${obj.userId}">${obj.user.username}</a></p>
     <button id="editBtn-${obj.id}" type="button">Edit</button> 

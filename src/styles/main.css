@@ -1,48 +1,97 @@
-.navButton {
-	float: right;
-	margin-left: 5px;
+/* trial style */
+:root {
+    --primary-color: #F06543;
+    --white-text:  #E8E9EB;
+    --black-text: #313638;
+    --orange-accent: #F09D51;
+    --fierce-red: #F8333C;
+    --fierce-red-opactiy: rgba(248,51,60,0.8);;
+    --gold: #FCAB10;
 }
+* {
+    margin: 0;
+
+}
+body {
+    background-color: var(--white-text);
+}
+nav {
+    background-color: var(--fierce-red);
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.buttons {
+    width: 30%;
+
+    
+}
+.navButton {
+    padding: 2%;
+    margin-left: 40px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    background-color: var(--white-text);
+    color: var(--fierce-red);
+    border-radius: 5%;
+    transition: 0.3s ease ;
+}
+.navButton:hover {
+    color: var(--white-text);
+    background-color: #9e1927;
+    transition: 0.3s ease ;
+    border: 1px solid white;
+}
+button {
+    font-family: 'Rubik', sans-serif;
+}
+
+
+
+
+
+/* end of trial style */
+/* .navButton {
+    float: right;
+    margin-left: 5px;
+} */
 
 .heading {
-    font-size: x-large;
+    font-size: 95px;
+    font-family: 'Rubik', sans-serif;
+    color: white;
 }
 
-#chat-field{
-    border: 1px solid red;
-    width: 100%;
-    height:200px;
-    overflow:auto;
-    background-color:white;
-    color:black;
-}
-	/* font-size: x-large;
+
+    /* font-size: x-large;
 } */
 
 /* News Feed Styles */
 #article-container {
-	display: flex;
-	flex-direction: column;
-	margin: 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
 }
 .newsFeed-img-container {
-	width: 25%;
+    width: 25%;
 }
 .newsFeed-img {
-	width: 100%;
+    width: 100%;
 }
 
 .news-card {
-	display: flex;
-	/* Add shadows to create the "card" effect */
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	transition: 0.3s;
-	width: 100%;
-	margin: 10px;
+    display: flex;
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 100%;
+    margin: 10px;
 }
 
 /* On mouse-over, add a deeper shadow */
 .news-card:hover {
-	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Add some padding inside the card container */
@@ -50,45 +99,151 @@
 }
 
 .news-card-text-container {
-	padding: 2px 16px;
+    padding: 2px 16px;
 }
 
 #news-form {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Modal Styles*/
 #modal {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	/* bring your own prefixes */
-	transform: translate(-50%, -50%);
-	width: 50%;
-	height: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 500px;
 }
 
 .modal-card {
-	height: 500px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	transition: 0.3s;
-	width: 100%;
-	margin: 10px;
-	background-color: white;
+    height: 500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 100%;
+    margin: 10px;
+    background-color: white;
 }
 
 /* On mouse-over, add a deeper shadow */
 .modal-card:hover {
-	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .modal-card-text-container {
-	display: flex;
-	flex-direction: column;
-	padding: 2px 16px;
+    display: flex;
+    flex-direction: column;
+    padding: 2px 16px;
 }
 
 .hidden-item {
     display: none;
+}
+
+
+/* Friends  and messages Styling */
+#friendsBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+#top-container{
+    /* border: 1px dotted green; */
+    border-radius: 0px 10px 10px 0px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2%;
+    background-color: var(--fierce-red-opactiy);
+}
+#bottom-container {
+	border: 1px dotted red;
+	background-color: var(--fierce-red-opactiy);
+	border-radius: 5px;
+    width: 45%;
+    margin-top: 2%;
+	margin-right: 20%;
+	position: sticky;
+	color: white;
+
+
+}
+#chat-field{
+    border: 1px solid red;
+    width: 100%;
+    height:600px;
+    overflow:auto;
+    background-color:white;
+	color:black;
+	display: flex;
+	flex-direction: column;
+	
+}
+#user-input{
+	align-self: center;
+}
+.fwiends {
+    width: 40%;
+}
+#friends-container {
+    display: flex;
+	flex-direction: column;
+    justify-content: space-evenly;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    height:600px;
+	overflow:auto;
+	padding: 30%;
+}
+
+.kkcard {
+/* border: 1px dotted green; */
+width: 100%;
+background: var(--fierce-red-opactiy);
+background-color: white;
+font-family: 'Rubik', sans-serif;
+border-radius: 5%;
+display: flex;
+flex-direction: column;
+align-items: center;
+transition: 0.3s ease;
+margin-bottom: 5px;
+
+}
+.kkcard:hover{
+    background-color: var(--gold);
+    color: white;
+
+    transition: 0.3s ease;
+}
+.friendProfPic{
+    border-radius: 5%;
+     margin-top: 5%;
+     width: 50%;
+}
+.friendsIntro{
+    color: var(--black-text);
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    font-size: 40px;
+    color: white;
+}
+.delete-btn {
+	align-self: flex-end;
+	border-radius: 0px 0px 5px 0px;
+	font-size: 15px;
+	background-color: var(--black-text);
+	color: white;
+}
+.delete-btn:hover{
+	background-color: white;
+	color: var(--fierce-red-opactiy);
+}
+.kk-message{
+	align-self: flex-end;
 }
