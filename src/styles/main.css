@@ -209,18 +209,18 @@ button {
 #user-input{
 	align-self: center;
 }
-.fwiends {
-    width: 40%;
-}
+/* .fwiends {
+    width: 80%;
+} */
 #friends-container {
     display: flex;
 	flex-direction: column;
-    justify-content: space-evenly;
     font-family: 'Rubik', sans-serif;
     width: 100%;
     height:600px;
-	overflow:auto;
-	padding: 30%;
+	overflow:scroll;
+	padding: 10%;
+	padding-top: 10px;
 }
 
 .kkcard {
@@ -246,7 +246,7 @@ margin-bottom: 5px;
 .friendProfPic{
     border-radius: 5%;
      margin-top: 5%;
-     width: 50%;
+     width: 80%;
 }
 .friendsIntro{
     color: var(--black-text);
@@ -276,4 +276,7 @@ margin-bottom: 5px;
 }
 .un {
 	cursor: grab;
+}
+.text-width {
+	width: 80%;
 }
