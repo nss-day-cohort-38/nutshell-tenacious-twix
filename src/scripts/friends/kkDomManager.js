@@ -7,13 +7,9 @@ const domManager = {
        
       apiManager.getFriendList(id, 'friends').then(arr=> {
         
-          const friends= []
-          arr.forEach(obj=> {
-              friends.push(obj);
-          })
           
-          friends.forEach(friendObj=> {
-              apiManager.getUser(friendObj.friendId).then(arr=> {
+          arr.forEach(friendObj=> {
+              apiManager.getUser(friendObj.friendUserId).then(arr=> {
                   arr.forEach(obj=> {
                     //   console.log(obj)
                     const html = htmlFactoryManager.generateFriendCardHtml(obj, friendObj.id);
@@ -40,8 +36,8 @@ const domManager = {
             // console.log(filteredArr);
             filteredArr.forEach(obj=> {
                 const editButtonContainer = document.getElementById(`edit-Buttons-${obj.id}`)
-                editButtonContainer.innerHTML= `   <button id="editBtn-${obj.id}" type="button">Edit</button>
-                <button id="delete-${obj.id}" type="button">Delete</button> `
+                editButtonContainer.innerHTML= `   <button id="editBtn-${obj.id}" type="button"><i class="edit icon"></i></button>
+                <button id="delete-${obj.id}" type="button"><i class="trash alternate outline icon"></i></button> `
             })
         })
     },

@@ -9,10 +9,12 @@ const apiManager = {
       return fetch (`${baseUrl}users?id=${id}`).then(r=>r.json());
     },
      getUserAndFriendMessages:(friendId, activeUserId) => {
-       return fetch (`${baseUrl}messages?friendId=${friendId}&userId=${activeUserId}`).then(r=>r.json());
+       return fetch (`${baseUrl}messages?friendId=${friendId}&userId=${activeUserId}`)
+        .then(r=>r.json());
      },
      getMessages:() => {
-       return fetch (`${baseUrl}messages?_expand=user`).then(r=>r.json())
+       return fetch (`${baseUrl}messages?_expand=user`)
+       .then(r=>r.json())
      },
      postMessage:(message)=> {
          return fetch(`${baseUrl}messages`,{
@@ -25,12 +27,15 @@ const apiManager = {
          }).then(r=>r.json());
      },
      deleteMessage: (id) => {
+      console.log(`${baseUrl}messages/${id}`)
        return fetch (`${baseUrl}messages/${id}`, {
          method: 'DELETE',
        }).then(r=>r.json());
      },
      editMessage: (id, object) => {
+       
        return fetch(`${baseUrl}messages/${id}`, {
+         
          method: "PUT",
          headers: {
            "content-type":"application/json"

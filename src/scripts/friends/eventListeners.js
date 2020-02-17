@@ -23,7 +23,9 @@ const chatEventsManager = {
           "message":searchBar.value,
           "userId":id
         }
-        apiManager.postMessage(newMessage).then(domManager.addChatBoxInfo(id)
+        apiManager.postMessage(newMessage).then(() => {
+          domManager.addChatBoxInfo(id)
+        } 
         )
         searchBar.value="";
       }
@@ -50,10 +52,14 @@ const chatEventsManager = {
           userId: Number(userId),
           message: input.value,
         }
-        apiManager.editMessage(editId, newObj).then(domManager.addChatBoxInfo(userId))
+        apiManager.editMessage(editId, newObj).then(() => {
+          domManager.addChatBoxInfo(id)
+        } )
       } else if (event.target.id.startsWith('delete-')){
         const deleteId = event.target.id.split('-')[1];
-        apiManager.deleteMessage(deleteId).then(domManager.addChatBoxInfo(id));
+        apiManager.deleteMessage(deleteId).then(() => {
+          domManager.addChatBoxInfo(id)
+        } );
         
       }
     })
