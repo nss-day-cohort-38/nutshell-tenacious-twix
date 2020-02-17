@@ -13,7 +13,7 @@ const DOMManager = {
     },
     createDivs(){
         document.getElementById("sidebar-menu").innerHTML = `
-            <div id="sidebar-top"></div>
+            <div id="sidebar-top">Test</div>
             <div id="sidebar-items"></div>
         `
     },
