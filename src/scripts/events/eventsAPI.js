@@ -5,7 +5,6 @@ const eventAPI = {
     ).then(resp => resp.json());
   },
   updateEvent(event) {
-      console.log(event);
     return fetch(`http://localhost:8088/events/${event.id}`, {
       method: "PUT",
       headers: {
