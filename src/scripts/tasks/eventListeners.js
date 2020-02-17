@@ -9,7 +9,9 @@ const eventListeners = {
 
     },
     addTask(){
-        document.getElementById("")
+        document.getElementById("add-task").addEventListener("click", () => {
+            
+        })
     }
 }
 
