@@ -6,8 +6,6 @@ import eventListeners from './eventListeners.js'
 
 const validate = {
     runIt(){
-
     }
 }
-
 export default validate;

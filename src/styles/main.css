@@ -280,3 +280,18 @@ margin-bottom: 5px;
 .text-width {
 	width: 80%;
 }
+
+/* Task Styles */
+
+.tasks {
+    display: flex;
+}
+
+
+.sidebar-button {
+    display: flex;
+    justify-content: flex-end;
+    /* z-index: 1; */
+
+}
+

@@ -7,9 +7,9 @@ import validate from './validate.js'
 
 // TODO 
 const tasks = {
-    runIt(activeUsers){
-        DOMManager.createDivs(activeUsers);
-        convert.runIt(activeUsers);
+    runIt(){
+        DOMManager.createDivs();
+        convert.runIt();
     }
 }
 

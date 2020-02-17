@@ -5,28 +5,33 @@ import eventListeners from './eventListeners.js';
 import validate from './validate.js';
 
 const convert = {
-	runIt(activeUsers) {
-		this.sideBarHTML(activeUsers).then(data => {
+	runIt() {
+		this.sideBarHTML().then(data => {
             const html = data[0];
 			DOMManager.renderMenuItems(html);
                 data[1].forEach(element => {
-                    eventListeners.deleteTask(element.id, activeUsers);
-                    eventListeners.editTask(element.id, activeUsers);
-                    eventListeners.taskItem(element.id, activeUsers);
+                    eventListeners.deleteTask(element.id);
+                    eventListeners.editTask(element.id);
+                    eventListeners.taskItem(element.id);
                 })
             
 
 			DOMManager.renderMenuTop(this.sideBarTop());
-			eventListeners.addTask(activeUsers);
+			eventListeners.addTask();
 			$('.ui.sidebar').sidebar('show');
 		});
 	},
-	sideBarHTML(activeUsers) {
-		return apiManager.getTasks(activeUsers).then(data => {
+	sideBarHTML() {
+		return apiManager.getTasks().then(data => {
 			let taskHTML = '';
 
 			data.forEach(element => {
-				taskHTML += `<a class="item" id="task--${element.id}"><div id="task-text--${element.id}">${element.task_text}</div> <i class="edit outline icon" id="edit-task--${element.id}"></i><i class="x icon" id="delete--${element.id}"></i></a>`;
+                let textHTML = `<div class="task-text" id="task-text--${element.id}">${element.task_text}</div>`;
+                if(element.done == true){
+                    textHTML = `<div class="task-text"><s  id="task-text--${element.id}">${element.task_text}</s></div>`;
+                }
+
+				taskHTML += `<a class="item tasks" id="task--${element.id}">${textHTML}<div><i class="edit outline icon" id="edit-task--${element.id}"></i><i class="x icon" id="delete--${element.id}"></i></div></a>`;
 			});
 
 			return [taskHTML, data];

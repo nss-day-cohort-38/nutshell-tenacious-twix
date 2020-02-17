@@ -2,10 +2,9 @@ import article from './articles/main.js';
 import kkMainManager from './friends/kkMain.js';
 import tasks from './tasks/main.js'
 
-const activeUsers = {
-    "id": 1
-}
+sessionStorage.setItem("activeUsers", 1);
+sessionStorage.getItem("activeUsers");
 
-article.runIt(activeUsers.id);
-tasks.runIt(activeUsers.id);
-kkMainManager.kkRunIt(activeUsers.id);
+article.runIt();
+tasks.runIt();
+// kkMainManager.kkRunIt(activeUsers.id);

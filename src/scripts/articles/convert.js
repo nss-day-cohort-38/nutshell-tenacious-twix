@@ -4,15 +4,16 @@ import article from './main.js';
 import eventListeners from './eventListeners.js';
 
 const convert = {
-	runIt(activeUserId) {
+	runIt() {
+		const activeUserId = sessionStorage.getItem("activeUsers");
 		renderManager.renderNewPageToDom(`<div id="article-container"></div>`);
 		const articleContainer = document.getElementById('article-container');
 		this.articleSections(articleContainer);
-		this.newsCardHTML(activeUserId);
+		this.newsCardHTML();
 		this.newsHeaderHTML();
 		this.modalHTML();
 		document.getElementById('modal').classList.add('hidden-item');
-		eventListeners.openAddArticleEvt(activeUserId);
+		eventListeners.openAddArticleEvt();
 	},
 	articleSections(articleContainer) {
 		articleContainer.innerHTML = `
@@ -28,9 +29,10 @@ const convert = {
 	  	</div>
         `;
 	},
-	newsCardHTML(activeUserId) {
+	newsCardHTML() {
+		
 		apiManager
-			.getUserNews(activeUserId)
+			.getUserNews()
 			.then(data => {
 
 				const sortedData = data.sort(function(a, b) {
@@ -86,11 +88,11 @@ const convert = {
 						.then(() => {
 							eventListeners.deleteArticleEvt(
 								element.id,
-								activeUserId
+								
 							);
 							eventListeners.editArticleEvt(
 								element.id,
-								activeUserId
+								
 							);
 						});
 				});

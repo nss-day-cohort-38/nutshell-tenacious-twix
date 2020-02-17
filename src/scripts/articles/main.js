@@ -2,9 +2,9 @@ import articleEvtManager from './eventListeners.js';
 import convert from './convert.js';
 
 const article = {
-	runIt(activeuserId) {
-		articleEvtManager.runIt(activeuserId);
-		convert.runIt(activeuserId);
+	runIt() {
+		articleEvtManager.runIt();
+		convert.runIt();
 	}
 };
 
