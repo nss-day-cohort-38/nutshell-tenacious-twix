@@ -42,6 +42,10 @@ const apiManager = {
 				body: JSON.stringify(newsObj)
 			}
 		);
+	},
+	getArticleAPI(){
+		return fetch(`http://localhost:8088/apiKeys/1`)
+		.then(resp => resp.json());
 	}
 };
 

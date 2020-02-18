@@ -11,7 +11,7 @@ const eventListeners = {
 			this.submitTask();
 		});
 	},
-	submitTask(id) {
+	submitTask() {
 		document
 			.getElementById('task-text-input')
 			.addEventListener('keypress', e => {
@@ -54,18 +54,6 @@ const eventListeners = {
 				});
 			});
 	},
-	editTask(id) {
-		// document
-		// 	.getElementById(`task-text--${id}`)
-		// 	.addEventListener('click', () => {
-		// 		DOMManager.renderSingleTask(id, convert.taskFormHTML());
-		// 		apiManager.getSingleTask(id).then(data => {
-					
-		// 			DOMManager.populateTaskInput(data[0]);
-		// 			this.submitTask(id);
-		// 		});
-		// 	});
-	},
 	taskItem(id) {
 		document
 			.getElementById(`check-task--${id}`)
@@ -80,14 +68,14 @@ const eventListeners = {
 		document
 			.getElementById('sidebar-button')
 			.addEventListener('click', () => {
-				$( ".ui.sidebar" ).sidebar("show");
+				$( ".ui.sidebar" ).toggleClass("visible");
 			});
 	},
 	closeTask(){
 		document
 			.getElementById('close-sidebar')
 			.addEventListener('click', () => {
-				$( ".ui.sidebar" ).sidebar("hide");
+				$( ".ui.sidebar" ).toggleClass("visible");
 			});
 	},
 	sidebar(){

@@ -9,7 +9,6 @@ const convert = {
 			DOMManager.renderMenuItems(html);
                 data[1].forEach(element => {
                     eventListeners.deleteTask(element.id);
-                    eventListeners.editTask(element.id);
                     eventListeners.taskItem(element.id);
                 })
             
