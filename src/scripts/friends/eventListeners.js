@@ -11,11 +11,12 @@ const chatEventsManager = {
   addSendMessageListener:(id) => {
     const searchBar = document.getElementById('user-input')
     searchBar.addEventListener('keypress', () => {
+
       if(event.charCode===13){
         
         const newMessage = {
           "message":searchBar.value,
-          "userId":id
+          "userId": parseInt(id)
         }
         apiManager.postMessage(newMessage).then(() => {
           domManager.addChatBoxInfo(id)

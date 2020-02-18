@@ -35,9 +35,11 @@ const domManager = {
           }
       }) 
       filteredArr.forEach(obj => {
+
         const editButtonContainer = document.getElementById(
           `edit-Buttons-${obj.id}`
         );
+ 
         editButtonContainer.innerHTML = ` <i  id="editBtn-${obj.id}"class="edit icon"></i>
                 <i  id="delete-${obj.id}"class="trash alternate outline icon"></i> `;
       });
