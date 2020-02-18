@@ -3,7 +3,7 @@ const htmlManager = {
       <br>
       <div id="eventform">
       <form>
-      <input type="hidden" id="eventId" value="">
+      <input id="eventId" value="">
       
       <fieldset id="nameBox">
           <label id="nameLabel" class="label">Event:</label>
@@ -21,6 +21,9 @@ const htmlManager = {
       </fieldset>
       </form>
       <button id="updateEvent">Update events</button>
+
+      <article id="eventsContainer"><article>
+
       </div>
       `,
     eventsHtmlCreator: events => {

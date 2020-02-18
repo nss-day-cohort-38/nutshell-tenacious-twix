@@ -19,11 +19,11 @@ const renderManager = {
     });
   },
   renderEventsToContainer: (arr, func) => {
-    container.innerHTML = "";
-    container.innerHTML = htmlManager.eventForm;
+    const eventsContainer = document.getElementById("eventsContainer");
+    eventsContainer.innerHTML = "";
     arr.forEach(event => {
       const eventHtml = func(event);
-      container.innerHTML += eventHtml;
+      eventsContainer.innerHTML += eventHtml;
     });
   }
 };
