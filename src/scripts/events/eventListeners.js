@@ -2,26 +2,24 @@ import renderManager from "../renderManager.js";
 import eventAPI from "./eventsAPI.js";
 import htmlManager from "./eventsHtmlCreator.js";
 
-const eventNavButton = document.querySelector("#eventNavButton");
-
-const clearForm = () => {
-  document.querySelector("#eventId").value = "";
-  document.querySelector("#nameInput").value = "";
-  document.querySelector("#locationInput").value = "";
-  document.querySelector("#dateInput").value = "";
-};
-
-const refreshEventContainer = activeUserId => {
-  eventAPI.getEvents(activeUserId).then(events => {
-    renderManager.renderEventsToContainer(
-      events,
-      htmlManager.eventsHtmlCreator
-    );
-  });
-};
-
 const eventsEventListenerManager = {
+
+  clearForm: () => {
+    document.querySelector("#eventId").value = "";
+    document.querySelector("#nameInput").value = "";
+    document.querySelector("#locationInput").value = "";
+    document.querySelector("#dateInput").value = "";
+  },
+  refreshEventContainer: activeUserId => {
+    eventAPI.getEvents(activeUserId).then(events => {
+      renderManager.renderEventsToContainer(
+        events,
+        htmlManager.eventsHtmlCreator
+      );
+    });
+  },
   eventsNav: activeUserId => {
+    const eventNavButton = document.querySelector("#eventNavButton");
     eventNavButton.addEventListener("click", () => {
       renderManager.renderNewPageToDom(htmlManager.eventForm);
       eventsEventListenerManager.updateEventListener(activeUserId);
@@ -46,13 +44,13 @@ const eventsEventListenerManager = {
       if (hiddenEventId.value !== "") {
         newEvent.id = parseInt(hiddenEventId.value);
         eventAPI.updateEvent(newEvent).then(() => {
-          refreshEventContainer(activeUserId);
-          clearForm();
+          eventsEventListenerManager.refreshEventContainer(activeUserId);
+          eventsEventListenerManager.clearForm();
         });
       } else {
         eventAPI.saveEvent(newEvent).then(() => {
-          refreshEventContainer(activeUserId);
-          clearForm();
+          eventsEventListenerManager.refreshEventContainer(activeUserId);
+          eventsEventListenerManager.clearForm();
         });
       }
     });
@@ -65,8 +63,8 @@ const eventsEventListenerManager = {
         if (check == true) {
           const eventToDelete = event.target.id.split("-")[1];
           eventAPI.deleteEvent(eventToDelete).then(() => {
-            refreshEventContainer(activeUserId);
-            clearForm();
+            eventsEventListenerManager.refreshEventContainer(activeUserId);
+            eventsEventListenerManager.clearForm();
           });
         }
       } else if (event.target.id.startsWith("edit-")) {

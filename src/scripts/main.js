@@ -18,6 +18,7 @@ const getURL = () => {
       kkMainManager.kkRunIt(activeUser);
     } else if (queryString == "logout") {
     } else if (queryString == "events") {
+      eventsMainManager.eventNavButton(sessionStorage.getItem(`activeUsers`));
     }
   }
 };
