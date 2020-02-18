@@ -83,7 +83,20 @@ const eventsEventListenerManager = {
   }
 };
 
+const testA = () => {
+  console.log("testA")
+}
 
+const testB = () => {
+  console.log("testB")
+}
 
+const testC = () => {
+  console.log("testC")
+};
 
-export default eventsEventListenerManager;
+export function testA,
+export function testB,
+export function testC
+
+// export default eventsEventListenerManager;
