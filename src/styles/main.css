@@ -24,7 +24,8 @@ nav {
     align-items: flex-end;
 }
 .buttons {
-    width: 30%;
+	width: 30%;
+	margin-bottom: 1%;
 
     
 }
@@ -307,3 +308,103 @@ margin-bottom: 5px;
     /* z-index: 1; */
 }
 
+
+/* sign-in-form */
+
+#form-container {
+	display: flex;
+	justify-content: space-evenly;
+	margin-top: 5%;
+	padding: 10%;
+	font-family: 'Rubik', sans-serif;
+}
+#signIn-form{
+	border-radius: 5px;
+	width:75%;
+	padding:3%;
+	background: var(--fierce-red-opactiy);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 300px;
+}
+.formButtons{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+.form-button{
+	width: auto;
+	height: 55%;
+	align-self: center;
+	padding: 7px;
+	color: var(--fierce-red);
+	background-color: var(--white-text);
+	transition: 0.3s ease ;
+	border-radius: 5px;
+	margin: 5%;
+
+}
+.form-button:hover {
+	color: var(--white-text);
+    background-color: #9e1927;
+    transition: 0.3s ease ;
+    border: 1px solid white;
+}
+#formTitle {
+	margin-bottom: 15%;
+}
+#usernames {
+	margin-bottom: 15%;
+}
+
+#M-cont{
+	color: black !important;
+}
+#Kmodal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50%;
+	height: 500px;
+}
+
+.Kmodal-card {
+	height: 300px;
+	transition: 0.3s;
+	width: 100%;
+	margin: 10px;
+	background-color: white;
+	box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3);
+}
+.Kmodal-card-text-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2px 16px;
+}
+#SignUp-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+#join-button {
+	margin: 1%;
+	margin-top: 3%;
+	color: var(--fierce-red);
+	background-color: var(--white-text);
+	transition: 0.3s ease ;
+	border-radius: 5px;
+
+}
+#join-button:hover {
+	color: var(--white-text);
+    background-color: #9e1927;
+    transition: 0.3s ease ;
+	border: 1px solid white;
+	box-shadow: 1px 1px var(--black-text);
+}
