@@ -35,9 +35,11 @@ const domManager = {
           }
       }) 
       filteredArr.forEach(obj => {
+
         const editButtonContainer = document.getElementById(
           `edit-Buttons-${obj.id}`
         );
+ 
         editButtonContainer.innerHTML = ` <i  id="editBtn-${obj.id}"class="edit icon"></i>
                 <i  id="delete-${obj.id}"class="trash alternate outline icon"></i> `;
       });
@@ -57,8 +59,14 @@ const domManager = {
     });
   },
   addFriendbox: obj => {
+  
     const chatfield = document.getElementById("chat-field");
     chatfield.innerHTML = htmlFactoryManager.generateAddFriendCard(obj);
+  },
+  viewFriendbox: obj => {
+  
+    const chatfield = document.getElementById("chat-field");
+    chatfield.innerHTML = htmlFactoryManager.generateAddFriendCardTwo(obj);
   },
   createCardsFromData: arr => {
     debugger;
