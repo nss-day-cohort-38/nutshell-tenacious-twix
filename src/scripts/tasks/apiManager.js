@@ -1,9 +1,3 @@
-import convert from './convert.js';
-import dataManager from './dataManager.js';
-import DOMManager from './DOMManager.js';
-import eventListeners from './eventListeners.js';
-import validate from './validate.js';
-
 const apiManager = {
 	runIt() {},
 	getTasks() {
@@ -46,7 +40,6 @@ const apiManager = {
 	checkTask(id) {
 		return this.getSingleTask(id)
 			.then(data => {
-                // console.log(data)
 				return data[0].done ? false : true;
 			})
 			.then(done => {
