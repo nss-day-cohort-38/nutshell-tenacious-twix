@@ -20,11 +20,6 @@ const getURL = () => {
     } else if (queryString == "events") {
     }
   }
-
-  article.runIt(sessionStorage.getItem(`activeUsers`));
-  kkMainManager.kkRunIt();
-  tasks.runIt();
-  eventsMainManager.eventNavButton(sessionStorage.getItem(`activeUsers`));
 };
 
 getURL();
