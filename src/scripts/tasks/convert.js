@@ -46,10 +46,11 @@ const convert = {
           <div class="ui icon button sidebar-top-item" id="add-task">
             <i class="add icon"></i>
           </div>
-            <button class="sidebar-top-item" id="check-all">Check All</button>
-            <button class="sidebar-top-item" id="uncheck-all">Uncheck All</button>
+            
 
         `;
+        // <button class="sidebar-top-item" id="check-all">Check All</button>
+        // <button class="sidebar-top-item" id="uncheck-all">Uncheck All</button>
 	},
 	taskFormHTML() {
 		return `
