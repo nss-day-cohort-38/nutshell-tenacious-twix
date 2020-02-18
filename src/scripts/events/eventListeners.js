@@ -3,7 +3,6 @@ import eventAPI from "./eventsAPI.js";
 import htmlManager from "./eventsHtmlCreator.js";
 
 const eventsEventListenerManager = {
-
   clearForm: () => {
     document.querySelector("#eventId").value = "";
     document.querySelector("#nameInput").value = "";
@@ -27,7 +26,6 @@ const eventsEventListenerManager = {
       eventsEventListenerManager.editEventListener(activeUserId);
     });
   },
-
   updateEventListener: activeUserId => {
     const updateButton = document.querySelector("#updateEvent");
     updateButton.addEventListener("click", () => {
@@ -55,7 +53,6 @@ const eventsEventListenerManager = {
       }
     });
   },
-
   editEventListener: activeUserId => {
     container.addEventListener("click", event => {
       if (event.target.id.startsWith("delete-")) {
