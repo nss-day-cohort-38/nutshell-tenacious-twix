@@ -408,3 +408,9 @@ margin-bottom: 5px;
 	border: 1px solid white;
 	box-shadow: 1px 1px var(--black-text);
 }
+.x-icon {
+	align-self: flex-end;
+}
+.icon:hover {
+	opacity: 0.5;
+}
