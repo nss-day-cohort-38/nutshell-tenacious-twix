@@ -1,7 +1,7 @@
 import renderManager from "../renderManager.js";
 import mainDomManager from"./kkMainDomManager.js";
 import domManager from "./kkDomManager.js";
-
+import checkingManager from "./checking.js";
 import apiManager from "./kkApiManager.js";
 const friendButton = document.getElementById('friends-button');
 
@@ -11,11 +11,12 @@ const chatEventsManager = {
   addSendMessageListener:(id) => {
     const searchBar = document.getElementById('user-input')
     searchBar.addEventListener('keypress', () => {
+
       if(event.charCode===13){
         
         const newMessage = {
           "message":searchBar.value,
-          "userId":id
+          "userId": parseInt(id)
         }
         apiManager.postMessage(newMessage).then(() => {
           domManager.addChatBoxInfo(id)
@@ -67,15 +68,10 @@ const chatEventsManager = {
         })}
       } else if (event.target.id.startsWith('add-')) {
         const friendUserId = event.target.id.split('-')[1];
-        const newObj = {
-          "userId": Number(friendUserId),
-          friendUserId: Number(id)
-        }
-        apiManager.addFriend(newObj).then(() => {
-          domManager.getFriendCardData(id);
-        }).then(() => {
-          domManager.addChatBoxInfo(id);
-        })
+        checkingManager.checkExistingFriend(friendUserId, id);
+          
+     
+        
       } else if (event.target.id === 'nevermind') {
           domManager.addChatBoxInfo(id);
       }
@@ -120,18 +116,18 @@ const chatEventsManager = {
  
 }
 
-const friendsEventManager = {
-    addFriendsNavBarListener: () => {
-      friendButton.addEventListener('click', () => {
-        const html= mainDomManager.createMainDomHtml();
-        renderManager.renderNewPageToDom(html);
-        domManager.getFriendCardData()
-        chatEventsManager.addFriendsContainerListener(sessionStorage.getItem(`activeUsers`));
-        domManager.addChatBoxInfo(sessionStorage.getItem(`activeUsers`))
-        chatEventsManager.addSendMessageListener(sessionStorage.getItem(`activeUsers`));
-        chatEventsManager.editButtonListener(sessionStorage.getItem(`activeUsers`));
-      })
-    }
-}
+// const friendsEventManager = {
+//     addFriendsNavBarListener: () => {
+//         friendButton.addEventListener('click', () => {
+//         const html= mainDomManager.createMainDomHtml();
+//         renderManager.renderNewPageToDom(html);
+//         domManager.getFriendCardData()
+//         chatEventsManager.addFriendsContainerListener(sessionStorage.getItem(`activeUsers`));
+//         domManager.addChatBoxInfo(sessionStorage.getItem(`activeUsers`))
+//         chatEventsManager.addSendMessageListener(sessionStorage.getItem(`activeUsers`));
+//         chatEventsManager.editButtonListener(sessionStorage.getItem(`activeUsers`));
+//       })
+//     }
+// }
 
-export default friendsEventManager;
+export default chatEventsManager;
