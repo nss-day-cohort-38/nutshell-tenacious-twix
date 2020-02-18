@@ -3,10 +3,6 @@ import eventAPI from "./eventsAPI.js";
 import htmlManager from "./eventsHtmlCreator.js";
 
 const eventNavButton = document.querySelector("#eventNavButton");
-const hiddenEventId = document.querySelector("#eventId");
-const nameInput = document.querySelector("#nameInput");
-const locationInput = document.querySelector("#locationInput");
-const dateInput = document.querySelector("#dateInput");
 
 const clearForm = () => {
   document.querySelector("#eventId").value = "";
