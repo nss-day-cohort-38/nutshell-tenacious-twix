@@ -124,18 +124,18 @@ const chatEventsManager = {
  
 }
 
-const friendsEventManager = {
-    addFriendsNavBarListener: () => {
-      friendButton.addEventListener('click', () => {
-        const html= mainDomManager.createMainDomHtml();
-        renderManager.renderNewPageToDom(html);
-        domManager.getFriendCardData()
-        chatEventsManager.addFriendsContainerListener(sessionStorage.getItem(`activeUsers`));
-        domManager.addChatBoxInfo(sessionStorage.getItem(`activeUsers`))
-        chatEventsManager.addSendMessageListener(sessionStorage.getItem(`activeUsers`));
-        chatEventsManager.editButtonListener(sessionStorage.getItem(`activeUsers`));
-      })
-    }
-}
+// const friendsEventManager = {
+//     addFriendsNavBarListener: () => {
+//         friendButton.addEventListener('click', () => {
+//         const html= mainDomManager.createMainDomHtml();
+//         renderManager.renderNewPageToDom(html);
+//         domManager.getFriendCardData()
+//         chatEventsManager.addFriendsContainerListener(sessionStorage.getItem(`activeUsers`));
+//         domManager.addChatBoxInfo(sessionStorage.getItem(`activeUsers`))
+//         chatEventsManager.addSendMessageListener(sessionStorage.getItem(`activeUsers`));
+//         chatEventsManager.editButtonListener(sessionStorage.getItem(`activeUsers`));
+//       })
+//     }
+// }
 
 export default friendsEventManager;

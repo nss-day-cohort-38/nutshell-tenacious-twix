@@ -7,6 +7,5 @@ sessionStorage.setItem(`activeUsers`, 1);
 
 article.runIt(sessionStorage.getItem(`activeUsers`));
 kkMainManager.kkRunIt()
-sessionStorage.setItem("activeUsers", 1);
 tasks.runIt();
 
