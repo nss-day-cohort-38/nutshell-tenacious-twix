@@ -17,8 +17,12 @@ const getURL = () => {
     } else if (queryString == "friends") {
       kkMainManager.kkRunIt(activeUser);
     } else if (queryString == "logout") {
+      document.getElementById("container").innerHTML = "<h1>Logout screen</h1>"
+
     } else if (queryString == "events") {
       eventsMainManager.eventNavButton(sessionStorage.getItem(`activeUsers`));
+    } else {
+      window.location.href = "http://127.0.0.1:8080/src/index.html?home";
     }
   }
 };
