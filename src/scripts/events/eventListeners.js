@@ -49,16 +49,11 @@ const eventsEventListenerManager = {
       if (hiddenEventId.value !== "") {
         newEvent.id = parseInt(hiddenEventId.value);
         eventAPI.updateEvent(newEvent).then(() => {
+          activateButtons(activeUserId);
         });
       } else {
         eventAPI.saveEvent(newEvent).then(() => {
-          eventAPI.getEvents(activeUserId).then(events => {
-            renderManager.renderEventsToContainer(
-              events,
-              htmlManager.eventsHtmlCreator
-            );
-          })
-          .then(clearForm);
+          activateButtons(activeUserId);
         });
       }
     });
@@ -71,9 +66,10 @@ const eventsEventListenerManager = {
         if (check == true) {
           const eventToDelete = event.target.id.split("-")[1];
           eventAPI.deleteEvent(eventToDelete).then(() => {
-            eventAPI.getEvents(activeUserId).then(array => {
+            clearForm();
+            eventAPI.getEvents(activeUserId).then(events => {
               renderManager.renderEventsToContainer(
-                array,
+                events,
                 htmlManager.eventsHtmlCreator
               );
             });
@@ -86,5 +82,8 @@ const eventsEventListenerManager = {
     });
   }
 };
+
+
+
 
 export default eventsEventListenerManager;
