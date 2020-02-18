@@ -8,6 +8,7 @@ const tasks = {
         DOMManager.createDivs();
         convert.runIt();
         eventListeners.openTask();
+        eventListeners.sidebar();
     }
 }
 

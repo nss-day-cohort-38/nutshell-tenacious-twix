@@ -33,13 +33,14 @@ const convert = {
                 
                 taskHTML += `
                 <a class="item tasks" id="task--${element.id}">
-                ${checkHTML}
+                <div>
+                    ${checkHTML}
+                </div>
                 <div class="task-text" id="task-text--${element.id}">
                 ${element.task_text}
                 </div>
                 <div>
-                <i class="edit outline icon" id="edit-task--${element.id}"></i>
-                <i class="x icon" id="delete--${element.id}"></i>
+                <i class="x icon delete-task" id="delete--${element.id}"></i>
                 </div>
                 </a>`;
 			});
@@ -51,8 +52,15 @@ const convert = {
 		return `
            <i id="close-sidebar" class="x icon sidebar-top-item"></i>
           <div class="ui icon button sidebar-top-item" id="add-task">
-            <i class="add icon"></i>
+            Add <i class="add icon"></i>
           </div>
+          <div class="ui icon button sidebar-top-item" id="check-all">
+            Uncheck All
+          </div>
+          <div class="ui icon button sidebar-top-item" id="uncheck-all">
+            Check All
+          </div>
+
             
 
         `;
@@ -61,8 +69,7 @@ const convert = {
 	},
 	taskFormHTML() {
 		return `
-            <div class="item">
-                <p>Add Task</p>
+            <a class="item task-item" id="task-input">
                 <input type="text" id="isEditingTask" hidden>
                 <input type="text" id="task-done-input" hidden>
                 <input type="text" id="item-id" hidden>
@@ -70,9 +77,9 @@ const convert = {
                     <input id="task-text-input" type="text" placeholder="Type Task Here">
                 </div>     
                 <div class="ui transparent input task-input">
-                <input id="task-date-input" type="date">                
+                    <input id="task-date-input" type="date">                
                 </div>  
-            </div>
+            </a>
         `;
     },
     clearHTML(){

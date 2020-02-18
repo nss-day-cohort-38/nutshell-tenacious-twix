@@ -285,9 +285,20 @@ margin-bottom: 5px;
 /* Task Styles */
 
 .tasks {
-    display: flex;
+    display: flex !important;
+    flex-direction: row;
 }
 
+.circle.icon, .delete-task{
+    width: 10%;
+}
+
+.task-text {
+    width:80%;
+    word-wrap: break-word;
+    /* margin: 0 !important; */
+    /* padding: 0 !important; */
+}
 
 #sidebar-button-div {
     display: flex;
@@ -296,13 +307,25 @@ margin-bottom: 5px;
     /* z-index: 1; */
 
 }
-
+.sidebar-top-item {
+    /* padding: 10px; */
+    margin: 10px !important;
+}
 #sidebar-button {
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
     position: fixed;
     right: 0px;
     bottom: 100px;
 }
+
+#task-date-input {
+    width: 100%;
+}
+
+.task-item {
+width: 100%;
+}
+
 #sidebar-menu {
     /* z-index: 1; */
 }

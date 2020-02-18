@@ -10,7 +10,6 @@ const DOMManager = {
             <div id="sidebar-top"></div>
             <div id="add-task-form"></div>
             <div id="sidebar-items"></div>
-            
         `;
 
     },

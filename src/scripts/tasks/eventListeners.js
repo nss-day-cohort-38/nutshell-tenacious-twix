@@ -19,6 +19,7 @@ const eventListeners = {
 					if (
 						document.getElementById('isEditingTask').value == false
 					) {
+						
 						dataManager.getTaskInput(false);
 						DOMManager.renderAddTask(convert.clearHTML());
 					} else {
@@ -54,16 +55,16 @@ const eventListeners = {
 			});
 	},
 	editTask(id) {
-		document
-			.getElementById(`task-text--${id}`)
-			.addEventListener('click', () => {
-				DOMManager.renderSingleTask(id, convert.taskFormHTML());
-				apiManager.getSingleTask(id).then(data => {
+		// document
+		// 	.getElementById(`task-text--${id}`)
+		// 	.addEventListener('click', () => {
+		// 		DOMManager.renderSingleTask(id, convert.taskFormHTML());
+		// 		apiManager.getSingleTask(id).then(data => {
 					
-					DOMManager.populateTaskInput(data[0]);
-					this.submitTask(id);
-				});
-			});
+		// 			DOMManager.populateTaskInput(data[0]);
+		// 			this.submitTask(id);
+		// 		});
+		// 	});
 	},
 	taskItem(id) {
 		document
@@ -79,15 +80,27 @@ const eventListeners = {
 		document
 			.getElementById('sidebar-button')
 			.addEventListener('click', () => {
-				$( ".ui.sidebar" ).toggleClass("visible");
+				$( ".ui.sidebar" ).sidebar("show");
 			});
 	},
 	closeTask(){
 		document
 			.getElementById('close-sidebar')
 			.addEventListener('click', () => {
-				$( ".ui.sidebar" ).toggleClass("visible");
+				$( ".ui.sidebar" ).sidebar("hide");
 			});
+	},
+	sidebar(){
+		document.getElementById("sidebar-menu").addEventListener("click", (event) => {
+			if(!document.getElementById("task-input") && event.target.id.split("--")[0] == "task-text"){
+				const id = event.target.id.split("--")[1];
+				DOMManager.renderSingleTask(id, convert.taskFormHTML());
+				apiManager.getSingleTask(id).then(data => {
+					DOMManager.populateTaskInput(data[0]);
+					this.submitTask(id);
+				});
+			}
+		})
 	}
 };
 
