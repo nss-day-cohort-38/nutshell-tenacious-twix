@@ -25,12 +25,13 @@ const convert = {
 			let taskHTML = '';
 
 			data.forEach(element => {
-                let textHTML = `<div class="task-text" id="task-text--${element.id}">${element.task_text}</div>`;
+                let checkHTML = `<input type="checkbox" name="example" id="check-task--${element.id}">`;
                 if(element.done == true){
-                    textHTML = `<div class="task-text"><s  id="task-text--${element.id}">${element.task_text}</s></div>`;
+                    checkHTML = `<input type="checkbox" name="example" id="check-task--${element.id}" checked>`;
                 }
 
-				taskHTML += `<a class="item tasks" id="task--${element.id}">${textHTML}<div><i class="edit outline icon" id="edit-task--${element.id}"></i><i class="x icon" id="delete--${element.id}"></i></div></a>`;
+				taskHTML += `<a class="item tasks" id="task--${element.id}">${checkHTML}
+                <div class="task-text" id="task-text--${element.id}">${element.task_text}</div><div><i class="edit outline icon" id="edit-task--${element.id}"></i><i class="x icon" id="delete--${element.id}"></i></div></a>`;
 			});
 
 			return [taskHTML, data];

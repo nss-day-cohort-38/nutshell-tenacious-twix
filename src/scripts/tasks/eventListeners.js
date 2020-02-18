@@ -55,7 +55,7 @@ const eventListeners = {
 	},
 	editTask(id) {
 		document
-			.getElementById(`edit-task--${id}`)
+			.getElementById(`task-text--${id}`)
 			.addEventListener('click', () => {
 				DOMManager.renderSingleTask(id, convert.taskFormHTML());
 				apiManager.getSingleTask(id).then(data => {
@@ -67,7 +67,7 @@ const eventListeners = {
 	},
 	taskItem(id) {
 		document
-			.getElementById(`task-text--${id}`)
+			.getElementById(`check-task--${id}`)
 			.addEventListener('click', () => {
 				const taskId = event.target.id.split('--')[1];
 				apiManager.checkTask(taskId).then(() => {
