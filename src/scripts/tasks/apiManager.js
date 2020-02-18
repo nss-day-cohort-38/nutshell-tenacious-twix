@@ -40,7 +40,6 @@ const apiManager = {
 	checkTask(id) {
 		return this.getSingleTask(id)
 			.then(data => {
-                // console.log(data)
 				return data[0].done ? false : true;
 			})
 			.then(done => {
