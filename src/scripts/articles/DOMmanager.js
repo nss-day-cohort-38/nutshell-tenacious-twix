@@ -7,8 +7,8 @@ const DOMmanager = {
 		document.getElementById('title-input').value = '';
 		document.getElementById('description-input').value = '';
 	},
-	populateEditForm(btnId, activeUserId) {
-		dataManager.getNewsInformation(btnId, activeUserId).then(obj => {
+	populateEditForm(btnId) {
+		dataManager.getNewsInformation(btnId).then(obj => {
             document.getElementById("url-input").value = obj.url;
             document.getElementById("title-input").value = obj.title;
             document.getElementById("description-input").value = obj.synopsis;

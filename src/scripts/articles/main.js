@@ -2,13 +2,12 @@ import articleEvtManager from './eventListeners.js';
 import convert from './convert.js';
 
 const article = {
-	runIt(activeuserId) {
-		articleEvtManager.runIt(activeuserId);
-		convert.runIt(activeuserId);
+	runIt() {
+		articleEvtManager.runIt();
+		convert.runIt();
 	}
 };
 
 export default article;
 
-// TODO: style modal
-// TODO: add loading for images
+// TODO: Look at photo's duplicateding every other reload

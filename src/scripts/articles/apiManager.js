@@ -1,5 +1,6 @@
 const apiManager = {
-	getUserNews(activeUserId) {
+	getUserNews() {
+		const activeUserId = sessionStorage.getItem("activeUsers");
 		return fetch(
 			`http://localhost:8088/news?userId=${activeUserId}`
 		).then(resp => resp.json());
@@ -24,7 +25,8 @@ const apiManager = {
 			method: 'DELETE'
 		});
 	},
-	getSingleNews(id, activeUserId) {
+	getSingleNews(id) {
+		const activeUserId = sessionStorage.getItem("activeUsers");
 		return fetch(
 			`http://localhost:8088/news?userId=${activeUserId}&&id=${id}`
 		).then(resp => resp.json());

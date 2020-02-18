@@ -4,27 +4,35 @@ import article from './main.js';
 import eventListeners from './eventListeners.js';
 
 const convert = {
-	runIt(activeUserId) {
+	runIt() {
+		const activeUserId = sessionStorage.getItem("activeUsers");
 		renderManager.renderNewPageToDom(`<div id="article-container"></div>`);
 		const articleContainer = document.getElementById('article-container');
 		this.articleSections(articleContainer);
-		this.newsCardHTML(activeUserId);
+		this.newsCardHTML();
 		this.newsHeaderHTML();
 		this.modalHTML();
 		document.getElementById('modal').classList.add('hidden-item');
-		eventListeners.openAddArticleEvt(activeUserId);
+		eventListeners.openAddArticleEvt();
 	},
 	articleSections(articleContainer) {
 		articleContainer.innerHTML = `
         <div id="modal"></div>
         <button id="open-add-news">Add News</button>
-        <div id="news-header"></div>
-        <div id="news-card-container"></div>
+        <div id="news-header">
+			<div class="ui text loader">Loading</div>
+	  	</div>
+		<div id="news-card-container">
+			<div class="ui active dimmer">
+				<div class="ui text loader">Loading</div>
+	  		</div>
+	  	</div>
         `;
 	},
-	newsCardHTML(activeUserId) {
+	newsCardHTML() {
+		
 		apiManager
-			.getUserNews(activeUserId)
+			.getUserNews()
 			.then(data => {
 
 				const sortedData = data.sort(function(a, b) {
@@ -34,16 +42,17 @@ const convert = {
 				return sortedData;
 
 			}).then(sortedData => {
-
+				const cardContainer = document.getElementById(
+					'news-card-container'
+				);
+				cardContainer.innerHTML = "";
 				sortedData.forEach(element => {
 					const id = element.id;
 					let url = element.url;
 
 					const title = element.title;
 					const synopsis = element.synopsis;
-					const cardContainer = document.getElementById(
-						'news-card-container'
-					);
+					
 
 					cardContainer.innerHTML += `
                     <div class="news-card">
@@ -79,11 +88,11 @@ const convert = {
 						.then(() => {
 							eventListeners.deleteArticleEvt(
 								element.id,
-								activeUserId
+								
 							);
 							eventListeners.editArticleEvt(
 								element.id,
-								activeUserId
+								
 							);
 						});
 				});
