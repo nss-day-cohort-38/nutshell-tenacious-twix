@@ -17,7 +17,8 @@ const convert = {
             
 
 			DOMManager.renderMenuTop(this.sideBarTop());
-			eventListeners.addTask();
+            eventListeners.addTask();
+            eventListeners.closeTask();
 			
 		});
 	},
@@ -39,7 +40,10 @@ const convert = {
 	},
 	sideBarTop() {
 		return `
-           <div class="ui icon button sidebar-top-item" id="add-task">
+           <div class="ui icon button sidebar-top-item" id="close-sidebar">
+           <i class="x icon"></i>
+          </div>
+          <div class="ui icon button sidebar-top-item" id="add-task">
             <i class="add icon"></i>
           </div>
             <button class="sidebar-top-item" id="check-all">Check All</button>

@@ -93,7 +93,14 @@ const eventListeners = {
 		document
 			.getElementById('sidebar-button')
 			.addEventListener('click', () => {
-				$('.ui.sidebar').sidebar('toggle');
+				$( ".ui.sidebar" ).toggleClass("visible");
+			});
+	},
+	closeTask(){
+		document
+			.getElementById('close-sidebar')
+			.addEventListener('click', () => {
+				$( ".ui.sidebar" ).toggleClass("visible");
 			});
 	}
 };
