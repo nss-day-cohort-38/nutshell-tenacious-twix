@@ -1,3 +1,5 @@
+//Kurt Krafft =>handles fetch calls
+
 const baseUrl = 'http://localhost:8088/';
 
 const apiManager = {

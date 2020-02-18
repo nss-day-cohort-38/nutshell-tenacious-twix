@@ -1,3 +1,5 @@
+//Kurt Krafft => sets up dom information
+
 import htmlManager from "./htmlmanager.js";
 import authEventManager from "./eventListeners.js";
 

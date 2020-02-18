@@ -1,4 +1,4 @@
-import apiManager from "./apiManager.js";
+//Kurt Krafft =>this page adds all the event listeners and then sends the correct data to the dom or to verificaton
 import verificationManager from "./verificationManager.js";
 import domManager from "./domManager.js";   
 

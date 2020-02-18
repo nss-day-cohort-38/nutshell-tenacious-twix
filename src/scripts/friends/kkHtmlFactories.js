@@ -1,3 +1,5 @@
+//Kurt Krafft => this page makes all the html for my page
+
 const htmlFactoryManager = {
     generateFriendCardHtml:(obj) => {
       if(obj.nickName===undefined){

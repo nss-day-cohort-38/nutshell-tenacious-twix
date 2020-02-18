@@ -1,3 +1,5 @@
+//Kurt Krafft =>this page clears the form hard coded in and in the modal it also verifies whether a username or email is being used
+
 import apiManager from  "./apiManager.js";
 import domManager from "./domManager.js";
 const clearModalManager = {
@@ -23,7 +25,11 @@ const formManager = {
 const verificationManager = {
     verifyEmail: (obj) => {
       apiManager.getUserProfileViaEmail(obj.email).then(arr=> {
-       if(arr[0].username===obj.username&arr[0].email===obj.email){
+        if (arr.length===0){
+            domManager.errorBoxFiller();
+            formManager.clearForm()
+        }
+       else if(arr[0].username===obj.username&arr[0].email===obj.email){
               alert('yes!')
               formManager.clearForm()
           }else if (arr[0].username===obj.username || arr[0].email===obj.email) {

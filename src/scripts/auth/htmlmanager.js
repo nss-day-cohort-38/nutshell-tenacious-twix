@@ -1,3 +1,4 @@
+//Kurt Krafft => makes modal html
 const htmlManager = {
     createModalSignUpHtml:(obj) => {
       return `<div class="Kmodal-card">

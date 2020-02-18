@@ -1,9 +1,8 @@
-import renderManager from "../renderManager.js";
-import mainDomManager from"./kkMainDomManager.js";
+//Kurt Krafft => this is my program that handles dealing with even listeners and also grabbing the correct data
 import domManager from "./kkDomManager.js";
 import checkingManager from "./checking.js";
 import apiManager from "./kkApiManager.js";
-const friendButton = document.getElementById('friends-button');
+// const friendButton = document.getElementById('friends-button');
 
 
 
