@@ -5,12 +5,8 @@ import DOMManager from './DOMmanager.js';
 
 const eventManager = {
 	runIt() {
-		this.articleLinkEvt();
-	},
-	articleLinkEvt() {
-		document.getElementById('Home').addEventListener('click', () => {
-			convert.runIt(sessionStorage.getItem("activeUsers"));
-		});
+
+		
 	},
 	addArticleEvt() {
 		const activeUserId = sessionStorage.getItem("activeUsers");
