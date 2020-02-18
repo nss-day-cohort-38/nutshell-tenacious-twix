@@ -5,7 +5,8 @@ import DOMmanager from './DOMmanager.js';
 
 const dataManager = {
 	runIt() {},
-	getUserInput(activeUserId, updating, id) {
+	getUserInput(updating, id) {
+		const activeUserId = sessionStorage.getItem("activeUsers");
 		let url = document.getElementById('url-input').value;
 		const title = document.getElementById('title-input').value;
         const description = document.getElementById('description-input').value;
@@ -52,18 +53,18 @@ const dataManager = {
 		} else if (valid && updating == 'add') {
 			document.getElementById('modal').classList.add('hidden-item');
 			apiManager.addUserNews(inputObj).then(() => {
-				convert.runIt(activeUserId);
+				convert.runIt();
 			});
 		} else if (valid && updating == 'edit') {
             document.getElementById('modal').classList.add('hidden-item');
             apiManager.editUserNews(id, inputObj).then(() => {
-				convert.runIt(activeUserId);
+				convert.runIt();
 			});
 		}
 	},
-	getNewsInformation(btnId, activeUserId) {
+	getNewsInformation(btnId) {
 		return apiManager
-			.getSingleNews(btnId, activeUserId)
+			.getSingleNews(btnId)
 			.then(data => data[0]);
 	}
 };
