@@ -19,9 +19,6 @@ const getURL = () => {
     } else if (queryString == "events") {
     }
   }
-
-  article.runIt(sessionStorage.getItem(`activeUsers`));
-  kkMainManager.kkRunIt();
 };
 
 getURL();
