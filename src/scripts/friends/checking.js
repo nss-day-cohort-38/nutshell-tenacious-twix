@@ -1,17 +1,27 @@
 import apiManager from "./kkApiManager.js";
+import domManager from "./kkDomManager.js";
 
 
 const checkingManager = {
-    checkExistingFriend:(friendId) => {
+    checkExistingFriend:(friendId, id) => {
         
-        apiManager.checkOneFriend(friendId, sessionStorage.getItem(`activeUsers`)).then(arr=>{
+       apiManager.checkOneFriend(friendId, sessionStorage.getItem(`activeUsers`)).then(arr=>{
             if(arr.length>=1){
-                return true
+               alert("This user is already your friend! You can't fake friends!");
                 
             } else {
-                return false;
+                const newObj = {
+                    "userId": Number(friendId),
+                    friendUserId: Number(id)
+                  }
+                  apiManager.addFriend(newObj).then(() => {
+                    domManager.getFriendCardData(id);
+                  }).then(() => {
+                    domManager.addChatBoxInfo(id);
+                  })
             }
         })
+        
       
     }
 }

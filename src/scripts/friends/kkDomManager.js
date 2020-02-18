@@ -59,8 +59,14 @@ const domManager = {
     });
   },
   addFriendbox: obj => {
+  
     const chatfield = document.getElementById("chat-field");
     chatfield.innerHTML = htmlFactoryManager.generateAddFriendCard(obj);
+  },
+  viewFriendbox: obj => {
+  
+    const chatfield = document.getElementById("chat-field");
+    chatfield.innerHTML = htmlFactoryManager.generateAddFriendCardTwo(obj);
   },
   createCardsFromData: arr => {
     debugger;

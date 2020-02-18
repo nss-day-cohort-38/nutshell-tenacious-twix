@@ -1,8 +1,6 @@
 import apiManager from './apiManager.js';
-import dataManager from './dataManager.js';
 import DOMManager from './DOMManager.js';
 import eventListeners from './eventListeners.js';
-import validate from './validate.js';
 
 const convert = {
 	runIt() {

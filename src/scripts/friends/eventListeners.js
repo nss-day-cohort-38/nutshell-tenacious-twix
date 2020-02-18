@@ -68,16 +68,8 @@ const chatEventsManager = {
         })}
       } else if (event.target.id.startsWith('add-')) {
         const friendUserId = event.target.id.split('-')[1];
-        if(checkingManager.checkExistingFriend(friendUserId)===false){
-          const newObj = {
-            "userId": Number(friendUserId),
-            friendUserId: Number(id)
-          }
-          apiManager.addFriend(newObj).then(() => {
-            domManager.getFriendCardData(id);
-          }).then(() => {
-            domManager.addChatBoxInfo(id);
-          })}
+        checkingManager.checkExistingFriend(friendUserId, id);
+          
      
         
       } else if (event.target.id === 'nevermind') {
@@ -138,4 +130,4 @@ const chatEventsManager = {
 //     }
 // }
 
-export default friendsEventManager;
+export default chatEventsManager;
