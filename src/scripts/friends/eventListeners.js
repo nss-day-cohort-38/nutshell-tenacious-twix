@@ -1,7 +1,7 @@
 import renderManager from "../renderManager.js";
 import mainDomManager from"./kkMainDomManager.js";
 import domManager from "./kkDomManager.js";
-
+import checkingManager from "./checking.js";
 import apiManager from "./kkApiManager.js";
 const friendButton = document.getElementById('friends-button');
 
@@ -68,15 +68,18 @@ const chatEventsManager = {
         })}
       } else if (event.target.id.startsWith('add-')) {
         const friendUserId = event.target.id.split('-')[1];
-        const newObj = {
-          "userId": Number(friendUserId),
-          friendUserId: Number(id)
-        }
-        apiManager.addFriend(newObj).then(() => {
-          domManager.getFriendCardData(id);
-        }).then(() => {
-          domManager.addChatBoxInfo(id);
-        })
+        if(checkingManager.checkExistingFriend(friendUserId)===false){
+          const newObj = {
+            "userId": Number(friendUserId),
+            friendUserId: Number(id)
+          }
+          apiManager.addFriend(newObj).then(() => {
+            domManager.getFriendCardData(id);
+          }).then(() => {
+            domManager.addChatBoxInfo(id);
+          })}
+     
+        
       } else if (event.target.id === 'nevermind') {
           domManager.addChatBoxInfo(id);
       }
