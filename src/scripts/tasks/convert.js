@@ -58,6 +58,7 @@ const convert = {
                 <p>Add Task</p>
                 <input type="text" id="isEditingTask" hidden>
                 <input type="text" id="task-done-input" hidden>
+                <input type="text" id="item-id" hidden>
                 <div class="ui transparent input task-input">
                     <input id="task-text-input" type="text" placeholder="Type Task Here">
                 </div>     

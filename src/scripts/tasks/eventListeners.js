@@ -23,14 +23,7 @@ const eventListeners = {
 						dataManager.getTaskInput(false);
 						DOMManager.renderAddTask(convert.clearHTML());
 					} else {
-						dataManager.getTaskInput(
-							JSON.parse(
-								document
-									.getElementById('task-done-input')
-									.value.toLowerCase()
-							),
-							id
-						);
+						dataManager.getTaskInput(true);
 						DOMManager.renderAddTask(convert.clearHTML());
 					}
 				}
@@ -46,14 +39,7 @@ const eventListeners = {
 						dataManager.getTaskInput(false);
 						DOMManager.renderAddTask(convert.clearHTML());
 					} else {
-						dataManager.getTaskInput(
-							JSON.parse(
-								document
-									.getElementById('task-done-input')
-									.value.toLowerCase()
-							),
-							id
-						);
+						dataManager.getTaskInput(true);
 						DOMManager.renderAddTask(convert.clearHTML());
 					}
 				}
@@ -74,6 +60,7 @@ const eventListeners = {
 			.addEventListener('click', () => {
 				DOMManager.renderSingleTask(id, convert.taskFormHTML());
 				apiManager.getSingleTask(id).then(data => {
+					
 					DOMManager.populateTaskInput(data[0]);
 					this.submitTask(id);
 				});

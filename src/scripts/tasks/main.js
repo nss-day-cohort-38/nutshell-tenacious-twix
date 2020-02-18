@@ -39,5 +39,7 @@ const tasks = {
 // And the task should be removed from the task list
 
 
+// Fix edit
+// Add submit check
 
 export default tasks;
