@@ -25,13 +25,23 @@ const convert = {
 			let taskHTML = '';
 
 			data.forEach(element => {
-                let checkHTML = `<input type="checkbox" name="example" id="check-task--${element.id}">`;
-                if(element.done == true){
-                    checkHTML = `<input type="checkbox" name="example" id="check-task--${element.id}" checked>`;
-                }
+                let checkHTML = `<i id="check-task--${element.id}" class="circle outline icon"></i>`;
 
-				taskHTML += `<a class="item tasks" id="task--${element.id}">${checkHTML}
-                <div class="task-text" id="task-text--${element.id}">${element.task_text}</div><div><i class="edit outline icon" id="edit-task--${element.id}"></i><i class="x icon" id="delete--${element.id}"></i></div></a>`;
+                if(element.done == true){
+                    checkHTML = `<i id="check-task--${element.id}" class="check circle icon"></i>`;
+                }
+                
+                taskHTML += `
+                <a class="item tasks" id="task--${element.id}">
+                ${checkHTML}
+                <div class="task-text" id="task-text--${element.id}">
+                ${element.task_text}
+                </div>
+                <div>
+                <i class="edit outline icon" id="edit-task--${element.id}"></i>
+                <i class="x icon" id="delete--${element.id}"></i>
+                </div>
+                </a>`;
 			});
 
 			return [taskHTML, data];
@@ -39,9 +49,7 @@ const convert = {
 	},
 	sideBarTop() {
 		return `
-           <div class="ui icon button sidebar-top-item" id="close-sidebar">
-           <i class="x icon"></i>
-          </div>
+           <i id="close-sidebar" class="x icon sidebar-top-item"></i>
           <div class="ui icon button sidebar-top-item" id="add-task">
             <i class="add icon"></i>
           </div>
