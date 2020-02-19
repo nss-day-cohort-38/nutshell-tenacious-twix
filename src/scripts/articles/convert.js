@@ -160,7 +160,7 @@ const convert = {
                 
                     <input id="news-url-input" type="text" placeholder="Type Url">
                     <input id="news-title-input" type="text" placeholder="Type Title">
-                    <textarea id="news-description-input" type="text" maxlength = "500" col="2000" row="3000" placeholder="Description"></textarea>
+                    <textarea id="news-description-input" type="text" maxlength = "300" col="2000" row="3000" placeholder="Description"></textarea>
                 </div>
                 <div id="news-modal-btn-container">
                 </div>

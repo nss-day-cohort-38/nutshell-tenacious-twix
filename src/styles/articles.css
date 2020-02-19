@@ -8,6 +8,7 @@
 
 
     .news-card {
+        height: 250px;
         display: flex;
         justify-content: space-between;
 
@@ -43,8 +44,7 @@
         display: flex;
         width: 65%;
         flex-direction: column;
-        padding: 2px 16px;
-        
+        padding: 2px 16px;        
     }
 
     .card-buttons {
@@ -68,4 +68,11 @@
 
     .news-description {
         word-wrap: break-word;
+        overflow: hidden;
+        
+        
+    }
+
+    .news-description p {
+        text-overflow: ellipsis;
     }

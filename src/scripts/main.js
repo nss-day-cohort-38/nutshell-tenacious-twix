@@ -38,7 +38,7 @@ const getURL = () => {
     } else if (queryString == "home&news"){
       allNews.runIt();
     } else if(queryString == "home&events"){
-
+      
     }
   }else {
     auth.runIt()
