@@ -48,6 +48,13 @@ const htmlFactoryManager = {
       <button id="sayHi-${obj.id}">Say Hi!</button>
       <button type="button" id="nevermind">Nevermind</div>
       </div>`
+    },
+    addNewFriendCard:(obj) => {
+      return `<div class = "kkcard" id="card-${obj.id}">
+      <div>
+        <img class="friendProfPic" id="prof-pic-${obj.id}" src="https://media.tenor.com/images/b5abed30c3b61e75907475636efde7df/tenor.gif" width="80%">
+        <h1 class="friendName"id="name-${obj.id}">${obj.username}</h1></div>
+        <button class="addNewFriend-btn" id="addNewFriend-${obj.id}" type="button">Add Friend</button> `
     }
 }
 export default htmlFactoryManager;
