@@ -6,7 +6,7 @@ import auth from "./auth/main.js";
 
 sessionStorage.setItem(`activeUsers`, 1);
 const activeUser = sessionStorage.getItem('activeUsers');
-tasks.runIt();
+
 auth.runIt();
 const getURL = () => {
   let url = window.location.href;
@@ -15,6 +15,10 @@ const getURL = () => {
 
   
   if (activeUser) {
+     
+    if(queryString !== undefined) tasks.runIt();
+   
+
     if (queryString == "home") {
       article.runIt();
     } else if (queryString == "friends") {
