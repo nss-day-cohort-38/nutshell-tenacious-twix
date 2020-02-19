@@ -1,6 +1,5 @@
 import apiManager from './apiManager.js';
 import renderManager from '../renderManager.js';
-import article from './main.js';
 import eventListeners from './eventListeners.js';
 
 const convert = {
@@ -12,12 +11,12 @@ const convert = {
 		this.newsCardHTML();
 		this.newsHeaderHTML();
 		this.modalHTML();
-		document.getElementById('modal').classList.add('hidden-item');
+		document.getElementById('news-modal').classList.add('hidden-item');
 		eventListeners.openAddArticleEvt();
 	},
 	articleSections(articleContainer) {
 		articleContainer.innerHTML = `
-        <div id="modal"></div>
+        <div id="news-modal"></div>
         <button id="open-add-news">Add News</button>
         <div id="news-header">
 			<div class="ui text loader">Loading</div>
@@ -66,8 +65,8 @@ const convert = {
                             <a href="${url}" target="_blank">Link Here</a>
                         </div>
                         <div class="card-buttons">
-                        <button id="delete--${id}"><i class="trash alternate icon"></i></button>
-                        <button id="edit--${id}"><i class="edit icon"></i></button>
+                        <button id="news-delete--${id}"><i class="trash alternate icon"></i></button>
+                        <button id="news-edit--${id}"><i class="edit icon"></i></button>
                         </div>
                     </div>
                     `;
@@ -103,16 +102,16 @@ const convert = {
 	},
 
 	modalHTML() {
-		document.getElementById('modal').innerHTML = `
-        <div class="modal-card">
-            <div class="modal-card-text-container">
+		document.getElementById('news-modal').innerHTML = `
+        <div class="news-modal-card">
+            <div class="news-modal-card-text-container">
                 <div id="news-form">
                 
-                    <input id="url-input" type="text" placeholder="Type Url">
-                    <input id="title-input" type="text" placeholder="Type Title">
-                    <textarea id="description-input" type="text" col="2000" row="3000" placeholder="Description"></textarea>
+                    <input id="news-url-input" type="text" placeholder="Type Url">
+                    <input id="news-title-input" type="text" placeholder="Type Title">
+                    <textarea id="news-description-input" type="text" col="2000" row="3000" placeholder="Description"></textarea>
                 </div>
-                <div id="modal-btn-container">
+                <div id="news-modal-btn-container">
                 </div>
 
             </div>

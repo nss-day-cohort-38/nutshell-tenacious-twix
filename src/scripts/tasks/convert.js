@@ -1,3 +1,6 @@
+/* Author: Trinity Terry */
+/* Purpose: Converts data to HTML */
+
 import apiManager from './apiManager.js';
 import DOMManager from './DOMManager.js';
 import eventListeners from './eventListeners.js';
@@ -10,12 +13,14 @@ const convert = {
                 data[1].forEach(element => {
                     eventListeners.deleteTask(element.id);
                     eventListeners.taskItem(element.id);
+                    eventListeners.hoverOverTask();
                 })
             
 
 			DOMManager.renderMenuTop(this.sideBarTop());
             eventListeners.addTask();
             eventListeners.closeTask();
+            
 			
 		});
 	},
@@ -29,7 +34,7 @@ const convert = {
                 if(element.done == true){
                     checkHTML = `<i id="check-task--${element.id}" class="check circle icon"></i>`;
                 }
-                
+                console.log()
                 taskHTML += `
                 <a class="item tasks" id="task--${element.id}">
                 <div>
@@ -38,8 +43,11 @@ const convert = {
                 <div class="task-text" id="task-text--${element.id}">
                 ${element.task_text}
                 </div>
-                <div>
-                <i class="x icon delete-task" id="delete--${element.id}"></i>
+                <div class="task-icons">
+
+                <i class="calendar alternate outline icon cal-icon" data-position="bottom left" data-content="Complete Date: ${element.complete_on}"></i>  
+                <i class="x icon delete-task" id="task-delete--${element.id}"></i>    
+
                 </div>
                 </a>`;
 			});
@@ -53,18 +61,8 @@ const convert = {
           <div class="ui icon button sidebar-top-item" id="add-task">
             Add <i class="add icon"></i>
           </div>
-          <div class="ui icon button sidebar-top-item" id="check-all">
-            Uncheck All
-          </div>
-          <div class="ui icon button sidebar-top-item" id="uncheck-all">
-            Check All
-          </div>
-
-            
-
         `;
-        // <button class="sidebar-top-item" id="check-all">Check All</button>
-        // <button class="sidebar-top-item" id="uncheck-all">Uncheck All</button>
+
 	},
 	taskFormHTML() {
 		return `
@@ -73,10 +71,10 @@ const convert = {
                 <input type="text" id="task-done-input" hidden>
                 <input type="text" id="item-id" hidden>
                 <div class="ui transparent input task-input">
-                    <input id="task-text-input" type="text" placeholder="Type Task Here">
+                    <input id="task-text-input" type="text" placeholder="Type Task Here" data-position="bottom left" data-content="Enter task">
                 </div>     
                 <div class="ui transparent input task-input">
-                    <input id="task-date-input" type="date">                
+                    <input id="task-date-input" type="date" data-position="bottom left" data-content="enter date">                
                 </div>  
             </a>
         `;

@@ -1,3 +1,6 @@
+/* Author: Trinity Terry */
+/* Purpose: Fetches Data from JSON file for task sidebar */
+
 const apiManager = {
 	runIt() {},
 	getTasks() {

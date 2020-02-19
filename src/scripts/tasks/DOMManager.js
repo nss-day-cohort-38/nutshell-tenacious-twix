@@ -1,3 +1,6 @@
+/* Author: Trinity Terry */
+/* Purpose: Render's components to Task Sidebar on DOM */
+
 const DOMManager = {
     runIt(){
         this.createDivs();
