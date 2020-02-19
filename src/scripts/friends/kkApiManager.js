@@ -1,3 +1,5 @@
+//Kurt Krafft => this page handles all my api calls
+
 const baseUrl = "http://localhost:8088/"
 
 const apiManager = {

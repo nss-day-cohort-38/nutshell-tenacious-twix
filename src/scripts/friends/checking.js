@@ -1,3 +1,5 @@
+//Kurt Krafft =>this page checks to see if I have already added a friend
+
 import apiManager from "./kkApiManager.js";
 import domManager from "./kkDomManager.js";
 
