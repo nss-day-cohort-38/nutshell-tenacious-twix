@@ -20,6 +20,8 @@ const getURL = () => {
     } else if (queryString == "friends") {
       kkMainManager.kkRunIt(activeUser);
     } else if (queryString == "logout") {
+      sessionStorage.removeItem('activeUsers')
+    window.location.href = `${window.location.href.split("src")[0]}src/index.html`;
     } else if (queryString == "events") {
       eventsMainManager.eventNavButton(sessionStorage.getItem(`activeUsers`));
     } else if (queryString == undefined){
