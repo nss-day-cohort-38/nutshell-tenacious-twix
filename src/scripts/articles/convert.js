@@ -80,10 +80,10 @@ const convert = {
 			.then(sortedData => {
 				console.log(sortedData);
 				sortedData.forEach(element => {
-					if(typeof userId == "object"){
-						name = userId.filter(user => console.log(user[1]))
-					console.log(name)
-					}
+					// if(typeof userId == "object"){
+					// 	name = userId.filter(user => console.log(user[1]))
+					// console.log(name)
+					// }
 					
 					const id = element.id;
 					let url = element.url;
@@ -109,13 +109,13 @@ const convert = {
 					</div>
 				</div>
 				`;
-					if (name) {
-						console.log(element);
-						document.getElementById(
-							`creator-name--${id}`
-						).innerText = name;
-						document.getElementById(`date--${id}`).innerText = name;
-					}
+					// if (name) {
+					// 	console.log(element);
+					// 	document.getElementById(
+					// 		`creator-name--${id}`
+					// 	).innerText = name;
+					// 	document.getElementById(`date--${id}`).innerText = name;
+					// }
 				});
 
 				return sortedData;
