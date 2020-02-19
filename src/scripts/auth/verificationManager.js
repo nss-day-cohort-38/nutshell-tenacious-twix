@@ -7,8 +7,12 @@ const clearModalManager = {
         
       const emailInput = document.getElementById('email-input');
       const usernameInput = document.getElementById('username-input');
+      const password = document.getElementById('password-input');
+      const confirmPassword = document.getElementById('confirm-password');
       emailInput.value = "";
       usernameInput.value ="";
+      password.value = "";
+      confirmPassword.value = "";
     }
 }
 

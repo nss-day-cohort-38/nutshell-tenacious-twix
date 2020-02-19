@@ -6,6 +6,9 @@ import domManager from "./kkDomManager.js";
 
 const checkingManager = {
     checkExistingFriend:(friendId, id) => {
+      if (friendId===id){
+        alert('you cant add yourself as a friend')
+      } else {
         
        apiManager.checkOneFriend(friendId, sessionStorage.getItem(`activeUsers`)).then(arr=>{
             if(arr.length>=1){
@@ -24,7 +27,7 @@ const checkingManager = {
             }
         })
         
-      
+      }
     }
 }
 
