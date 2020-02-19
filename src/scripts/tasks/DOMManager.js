@@ -1,3 +1,6 @@
+/* Author: Trinity Terry */
+/* Purpose: Render's components to Task Sidebar on DOM */
+
 const DOMManager = {
     runIt(){
         this.createDivs();
@@ -10,7 +13,6 @@ const DOMManager = {
             <div id="sidebar-top"></div>
             <div id="add-task-form"></div>
             <div id="sidebar-items"></div>
-            
         `;
 
     },
@@ -33,6 +35,15 @@ const DOMManager = {
         document.getElementById("task-done-input").value = data.done;
 
  
+    },
+    createOpenButton(){
+        document.getElementById("sidebar-button").innerHTML = `
+        <div class="ui red button">
+        Open Taskbar
+      </div>
+      <a class="ui basic red left pointing label">
+        <i class="tasks icon"></i>
+      </a>`
     }
 
 

@@ -1,3 +1,6 @@
+/* Author: Trinity Terry */
+/* Purpose: Converts data to HTML */
+
 import apiManager from './apiManager.js';
 import DOMManager from './DOMManager.js';
 import eventListeners from './eventListeners.js';
@@ -9,14 +12,15 @@ const convert = {
 			DOMManager.renderMenuItems(html);
                 data[1].forEach(element => {
                     eventListeners.deleteTask(element.id);
-                    eventListeners.editTask(element.id);
                     eventListeners.taskItem(element.id);
+                    eventListeners.hoverOverTask();
                 })
             
 
 			DOMManager.renderMenuTop(this.sideBarTop());
             eventListeners.addTask();
             eventListeners.closeTask();
+            
 			
 		});
 	},
@@ -25,12 +29,27 @@ const convert = {
 			let taskHTML = '';
 
 			data.forEach(element => {
-                let textHTML = `<div class="task-text" id="task-text--${element.id}">${element.task_text}</div>`;
-                if(element.done == true){
-                    textHTML = `<div class="task-text"><s  id="task-text--${element.id}">${element.task_text}</s></div>`;
-                }
+                let checkHTML = `<i id="check-task--${element.id}" class="circle outline icon"></i>`;
 
-				taskHTML += `<a class="item tasks" id="task--${element.id}">${textHTML}<div><i class="edit outline icon" id="edit-task--${element.id}"></i><i class="x icon" id="delete--${element.id}"></i></div></a>`;
+                if(element.done == true){
+                    checkHTML = `<i id="check-task--${element.id}" class="check circle icon"></i>`;
+                }
+                console.log()
+                taskHTML += `
+                <a class="item tasks" id="task--${element.id}">
+                <div>
+                    ${checkHTML}
+                </div>
+                <div class="task-text" id="task-text--${element.id}">
+                ${element.task_text}
+                </div>
+                <div class="task-icons">
+
+                <i class="calendar alternate outline icon cal-icon" data-position="bottom left" data-content="Complete Date: ${element.complete_on}"></i>  
+                <i class="x icon delete-task" id="task-delete--${element.id}"></i>    
+
+                </div>
+                </a>`;
 			});
 
 			return [taskHTML, data];
@@ -38,32 +57,26 @@ const convert = {
 	},
 	sideBarTop() {
 		return `
-           <div class="ui icon button sidebar-top-item" id="close-sidebar">
-           <i class="x icon"></i>
-          </div>
+           <i id="close-sidebar" class="x icon sidebar-top-item"></i>
           <div class="ui icon button sidebar-top-item" id="add-task">
-            <i class="add icon"></i>
+            Add <i class="add icon"></i>
           </div>
-            
-
         `;
-        // <button class="sidebar-top-item" id="check-all">Check All</button>
-        // <button class="sidebar-top-item" id="uncheck-all">Uncheck All</button>
+
 	},
 	taskFormHTML() {
 		return `
-            <div class="item">
-                <p>Add Task</p>
+            <a class="item task-item" id="task-input">
                 <input type="text" id="isEditingTask" hidden>
                 <input type="text" id="task-done-input" hidden>
                 <input type="text" id="item-id" hidden>
                 <div class="ui transparent input task-input">
-                    <input id="task-text-input" type="text" placeholder="Type Task Here">
+                    <input id="task-text-input" type="text" placeholder="Type Task Here" data-position="bottom left" data-content="Enter task">
                 </div>     
                 <div class="ui transparent input task-input">
-                <input id="task-date-input" type="date">                
+                    <input id="task-date-input" type="date" data-position="bottom left" data-content="enter date">                
                 </div>  
-            </div>
+            </a>
         `;
     },
     clearHTML(){

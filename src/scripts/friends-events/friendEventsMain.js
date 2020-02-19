@@ -1,6 +1,6 @@
-import eventsEventListenerManager from "./eventListeners.js";
+import eventsEventListenerManager from "./friendEventListener.js";
 import renderManager from "../renderManager.js";
-import htmlManager from "./eventsHtmlCreator.js";
+import htmlManager from "./friendEventsHtmlCreator.js";
 
 
 const eventsMainManager = {
