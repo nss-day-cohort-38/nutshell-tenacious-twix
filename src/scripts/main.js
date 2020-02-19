@@ -4,6 +4,7 @@ import tasks from "./tasks/main.js";
 import eventsMainManager from './events/eventsMain.js'
 import auth from "./auth/main.js";
 import allNews from './all-news/main.js'
+import eventsEventListenerManager from './friends-events/friendEventListener.js';
 
 // sessionStorage.setItem(`activeUsers`, 1);
 const activeUser = sessionStorage.getItem('activeUsers');
@@ -22,7 +23,7 @@ const getURL = () => {
      if(queryString == "home"){
        document.getElementById("container").innerHTML = `
        
-       <a class="navButton" href="?home&events" id="Home">Events</a>
+       <a class="navButton" href="?home&events" id="friendsEvents">Events</a>
        <a class="navButton" href="?home&news" id="eventNavButton">News</a>
      
        `;
@@ -40,6 +41,8 @@ const getURL = () => {
     } else if (queryString == "home&news"){
       allNews.runIt();
     } else if(queryString == "home&events"){
+      eventsEventListenerManager.refreshEventContainer(sessionStorage.getItem(`activeUsers`));
+
 
     }
   }else {

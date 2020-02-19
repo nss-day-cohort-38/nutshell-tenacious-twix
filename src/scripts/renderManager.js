@@ -25,6 +25,14 @@ const renderManager = {
       const eventHtml = func(event);
       eventsContainer.innerHTML += eventHtml;
     });
+  },
+  renderFriendEventsToContainer: (arr, func) => {
+    const eventsContainer = document.getElementById("container");
+    eventsContainer.innerHTML = "";
+    arr.forEach(event => {
+      const eventHtml = func(event);
+      eventsContainer.innerHTML += eventHtml;
+    });
   }
 };
 
