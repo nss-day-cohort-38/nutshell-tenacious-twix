@@ -109,8 +109,12 @@ const chatEventsManager = {
         const nNameID = event.target.id.split('-')[1];
         const value = event.path[1].firstElementChild.innerHTML
         const spanEl = document.getElementById(`nickName-${nNameID}`)
-        spanEl.innerHTML = `<input type="text" class="text-width" value="${value}" id="newName-${nNameID}">`
+        if(spanEl.innerHTML==="Would you like to add a Nickname?"){
+          spanEl.innerHTML = `<input type="text" class="text-width" placeholder="${value}" id="newName-${nNameID}">`
         chatEventsManager.addNickNameListener(nNameID);
+        }else {
+        spanEl.innerHTML = `<input type="text" class="text-width" value="${value}" id="newName-${nNameID}">`
+        chatEventsManager.addNickNameListener(nNameID);}
       }
     })
   },
