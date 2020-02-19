@@ -2,6 +2,8 @@
 import domManager from "./kkDomManager.js";
 import checkingManager from "./checking.js";
 import apiManager from "./kkApiManager.js";
+import htmlManager from "../events/eventsHtmlCreator.js";
+import htmlFactoryManager from "./kkHtmlFactories.js";
 // const friendButton = document.getElementById('friends-button');
 
 
@@ -110,6 +112,36 @@ const chatEventsManager = {
         spanEl.innerHTML = `<input type="text" class="text-width" value="${value}" id="newName-${nNameID}">`
         chatEventsManager.addNickNameListener(nNameID);
       }
+    })
+  },
+  addFriendButtonListener:() => {
+    const addFriendButton = document.getElementById('friend-card-container')
+    addFriendButton.addEventListener('click', () => {
+      if (event.target.id.startsWith('addNewFriend-')) {
+        const friendUserId = event.target.id.split('-')[1];
+        checkingManager.differentCheck(friendUserId);
+          
+     
+        
+      }
+    })
+  },
+  searchFriendsListener:() => {
+    const searchbar = document.getElementById('search-friends');
+    searchbar.addEventListener('keypress', () => {
+      if(event.charCode===13){
+        const addFriendButton = document.getElementById('friend-card-container')
+        addFriendButton.innerHTML = "";
+        const username = searchbar.value;
+        apiManager.searchFriendByName(username).then(arr=> {
+          arr.forEach(obj=> {
+            const addFriendsContainer = document.getElementById('friend-card-container')
+            addFriendsContainer.innerHTML+= htmlFactoryManager.addNewFriendCard(obj);
+          })
+        })
+        
+      }
+      
     })
   }
  

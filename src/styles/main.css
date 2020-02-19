@@ -179,7 +179,9 @@ button {
 	display: none;
 }
 
+/* Task Styles */
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 /* Friends  and messages Styling */
 #friendsBody {
@@ -299,6 +301,8 @@ margin-bottom: 5px;
 
 /* Task Styles */
 
+=======
+>>>>>>> master
 .tasks {
     display: flex;
 }
@@ -321,5 +325,8 @@ margin-bottom: 5px;
 #sidebar-menu {
     /* z-index: 1; */
 }
+<<<<<<< HEAD
+=======
+>>>>>>> master
 =======
 >>>>>>> master

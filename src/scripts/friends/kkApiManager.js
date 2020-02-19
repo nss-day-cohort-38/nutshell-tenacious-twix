@@ -73,6 +73,10 @@ const apiManager = {
      checkOneFriend: (friendUserId, userId) => {
        return fetch (`${baseUrl}friends?friendUserId=${userId}&userId=${friendUserId}`)
         .then(r=>r.json())
+     }, 
+     searchFriendByName:(username) => {
+       return fetch(`${baseUrl}users?username=${username}`)
+       .then(r=>r.json());;
      }
 
 }
