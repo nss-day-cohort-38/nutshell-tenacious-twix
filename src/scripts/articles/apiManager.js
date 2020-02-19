@@ -1,8 +1,8 @@
 const apiManager = {
-	getUserNews() {
-		const activeUserId = sessionStorage.getItem("activeUsers");
+	getUserNews(userId) {
+		
 		return fetch(
-			`http://localhost:8088/news?userId=${activeUserId}`
+			`http://localhost:8088/news?userId=${userId}`
 		).then(resp => resp.json());
 	},
 	getSiteUrl() {

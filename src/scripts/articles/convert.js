@@ -4,11 +4,13 @@ import eventListeners from './eventListeners.js';
 
 const convert = {
 	runIt() {
-		const activeUserId = sessionStorage.getItem("activeUsers");
+		const activeUserId = sessionStorage.getItem('activeUsers');
 		renderManager.renderNewPageToDom(`<div id="article-container"></div>`);
 		const articleContainer = document.getElementById('article-container');
 		this.articleSections(articleContainer);
-		this.newsCardHTML();
+		const containerNode = document.getElementById('news-card-container');
+		containerNode.innerHTML = '';
+		this.newsCardHTML(activeUserId, containerNode);
 		this.newsHeaderHTML();
 		this.modalHTML();
 		document.getElementById('news-modal').classList.add('hidden-item');
@@ -28,39 +30,75 @@ const convert = {
 	  	</div>
         `;
 	},
-	newsCardHTML() {
-		
-		apiManager
-			.getUserNews()
-			.then(data => {
+	newsCardHTML(userId, containerNode, name) {
+		let sorted;
+		if (typeof userId == 'object') {
+			// sorted = apiManager.getUserNews(userId)
 
+			const promiseArray = userId.map(element =>
+				apiManager.getUserNews(element[0])
+			);
+			const messageArray = [];
+
+			Promise.all(promiseArray).then(resp => {
+				resp.forEach(element => {
+					element.forEach(news => {
+						messageArray.push(news);
+					});
+				});
+			});
+
+			sorted = messageArray.sort(function(a, b) {
+				return b.id - a.id;
+			});
+		} else {
+			const promiseArray = apiManager.getUserNews(userId).then(data => {
 				const sortedData = data.sort(function(a, b) {
-					return b.id - a.id
-				})
+					return b.id - a.id;
+				});
 
 				return sortedData;
+			});
 
-			}).then(sortedData => {
-				const cardContainer = document.getElementById(
-					'news-card-container'
-				);
-				cardContainer.innerHTML = "";
-				sortedData.forEach(element => {
-					const id = element.id;
-					let url = element.url;
+			const messageArray = [];
+			Promise.all([promiseArray]).then(resp => {
+				resp.forEach(element => {
+					messageArray.push(element);
+				});
+			});
 
-					const title = element.title;
-					const synopsis = element.synopsis;
-					
+			sorted = messageArray;
+		}
 
-					cardContainer.innerHTML += `
+		// console.log(sortedData)
+		const cardContainer = containerNode;
+
+		const iterator = sorted.values();
+		
+		for (const value of iterator) {
+		  console.log(value);
+		}
+
+		console.log(sorted)
+		// sorted[0].forEach(element => console.log(element))
+		sorted[0].forEach(element => {
+			console.log(element)
+			const id = element.id;
+			let url = element.url;
+
+			const title = element.title;
+			const synopsis = element.synopsis;
+
+			cardContainer.innerHTML += `
                     <div class="news-card">
                         <div class="newsFeed-img-container">
                         
                             <img class="newsFeed-img" id="newsFeed-img--${id}" src="scripts/articles/spinner.svg" alt="spinner"></img>
                         </div>
-                        <div class="news-card-text-container">
-                            <p class="news-title">${title}</p>
+						<div class="news-card-text-container">
+							<div id="creator-name--${id}"></div>
+							<p class="news-title">${title}</p>
+							<div id="date--${id}"></div>
                             <p class="news-description">${synopsis}</p>
                             <a href="${url}" target="_blank" class="news-link">Link Here</a>
                         </div>
@@ -69,33 +107,28 @@ const convert = {
                         <button id="news-edit--${id}"><i class="edit icon"></i></button>
                         </div>
                     </div>
-                    `;
+					`;
+			if (name) {
+				console.log(element);
+				document.getElementById(`creator-name--${id}`).innerText = name;
+				document.getElementById(`date--${id}`).innerText = name;
+			}
+		});
+		sorted.forEach(element => {
+			apiManager
+				.getSiteUrl()
+				.then(img => {
+					const cardImg = img.url;
+					// console.log(element.id);
+					document.getElementById(
+						`newsFeed-img--${element.id}`
+					).src = cardImg;
+				})
+				.then(() => {
+					eventListeners.deleteArticleEvt(element.id);
+					eventListeners.editArticleEvt(element.id);
 				});
-
-				return sortedData;
-			})
-			.then(data => {
-				data.forEach(element => {
-					apiManager
-						.getSiteUrl()
-						.then(img => {
-							const cardImg = img.url;
-							document.getElementById(
-								`newsFeed-img--${element.id}`
-							).src = cardImg;
-						})
-						.then(() => {
-							eventListeners.deleteArticleEvt(
-								element.id,
-								
-							);
-							eventListeners.editArticleEvt(
-								element.id,
-								
-							);
-						});
-				});
-			});
+		});
 	},
 	newsHeaderHTML() {
 		document.getElementById('news-header').innerHTML = '<h1>News Feed</h1>';
