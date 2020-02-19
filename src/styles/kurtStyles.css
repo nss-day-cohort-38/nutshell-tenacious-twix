@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2%;
+    margin-top: 3%;
     background-color: var(--fierce-red-opactiy);
 }
 #bottom-container {
@@ -22,7 +22,7 @@
 	background-color: var(--fierce-red-opactiy);
 	border-radius: 5px;
     width: 45%;
-    margin-top: 2%;
+    margin-top: 3%;
 	position: sticky;
 	color: white;
 
@@ -121,6 +121,23 @@ margin-bottom: 5px;
 }
 .text-width {
 	width: 80%;
+}
+.addFriendCard {
+	align-self: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+	margin-top: 5%;
+	width: 90%;
+	background-color: var(--white-text);
+	border-radius: 5px;
+	transition: 0.3s ease;
+	
+}
+.addFriendCard:hover {
+	box-shadow: 10px 10px grey;
+	transition: 0.3s ease;
 }
 
 
@@ -243,7 +260,7 @@ margin-bottom: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2%;
+    margin-top: 3%;
     background-color: var(--fierce-red-opactiy);
     color: white;
 }
@@ -274,11 +291,12 @@ margin-bottom: 5px;
     #friendsBody {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+		justify-content: space-evenly;
+		padding: 0;
         
   }
    #top-container{
-       width:85%;
+       width:80%;
        margin: auto;
        margin-top: 5%;
        border-radius: 10px;

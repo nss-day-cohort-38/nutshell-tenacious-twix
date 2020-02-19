@@ -34,19 +34,20 @@ const htmlFactoryManager = {
     </div>
     `
     }, generateAddFriendCard: (obj) => {
-      return `<div id="friend-${obj.id}">
+      return `<div id="friend-${obj.id}" class="addFriendCard">
       <img class="addFriendProfPic" id="prof-pic-${obj.id}" src="${obj.profPic}">
       <h1 id="friend-name">${obj.username}</h1>
-      <button type="button" id="add-${obj.id}">Add Friend</button>
-      <button type="button" id="nevermind">Nevermind</div>
+      <div class="buttons">
+      <button type="button" class="delete-btn" id="add-${obj.id}">Add Friend</button>
+      <button type="button" class="delete-btn" id="nevermind">Nevermind</button></div>
       </div>`
     }
     , generateAddFriendCardTwo: (obj) => {
-      return `<div id="friend-${obj.id}">
+      return `<div id="friend-${obj.id}" class="addFriendCard">
       <img class="addFriendProfPic" id="prof-pic-${obj.id}" src="${obj.user.profPic}">
       <h1 id="friend-name">${obj.username}</h1>
-      <button id="sayHi-${obj.id}">Say Hi!</button>
-      <button type="button" id="nevermind">Nevermind</div>
+      <button  class="delete-btn"id="sayHi-${obj.id}">Say Hi!</button>
+      <button type="button" class="delete-btn" id="nevermind">Nevermind<button></div>
       </div>`
     },
     addNewFriendCard:(obj) => {
