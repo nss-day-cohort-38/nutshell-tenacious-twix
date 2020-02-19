@@ -167,7 +167,9 @@ const convert = {
 
             </div>
         </div>
-        `;
+		`;
+		
+		eventListeners.textareaText();
 	}
 };
 

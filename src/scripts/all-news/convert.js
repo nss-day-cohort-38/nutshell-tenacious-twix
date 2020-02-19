@@ -11,9 +11,10 @@ const convert = {
 
 	},
 	allNewsSections(articleContainer) {
+
 		articleContainer.innerHTML = `
         <div id="news-header">
-			<div class="ui text loader">Loading</div>
+			<h1>Friend's News</h1>
 		  </div>
 		<div id="allnews-card-container">
 			<div class="ui active dimmer">
