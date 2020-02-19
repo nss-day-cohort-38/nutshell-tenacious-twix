@@ -15,10 +15,10 @@ const eventsEventListenerManager = {
   },
 
   makeHuge: () => {
-    console.log(document.getElementById("eventsContainer").childElementCount)
-    let firstEvent = document.getElementById("eventsContainer").firstElementChild
+    let firstEvent = document.getElementById("eventsContainer")
+      .firstElementChild;
     firstEvent.classList.add("first-event");
-    },
+  },
 
   clearForm: () => {
     document.querySelector("#eventId").value = "";
@@ -46,30 +46,38 @@ const eventsEventListenerManager = {
   },
   updateEventListener: activeUserId => {
     const updateButton = document.querySelector("#updateEvent");
+    const hiddenEventId = document.querySelector("#eventId");
+    const nameInput = document.querySelector("#nameInput");
+    const locationInput = document.querySelector("#locationInput");
+    const dateInput = document.querySelector("#dateInput");
     updateButton.addEventListener("click", () => {
-      const hiddenEventId = document.querySelector("#eventId");
-      const nameInput = document.querySelector("#nameInput");
-      const locationInput = document.querySelector("#locationInput");
-      const dateInput = document.querySelector("#dateInput");
-      const newEvent = {
-        userId: parseInt(activeUserId),
-        name: nameInput.value,
-        location: locationInput.value,
-        date: dateInput.value
-      };
-      if (hiddenEventId.value !== "") {
-        newEvent.id = parseInt(hiddenEventId.value);
-        eventAPI.updateEvent(newEvent).then(() => {
-          eventsEventListenerManager.refreshEventContainer(activeUserId);
-          renderManager.renderNewPageToDom(htmlManager.addNewEvent);
-          eventsEventListenerManager.addEvent(activeUserId);
-        });
+      if (
+        nameInput.value === "" ||
+        locationInput.value === "" ||
+        dateInput.value === ""
+      ) {
+        alert("You must fill all fields to sumbit an event.");
       } else {
-        eventAPI.saveEvent(newEvent).then(() => {
-          eventsEventListenerManager.refreshEventContainer(activeUserId);
-          renderManager.renderNewPageToDom(htmlManager.addNewEvent);
-          eventsEventListenerManager.addEvent(activeUserId);
-        });
+        const newEvent = {
+          userId: parseInt(activeUserId),
+          name: nameInput.value,
+          location: locationInput.value,
+          date: dateInput.value
+        };
+        if (hiddenEventId.value !== "") {
+          newEvent.id = parseInt(hiddenEventId.value);
+          eventAPI.updateEvent(newEvent).then(() => {
+            eventsEventListenerManager.refreshEventContainer(activeUserId);
+            renderManager.renderNewPageToDom(htmlManager.addNewEvent);
+            eventsEventListenerManager.addEvent(activeUserId);
+          });
+        } else {
+          eventAPI.saveEvent(newEvent).then(() => {
+            eventsEventListenerManager.refreshEventContainer(activeUserId);
+            renderManager.renderNewPageToDom(htmlManager.addNewEvent);
+            eventsEventListenerManager.addEvent(activeUserId);
+          });
+        }
       }
     });
   },
@@ -81,8 +89,10 @@ const eventsEventListenerManager = {
           const eventToDelete = event.target.id.split("-")[1];
           eventAPI.deleteEvent(eventToDelete).then(() => {
             eventsEventListenerManager.refreshEventContainer(activeUserId);
-            eventsEventListenerManager.clearForm();
-            eventsEventListenerManager.addEvent(activeUserId);
+            const hiddenEventId = document.querySelector("#eventId");
+            if (parseInt(hiddenEventId.value) == eventToDelete) {
+              eventsEventListenerManager.clearForm();
+            }
           });
         }
       } else if (event.target.id.startsWith("edit-")) {

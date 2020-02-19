@@ -3,3 +3,8 @@
     font-weight: bold;
     background-color: var(--white-text);
 }
+
+.eventIcon {
+    float: right;
+    margin-left: 5px;
+}

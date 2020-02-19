@@ -8,7 +8,7 @@ const htmlManager = {
       <br>
       <div id="eventform">
       <form>
-      <input id="eventId" value="">
+      <input type="hidden" id="eventId" value="">
       
       <fieldset id="nameBox">
           <label id="nameLabel" class="label">Event:</label>
@@ -36,8 +36,8 @@ const htmlManager = {
       <div class="event">
       <p>${events.name}</p>
       <span>
-      <button class="deleteButton" id="delete-${events.id}">Delete</button>
-      <button class="editButton" id="edit-${events.id}">Edit</button>
+      <i class="trash alternate icon eventIcon" id="delete-${events.id}"></i>
+      <i class="edit icon eventIcon" id="edit-${events.id}"></i>
       </span>
       <p>${events.location}</p>
       <p>${events.date}</p>
