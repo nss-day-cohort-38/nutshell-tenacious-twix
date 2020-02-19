@@ -11,13 +11,11 @@ const activeUser = sessionStorage.getItem('activeUsers');
 const getURL = () => {
   let url = window.location.href;
   var queryString = url ? url.split("?")[1] : window.location.search.slice(1);
-  console.log()
   
   if (activeUser) {
      
     if(queryString !== undefined) tasks.runIt();
   
-    console.log(queryString);
 
      if(queryString == "home"){
        document.getElementById("container").innerHTML = `
@@ -40,7 +38,7 @@ const getURL = () => {
     } else if (queryString == "home&news"){
       allNews.runIt();
     } else if(queryString == "home&events"){
-
+      
     }
   }else {
     auth.runIt()

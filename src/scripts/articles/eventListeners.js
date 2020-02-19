@@ -68,7 +68,6 @@ const eventManager = {
     submitEditArticleEvt(id) {
 		document.getElementById('edit-article').addEventListener('click', () => {
             dataManager.getUserInput("edit", id);
-            // console.log(userInpu)
 		});
     }
 };
