@@ -34,8 +34,9 @@ const verificationManager = {
             formManager.clearForm()
         }
        else if(arr[0].password===obj.password&arr[0].email===obj.email){
-              alert('yes!')
-              formManager.clearForm()
+              sessionStorage.setItem('activeUsers', arr[0].id)
+              window.location.href = `${window.location.href.split("html")[0]}html?home`;
+
           }else if (arr[0].username===obj.username || arr[0].email===obj.email) {
               domManager.errorBoxFiller();
               formManager.clearForm()
