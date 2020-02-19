@@ -18,7 +18,7 @@ const eventManager = {
 		document
 			.getElementById('open-add-news')
 			.addEventListener('click', () => {
-                document.getElementById("modal-btn-container").innerHTML = `
+                document.getElementById("news-modal-btn-container").innerHTML = `
                 <button id="add-article">Add Article</button>
                 <button id="discard-article">Discard Article</button>
                 `
@@ -26,34 +26,33 @@ const eventManager = {
                 this.discardArticleEvt();
 				DOMManager.clearInput();
 				document
-					.getElementById('modal')
+					.getElementById('news-modal')
 					.classList.remove('hidden-item');
 			});
 	},
 	deleteArticleEvt(btnId) {
 		const activeUserId = sessionStorage.getItem("activeUsers");
 		document
-			.getElementById(`delete--${btnId}`)
+			.getElementById(`news-delete--${btnId}`)
 			.addEventListener('click', () => {
 				apiManager.deleteUserNews(btnId).then(() => {
 					convert.runIt();
 				});
-				// console.log('clicked delete', btnId);
 			});
 	},
 	editArticleEvt(btnId) {
 		const activeUserId = sessionStorage.getItem("activeUsers");
 		document
-			.getElementById(`edit--${btnId}`)
+			.getElementById(`news-edit--${btnId}`)
 			.addEventListener('click', () => {
-                document.getElementById("modal-btn-container").innerHTML = `
+                document.getElementById("news-modal-btn-container").innerHTML = `
                 <button id="edit-article">Edit Article</button>
                 <button id="discard-article">Discard Article</button>
                 `
                 this.submitEditArticleEvt(btnId);
                 this.discardArticleEvt();
 				document
-                .getElementById('modal')
+                .getElementById('news-modal')
                 .classList.remove('hidden-item');
 				DOMManager.populateEditForm(btnId);
 			});
@@ -62,7 +61,7 @@ const eventManager = {
 		document
 			.getElementById('discard-article')
 			.addEventListener('click', () => {
-				document.getElementById('modal').classList.add('hidden-item');
+				document.getElementById('news-modal').classList.add('hidden-item');
 				DOMManager.clearInput();
 			});
     },

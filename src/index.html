@@ -20,17 +20,26 @@
     <div id="sidebar-menu" class="ui right sidebar overlay vertical menu"></div>
     <div class="pusher">
       <nav>
-        <header class="heading">Twixbook</header>
+          <div class="ui stackable menu navBar">
+              <div class="item"><header class="heading">Twixbook</header></div>
+              <a class="item navButton" href="?home" id="Home">Home</a>
+              <a class="item navButton" href="?events" id="eventNavButton">Events</a>
+              <a class="item navButton" href="?personalnews" id="eventNavButton">Own News</a>
+              <a class="item navButton" href="?friends" id="friends-button">Friends</a>
+              <a class="item navButton" href="?logout">Logout</a>
+            </div>
+        <!-- <header class="heading">Twixbook</header>
         <div class="buttons">
           <div class="button-set">
             <a class="navButton" href="?home" id="Home">Home</a>
             <a class="navButton" href="?events" id="eventNavButton">Events</a>
+            <a class="navButton" href="?personalnews" id="eventNavButton">Own News</a>
           </div>
           <div class="button-set">
             <a class="navButton" href="?friends" id="friends-button">Friends</a>
             <a class="navButton" href="?logout">Logout</a>
           </div>
-        </div>
+        </div> -->
       </nav>
 
       <article id="container">
@@ -39,9 +48,8 @@
         <div class="ui text loader">Loading</div>
       </div> -->
       </article>
-      <div id="sidebar-button">
-        <i class="icon list layout"></i>
-        <span class="text">Sidebar</span>
+      <div id="sidebar-button" class="ui labeled button" tabindex="0">
+      
       </div>
     </div>
 

@@ -1,0 +1,67 @@
+/* Author: Trinity Terry */
+/* Purpose: News Feed Style Sheet */
+
+/* News Feed Styles Start*/
+#article-container {
+	margin: 15px;
+}
+
+
+    .news-card {
+        display: flex;
+        justify-content: space-between;
+
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        width: 75%;
+        margin: 10px;
+    }
+
+    .news-card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .newsFeed-img-container {
+        width: 25%;
+        overflow: hidden;
+    }
+
+        .newsFeed-img {
+            width: 100%;
+            background-color: gray;
+        }
+
+
+
+    .news-card-text-container {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        padding: 2px 16px;
+    }
+
+    .card-buttons {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .news-title {
+        font-size: 25px;
+    }
+
+    .news-link {
+        text-align: center;
+        color: white;
+        background-color: red;
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .news-description {
+        word-wrap: break-word;
+    }
+
+
+
+

@@ -1,3 +1,6 @@
+/* Author: Trinity Terry */
+/* Purpose: Handles all event listeners for Task Sidebar */
+
 import apiManager from './apiManager.js';
 import convert from './convert.js';
 import dataManager from './dataManager.js';
@@ -11,7 +14,7 @@ const eventListeners = {
 			this.submitTask();
 		});
 	},
-	submitTask(id) {
+	submitTask() {
 		document
 			.getElementById('task-text-input')
 			.addEventListener('keypress', e => {
@@ -20,10 +23,9 @@ const eventListeners = {
 						document.getElementById('isEditingTask').value == false
 					) {
 						dataManager.getTaskInput(false);
-						DOMManager.renderAddTask(convert.clearHTML());
+						
 					} else {
 						dataManager.getTaskInput(true);
-						DOMManager.renderAddTask(convert.clearHTML());
 					}
 				}
 			});
@@ -36,38 +38,24 @@ const eventListeners = {
 						document.getElementById('isEditingTask').value == false
 					) {
 						dataManager.getTaskInput(false);
-						DOMManager.renderAddTask(convert.clearHTML());
 					} else {
 						dataManager.getTaskInput(true);
-						DOMManager.renderAddTask(convert.clearHTML());
 					}
 				}
 			});
 	},
 	deleteTask(id) {
 		document
-			.getElementById(`delete--${id}`)
+			.getElementById(`task-delete--${id}`)
 			.addEventListener('click', () => {
 				apiManager.deleteTask(id).then(() => {
 					convert.runIt();
 				});
 			});
 	},
-	editTask(id) {
-		document
-			.getElementById(`edit-task--${id}`)
-			.addEventListener('click', () => {
-				DOMManager.renderSingleTask(id, convert.taskFormHTML());
-				apiManager.getSingleTask(id).then(data => {
-					
-					DOMManager.populateTaskInput(data[0]);
-					this.submitTask(id);
-				});
-			});
-	},
 	taskItem(id) {
 		document
-			.getElementById(`task-text--${id}`)
+			.getElementById(`check-task--${id}`)
 			.addEventListener('click', () => {
 				const taskId = event.target.id.split('--')[1];
 				apiManager.checkTask(taskId).then(() => {
@@ -79,15 +67,38 @@ const eventListeners = {
 		document
 			.getElementById('sidebar-button')
 			.addEventListener('click', () => {
-				$( ".ui.sidebar" ).toggleClass("visible");
+				$('.ui.sidebar').toggleClass('visible');
 			});
 	},
-	closeTask(){
+	closeTask() {
 		document
 			.getElementById('close-sidebar')
 			.addEventListener('click', () => {
-				$( ".ui.sidebar" ).toggleClass("visible");
+				$('.ui.sidebar').toggleClass('visible');
 			});
+	},
+	sidebar() {
+		document
+			.getElementById('sidebar-menu')
+			.addEventListener('click', event => {
+				if (
+					!document.getElementById('task-input') &&
+					event.target.id.split('--')[0] == 'task-text'
+				) {
+					const id = event.target.id.split('--')[1];
+					DOMManager.renderSingleTask(id, convert.taskFormHTML());
+					apiManager.getSingleTask(id).then(data => {
+						DOMManager.populateTaskInput(data[0]);
+						this.submitTask(id);
+					});
+				}
+			});
+	},
+	hoverOverTask() {
+		
+		$('.cal-icon')
+			.popup()
+;
 	}
 };
 

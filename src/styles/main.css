@@ -1,3 +1,7 @@
+@import "./task.css";
+@import "./articles.css";
+@import "./modal.css";
+
 @import "kurtStyles.css";
 @import "events.css";
 
@@ -33,36 +37,16 @@ nav {
     flex-wrap: wrap;
     justify-content: flex-end;
 }
-.button-set {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-}
 .navButton {
-    text-align: center;
-    width: 62px;
-    padding: 4px;
-    margin-left: 30px;
-    font-family: 'Rubik', sans-serif;
-    font-size: 15px;
-    background-color: var(--white-text);
-    color: var(--fierce-red);
-    border-radius: 5%;
-    transition: 0.3s ease;
-    margin-bottom: 4px;
+    height: 20%;
+    align-self: flex-end;
+    color: white!important;
+  
+} 
+.navBar {
+    background-color: var(--fierce-red)!important;
+    border: none !important;
 }
-.navButton:hover {
-    color: var(--white-text);
-    background-color: #9e1927;
-    transition: 0.3s ease ;
-    border: 1px solid white;
-}
-button {
-    font-family: 'Rubik', sans-serif;
-}
-
-
-
 
 
 /* end of trial style */
@@ -82,127 +66,4 @@ button {
 
     /* font-size: x-large;
 } */
-
-/* News Feed Styles */
-#article-container {
-	/* display: flex; */
-	/* flex-direction: column; */
-	margin: 15px;
-}
-.newsFeed-img-container {
-    width: 25%;
-}
-.newsFeed-img {
-    width: 100%;
-    background-color: gray;
-}
-
-.news-card {
-	display: flex;
-	justify-content: space-between;
-	/* align-content: stretch; */
-	/* Add shadows to create the "card" effect */
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	transition: 0.3s;
-	width: 75%;
-	margin: 10px;
-}
-
-.card-buttons {
-	display: flex;
-	flex-direction: column;
-
-	/* align-self: flex-end; */
-}
-
-/* On mouse-over, add a deeper shadow */
-.news-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-/* Add some padding inside the card container */
-.news-card-text-container {
-	display: flex;
-	width: 50%;
-	flex-direction: column;
-	padding: 2px 16px;
-}
-
-#news-form {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Modal Styles */
-#modal {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 50%;
-	height: 500px;
-}
-
-.modal-card {
-	height: 500px;
-	transition: 0.3s;
-	width: 100%;
-	margin: 10px;
-	background-color: white;
-	box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3);
-	/* for real browsers */
-	box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3);
-}
-
-#url-input, #title-input{
-    height: 30px;
-    font-size: 20px
-}
-
-#description-input {
-    height: 200px;
-    font-size: 20px;
-}
-
-#modal input {
-    margin: 10px;
-}
-
-
-.modal-card-text-container {
-    display: flex;
-    flex-direction: column;
-    padding: 2px 16px;
-}
-
-.hidden-item {
-	display: none;
-}
-
-
-/* Task Styles */
-
-
-.tasks {
-    display: flex;
-}
-
-
-#sidebar-button-div {
-    display: flex;
-    /* justify-content: flex-end; */
-
-    /* z-index: 1; */
-
-}
-
-#sidebar-button {
-    transform: rotate(90deg);
-    position: fixed;
-    right: 0px;
-    bottom: 100px;
-}
-#sidebar-menu {
-    /* z-index: 1; */
-}
 

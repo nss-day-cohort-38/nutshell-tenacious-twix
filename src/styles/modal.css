@@ -1,0 +1,52 @@
+/* Author: Trinity Terry */
+/* Purpose: NewsFeed Modal Stylesheet */
+
+#news-modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50%;
+	height: 500px;
+}
+
+.news-modal-card {
+	height: 500px;
+	transition: 0.3s;
+	width: 100%;
+	margin: 10px;
+	background-color: white;
+	box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3);
+	/* for real browsers */
+	box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.3);
+}
+
+#news-url-input, #news-title-input{
+    height: 30px;
+    font-size: 20px
+}
+
+#news-description-input {
+    height: 200px;
+    font-size: 20px;
+}
+
+#news-modal input {
+    margin: 10px;
+}
+
+
+.news-modal-card-text-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2px 16px;
+}
+
+.hidden-item {
+	display: none;
+}
+
+#news-form {
+    display: flex;
+    flex-direction: column;
+}
