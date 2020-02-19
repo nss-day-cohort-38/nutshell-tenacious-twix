@@ -1,11 +1,14 @@
 const htmlManager = {
-    addNewEvent: `<button>Add new event</button>`
-
-    eventForm: `
+  addNewEvent: `
+    <button id="addEventButton">Add new event</button>
+    <article id="eventsContainer"><article>
+    <p id="updateEvent"></p>
+    `,
+  eventForm: `
       <br>
       <div id="eventform">
       <form>
-      <input type="hidden" id="eventId" value="">
+      <input id="eventId" value="">
       
       <fieldset id="nameBox">
           <label id="nameLabel" class="label">Event:</label>
@@ -28,19 +31,19 @@ const htmlManager = {
 
       </div>
       `,
-    eventsHtmlCreator: events => {
-      return `
-      <br><hr>
-      <div>${events.name}</div>
+  eventsHtmlCreator: events => {
+    return `
+      <div class="event">
+      <p>${events.name}</p>
       <span>
-      <button class="deleteButton" id=delete-${events.id}>Delete</button>
-      <button class="editButton" id=edit-${events.id}>Edit</button>
+      <button class="deleteButton" id="delete-${events.id}">Delete</button>
+      <button class="editButton" id="edit-${events.id}">Edit</button>
       </span>
-      <div>${events.location}</div>
-      <div>${events.date}</div>
+      <p>${events.location}</p>
+      <p>${events.date}</p>
+      </div>
       `;
-    }
-  };
-  
-  export default htmlManager;
-  
+  }
+};
+
+export default htmlManager;

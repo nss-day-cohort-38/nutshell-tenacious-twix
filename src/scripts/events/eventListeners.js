@@ -3,27 +3,45 @@ import eventAPI from "./eventsAPI.js";
 import htmlManager from "./eventsHtmlCreator.js";
 
 const eventsEventListenerManager = {
+  refreshEventContainer: activeUserId => {
+    eventAPI.getEvents(activeUserId).then(events => {
+      events.sort((a, b) => new Date(a.date) - new Date(b.date));
+      renderManager.renderEventsToContainer(
+        events,
+        htmlManager.eventsHtmlCreator
+      );
+      eventsEventListenerManager.makeHuge();
+    });
+  },
+
+  makeHuge: () => {
+    console.log(document.getElementById("eventsContainer").childElementCount)
+    let firstEvent = document.getElementById("eventsContainer").firstElementChild
+    firstEvent.classList.add("first-event");
+    },
+
   clearForm: () => {
     document.querySelector("#eventId").value = "";
     document.querySelector("#nameInput").value = "";
     document.querySelector("#locationInput").value = "";
     document.querySelector("#dateInput").value = "";
   },
-  refreshEventContainer: activeUserId => {
-    eventAPI.getEvents(activeUserId).then(events => {
-      renderManager.renderEventsToContainer(
-        events,
-        htmlManager.eventsHtmlCreator
-      );
-    });
-  },
+
   eventsNav: activeUserId => {
     const eventNavButton = document.querySelector("#eventNavButton");
     eventNavButton.addEventListener("click", () => {
-      renderManager.renderNewPageToDom(htmlManager.eventForm);
-      eventsEventListenerManager.updateEventListener(activeUserId);
+      renderManager.renderNewPageToDom(htmlManager.addNewEvent);
+      eventsEventListenerManager.addEvent(activeUserId);
       refreshEventContainer(activeUserId);
       eventsEventListenerManager.editEventListener(activeUserId);
+    });
+  },
+  addEvent: activeUserId => {
+    const addEventButton = document.querySelector("#addEventButton");
+    addEventButton.addEventListener("click", () => {
+      renderManager.renderNewPageToDom(htmlManager.eventForm);
+      eventsEventListenerManager.updateEventListener(activeUserId);
+      eventsEventListenerManager.refreshEventContainer(activeUserId);
     });
   },
   updateEventListener: activeUserId => {
@@ -43,12 +61,14 @@ const eventsEventListenerManager = {
         newEvent.id = parseInt(hiddenEventId.value);
         eventAPI.updateEvent(newEvent).then(() => {
           eventsEventListenerManager.refreshEventContainer(activeUserId);
-          eventsEventListenerManager.clearForm();
+          renderManager.renderNewPageToDom(htmlManager.addNewEvent);
+          eventsEventListenerManager.addEvent(activeUserId);
         });
       } else {
         eventAPI.saveEvent(newEvent).then(() => {
           eventsEventListenerManager.refreshEventContainer(activeUserId);
-          eventsEventListenerManager.clearForm();
+          renderManager.renderNewPageToDom(htmlManager.addNewEvent);
+          eventsEventListenerManager.addEvent(activeUserId);
         });
       }
     });
@@ -62,9 +82,13 @@ const eventsEventListenerManager = {
           eventAPI.deleteEvent(eventToDelete).then(() => {
             eventsEventListenerManager.refreshEventContainer(activeUserId);
             eventsEventListenerManager.clearForm();
+            eventsEventListenerManager.addEvent(activeUserId);
           });
         }
       } else if (event.target.id.startsWith("edit-")) {
+        renderManager.renderNewPageToDom(htmlManager.eventForm);
+        eventsEventListenerManager.refreshEventContainer(activeUserId);
+        eventsEventListenerManager.updateEventListener(activeUserId);
         const eventToEdit = event.target.id.split("-")[1];
         eventAPI.refillEvent(eventToEdit);
       }
