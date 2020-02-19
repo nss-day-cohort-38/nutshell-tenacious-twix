@@ -1,4 +1,4 @@
-import htmlManager from "./events/eventsHtmlCreator.js";
+// import htmlManager from "./events/eventsHtmlCreator.js";
 
 const container = document.getElementById("container");
 
