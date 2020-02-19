@@ -1,3 +1,5 @@
+@import "events.css";
+
 /* trial style */
 :root {
     --primary-color: #F06543;
@@ -305,8 +307,4 @@ margin-bottom: 5px;
 }
 #sidebar-menu {
     /* z-index: 1; */
-}
-
-.first-event{
-    font-size: large;
 }
