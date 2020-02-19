@@ -40,6 +40,7 @@ const authEventManager = {
             const modalUsernameInput = document.getElementById('username-input')
             const modalPasswordInput = document.getElementById('password-input')
             const confirmPassword = document.getElementById('confirm-password')
+            const picUrl = document.getElementById('profPic')
             if (modalPasswordInput.value !==  confirmPassword.value){
                 alert('The passwords do not match')
             } else if (modalEmailInput.value===""){
@@ -50,13 +51,27 @@ const authEventManager = {
                 alert('Please enter your password')
             }
                 else {
+                  if(picUrl.value === ""){
+                    const newProfile = {
+                      "username": modalUsernameInput.value,
+                      "email": modalEmailInput.value,
+                      "password": modalPasswordInput.value,
+                      "profPic": "https://media.tenor.com/images/b5abed30c3b61e75907475636efde7df/tenor.gif"
+  
+                  }
+      
+                verificationManager.verifyNewUser(newProfile);
+                  } else {
                 const newProfile = {
                     "username": modalUsernameInput.value,
                     "email": modalEmailInput.value,
-                    "password": modalPasswordInput.value
+                    "password": modalPasswordInput.value,
+                    "profPic": picUrl.value
+
                 }
     
               verificationManager.verifyNewUser(newProfile);
+                  }
             }
             
         })

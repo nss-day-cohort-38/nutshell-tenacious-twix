@@ -6,7 +6,7 @@ const htmlFactoryManager = {
         return `
       <div class = "kkcard" id="card-${obj.id}">
       <div>
-        <img class="friendProfPic" id="prof-pic-${obj.id}" src="https://media.tenor.com/images/b5abed30c3b61e75907475636efde7df/tenor.gif">
+        <img class="friendProfPic" id="prof-pic-${obj.id}" src="${obj.user.profPic}">
         <h1 class="friendName"id="name-${obj.id}">${obj.user.username}</h1></div>
         <h4 class="otherName" id="userId-${obj.userId}"><span id="nickName-${obj.id}">Would you like to add a Nickname?</span><i  id="reName-${obj.id}"class="edit icon"></i></h4>
         <button class="delete-btn" id="delete-${obj.id}" type="button">Delete</button> 
@@ -16,7 +16,7 @@ const htmlFactoryManager = {
       return `
       <div class = "kkcard" id="card-${obj.id}">
       <div>
-        <img class="friendProfPic" id="prof-pic-${obj.id}" src="https://media.tenor.com/images/b5abed30c3b61e75907475636efde7df/tenor.gif">
+        <img class="friendProfPic" id="prof-pic-${obj.id}" src="${obj.user.profPic}">
         <h1 class="friendName"id="name-${obj.id}">${obj.user.username}</h1></div>
         <h4 class="otherName" id="userId-${obj.userId}">NickName: <span id="nickName-${obj.id}">${obj.nickName}</span><i  id="reName-${obj.id}"class="edit icon"></i></h4>
         <button class="delete-btn" id="delete-${obj.id}" type="button">Delete</button> 
@@ -35,7 +35,7 @@ const htmlFactoryManager = {
     `
     }, generateAddFriendCard: (obj) => {
       return `<div id="friend-${obj.id}">
-      <img class="addFriendProfPic" id="prof-pic-${obj.id}" src="https://media.tenor.com/images/b5abed30c3b61e75907475636efde7df/tenor.gif">
+      <img class="addFriendProfPic" id="prof-pic-${obj.id}" src="${obj.profPic}">
       <h1 id="friend-name">${obj.username}</h1>
       <button type="button" id="add-${obj.id}">Add Friend</button>
       <button type="button" id="nevermind">Nevermind</div>
@@ -43,7 +43,7 @@ const htmlFactoryManager = {
     }
     , generateAddFriendCardTwo: (obj) => {
       return `<div id="friend-${obj.id}">
-      <img class="addFriendProfPic" id="prof-pic-${obj.id}" src="https://media.tenor.com/images/b5abed30c3b61e75907475636efde7df/tenor.gif">
+      <img class="addFriendProfPic" id="prof-pic-${obj.id}" src="${obj.user.profPic}">
       <h1 id="friend-name">${obj.username}</h1>
       <button id="sayHi-${obj.id}">Say Hi!</button>
       <button type="button" id="nevermind">Nevermind</div>
@@ -52,7 +52,7 @@ const htmlFactoryManager = {
     addNewFriendCard:(obj) => {
       return `<div class = "kkcard" id="card-${obj.id}">
       <div>
-        <img class="friendProfPic" id="prof-pic-${obj.id}" src="https://media.tenor.com/images/b5abed30c3b61e75907475636efde7df/tenor.gif" width="80%">
+        <img class="friendProfPic" id="prof-pic-${obj.id}" src="${obj.profPic}" width="80%">
         <h1 class="friendName"id="name-${obj.id}">${obj.username}</h1></div>
         <button class="addNewFriend-btn" id="addNewFriend-${obj.id}" type="button">Add Friend</button> `
     }
