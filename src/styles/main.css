@@ -1,5 +1,4 @@
-@import "events.css";
-
+@import "kurtStyles.css";
 /* trial style */
 :root {
     --primary-color: #F06543;
@@ -26,7 +25,8 @@ nav {
     align-items: flex-end;
 }
 .buttons {
-    width: 30%;
+	width: 30%;
+	margin-bottom: 1%;
 
     
 }
@@ -168,6 +168,7 @@ button {
 }
 
 
+<<<<<<< HEAD
 /* Friends  and messages Styling */
 #friendsBody {
     display: flex;
@@ -308,3 +309,5 @@ margin-bottom: 5px;
 #sidebar-menu {
     /* z-index: 1; */
 }
+=======
+>>>>>>> master

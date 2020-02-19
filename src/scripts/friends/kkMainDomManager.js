@@ -1,3 +1,4 @@
+//Kurt Krafft => this creates my the page that I use mostly
 const mainDomManager = {
     createMainDomHtml: () => {
       return `
