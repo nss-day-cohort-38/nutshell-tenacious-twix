@@ -7,6 +7,10 @@ const apiManager = {
       return fetch (`${baseUrl}users?email=${email}`)
         .then(r=>r.json())
     },
+    getUserProfileViaUsername: (username) => {
+      return fetch (`${baseUrl}users?username=${username}`)
+        .then(r=>r.json())
+    },
     addNewProfile:(obj) => {
       return fetch (`${baseUrl}users`, {
           method: "POST",

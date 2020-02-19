@@ -1,84 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <title>Twixbook</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="./styles/main.css" />
-  <title>Twixbook</title>
-  <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-</head>
+  <body>
+    <div id="sidebar-menu" class="ui right sidebar overlay vertical menu"></div>
+    <div class="pusher">
+      <nav>
+        <header class="heading">Twixbook</header>
+        <div class="buttons">
+          <a class="navButton" href="?home" id="Home">Home</a>
+          <a class="navButton" href="?events" id="eventNavButton">Events</a>
+          <a class="navButton" href="?friends" id="friends-button">Friends</a>
+          <a class="navButton" href="?logout">Logout</a>
+        </div>
+      </nav>
 
-<body>
-
-  <div id="sidebar-menu" class="ui right sidebar overlay vertical menu"></div>
-  <div class="pusher">
-    <nav>
-      <header class="heading">Twixbook</header>
-      <div class="buttons">
-        <a class="navButton" href="?home" id="Home">Home</a>
-        <a class="navButton" href="?events" id="eventNavButton">Events</a>
-        <a class="navButton" href="?friends" id="friends-button">Friends</a>
-        <a class="navButton" href="?logout">Logout</a>
-      </div>
-    </nav>
-
-    <article id="container">
-      <div id="form-container">
-      <div id="signIn-form">
-<form id="login">
-  <h1 id="formTitle">Register or Sign-In</h1>
-  <fieldset id="emails">
-    <label for="email">Email: </label>
-    <input name="email" type="text" id="email-entry" placeholder="Email here">
-  </fieldset>
-  <fieldset id="usernames">
-    <label for="username">Username: </label>
-    <input type="text" id="username-entry" placeholder="Username Here">
-    <div id="error-box"></div>
-  </fieldset>
-
-</form>
-<div class="formButtons">
-    <button type="button" class="form-button" id="submitForm">Submit!</button>
-    <h1>Or</h1>
-    <button type="button" class="form-button" id="createNewProfile">Create An Account</button>
-  </div>
-  <div id="M-cont"></div>
-
-      </div>
-    </div>
-      <!-- <div class="ui active dimmer">
+      <article id="container">
+       
+        <!-- <div class="ui active dimmer">
         <div class="ui text loader">Loading</div>
       </div> -->
-    </article>
+      </article>
       <div id="sidebar-button">
         <i class="icon list layout"></i>
         <span class="text">Sidebar</span>
       </div>
-  </div>
+    </div>
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <footer></footer>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-  <script type="module" src="scripts/main.js"></script>
-</body>
-
+    <footer></footer>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+  </body>
 </html>

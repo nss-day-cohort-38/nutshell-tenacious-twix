@@ -9,10 +9,10 @@ const authEventManager = {
       const submitButton =document.getElementById('submitForm');
       submitButton.addEventListener('click', () => {
         const email = document.getElementById('email-entry');
-        const username = document.getElementById('username-entry');
+        const password = document.getElementById('password-entry');
         const user = {
             "email": email.value,
-            "username": username.value
+            "password": password.value
         }
         verificationManager.verifyEmail(user);
         // console.log(user);
@@ -38,12 +38,27 @@ const authEventManager = {
         join.addEventListener('click', () => {
             const modalEmailInput = document.getElementById('email-input')
             const modalUsernameInput = document.getElementById('username-input')
-            const newProfile = {
-                "username": modalUsernameInput.value,
-                "email": modalEmailInput.value
+            const modalPasswordInput = document.getElementById('password-input')
+            const confirmPassword = document.getElementById('confirm-password')
+            if (modalPasswordInput.value !==  confirmPassword.value){
+                alert('The passwords do not match')
+            } else if (modalEmailInput.value===""){
+                alert('Please enter your email')
+            } else if (modalUsernameInput.value===""){
+                alert('Please enter your username')
+            } else if (modalPasswordInput.value===""){
+                alert('Please enter your password')
             }
-
-          verificationManager.verifyNewUser(newProfile);
+                else {
+                const newProfile = {
+                    "username": modalUsernameInput.value,
+                    "email": modalEmailInput.value,
+                    "password": modalPasswordInput.value
+                }
+    
+              verificationManager.verifyNewUser(newProfile);
+            }
+            
         })
    
     }

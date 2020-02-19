@@ -7,7 +7,7 @@ import auth from "./auth/main.js";
 sessionStorage.setItem(`activeUsers`, 1);
 const activeUser = sessionStorage.getItem('activeUsers');
 tasks.runIt();
-auth.runIt();
+// auth.runIt();
 const getURL = () => {
   let url = window.location.href;
   var queryString = url ? url.split("?")[1] : window.location.search.slice(1);
@@ -22,6 +22,8 @@ const getURL = () => {
     } else if (queryString == "logout") {
     } else if (queryString == "events") {
       eventsMainManager.eventNavButton(sessionStorage.getItem(`activeUsers`));
+    } else if (queryString == undefined){
+      auth.runIt();
     }
   }
 };
