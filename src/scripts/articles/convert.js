@@ -60,9 +60,9 @@ const convert = {
                             <img class="newsFeed-img" id="newsFeed-img--${id}" src="scripts/articles/spinner.svg" alt="spinner"></img>
                         </div>
                         <div class="news-card-text-container">
-                            <p>${title}</p>
-                            <p>${synopsis}</p>
-                            <a href="${url}" target="_blank">Link Here</a>
+                            <p class="news-title">${title}</p>
+                            <p class="news-description">${synopsis}</p>
+                            <a href="${url}" target="_blank" class="news-link">Link Here</a>
                         </div>
                         <div class="card-buttons">
                         <button id="news-delete--${id}"><i class="trash alternate icon"></i></button>
@@ -109,7 +109,7 @@ const convert = {
                 
                     <input id="news-url-input" type="text" placeholder="Type Url">
                     <input id="news-title-input" type="text" placeholder="Type Title">
-                    <textarea id="news-description-input" type="text" col="2000" row="3000" placeholder="Description"></textarea>
+                    <textarea id="news-description-input" type="text" maxlength = "500" col="2000" row="3000" placeholder="Description"></textarea>
                 </div>
                 <div id="news-modal-btn-container">
                 </div>

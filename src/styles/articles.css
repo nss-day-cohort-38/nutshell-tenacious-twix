@@ -23,6 +23,7 @@
 
     .newsFeed-img-container {
         width: 25%;
+        overflow: hidden;
     }
 
         .newsFeed-img {
@@ -43,6 +44,22 @@
         display: flex;
         flex-direction: column;
 
+    }
+
+    .news-title {
+        font-size: 25px;
+    }
+
+    .news-link {
+        text-align: center;
+        color: white;
+        background-color: red;
+        padding: 10px;
+        margin: 5px;
+    }
+
+    .news-description {
+        word-wrap: break-word;
     }
 
 
