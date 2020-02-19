@@ -10,11 +10,13 @@ const eventsEventListenerManager = {
         events,
         htmlManager.eventsHtmlCreator
       );
-      eventsEventListenerManager.makeHuge();
+      if (document.getElementById("eventsContainer").childElementCount !== 0) {
+      eventsEventListenerManager.signifyNextEvent();
+      }
     });
   },
 
-  makeHuge: () => {
+  signifyNextEvent: () => {
     let firstEvent = document.getElementById("eventsContainer")
       .firstElementChild;
     firstEvent.classList.add("first-event");
@@ -32,18 +34,20 @@ const eventsEventListenerManager = {
     eventNavButton.addEventListener("click", () => {
       renderManager.renderNewPageToDom(htmlManager.addNewEvent);
       eventsEventListenerManager.addEvent(activeUserId);
-      refreshEventContainer(activeUserId);
       eventsEventListenerManager.editEventListener(activeUserId);
     });
   },
+
   addEvent: activeUserId => {
     const addEventButton = document.querySelector("#addEventButton");
     addEventButton.addEventListener("click", () => {
       renderManager.renderNewPageToDom(htmlManager.eventForm);
       eventsEventListenerManager.updateEventListener(activeUserId);
+      eventsEventListenerManager.nevermindEventListener(activeUserId);
       eventsEventListenerManager.refreshEventContainer(activeUserId);
     });
   },
+
   updateEventListener: activeUserId => {
     const updateButton = document.querySelector("#updateEvent");
     const hiddenEventId = document.querySelector("#eventId");
@@ -57,6 +61,9 @@ const eventsEventListenerManager = {
         dateInput.value === ""
       ) {
         alert("You must fill all fields to sumbit an event.");
+      } else if (Date.parse(dateInput.value) < Date.now())
+      {
+        alert("You may not add an event from the past.")
       } else {
         const newEvent = {
           userId: parseInt(activeUserId),
@@ -81,6 +88,16 @@ const eventsEventListenerManager = {
       }
     });
   },
+
+  nevermindEventListener: activeUserId => {
+    const nevermindButton = document.querySelector("#nevermindEvent");
+    nevermindButton.addEventListener("click", () => {
+      eventsEventListenerManager.refreshEventContainer(activeUserId);
+      renderManager.renderNewPageToDom(htmlManager.addNewEvent);
+      eventsEventListenerManager.addEvent(activeUserId);
+    });
+  },
+
   editEventListener: activeUserId => {
     container.addEventListener("click", event => {
       if (event.target.id.startsWith("delete-")) {
@@ -90,7 +107,8 @@ const eventsEventListenerManager = {
           eventAPI.deleteEvent(eventToDelete).then(() => {
             eventsEventListenerManager.refreshEventContainer(activeUserId);
             const hiddenEventId = document.querySelector("#eventId");
-            if (parseInt(hiddenEventId.value) == eventToDelete) {
+            if (hiddenEventId === null) {}
+            else if(parseInt(hiddenEventId.value) == eventToDelete) {
               eventsEventListenerManager.clearForm();
             }
           });
@@ -99,6 +117,7 @@ const eventsEventListenerManager = {
         renderManager.renderNewPageToDom(htmlManager.eventForm);
         eventsEventListenerManager.refreshEventContainer(activeUserId);
         eventsEventListenerManager.updateEventListener(activeUserId);
+        eventsEventListenerManager.nevermindEventListener(activeUserId);
         const eventToEdit = event.target.id.split("-")[1];
         eventAPI.refillEvent(eventToEdit);
       }

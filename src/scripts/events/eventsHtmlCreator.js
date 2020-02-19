@@ -26,6 +26,7 @@ const htmlManager = {
       </fieldset>
       </form>
       <button id="updateEvent">Update events</button>
+      <button id="nevermindEvent">Nevermind</button>
 
       <article id="eventsContainer"><article>
 
@@ -33,14 +34,16 @@ const htmlManager = {
       `,
   eventsHtmlCreator: events => {
     return `
-      <div class="event">
-      <p>${events.name}</p>
-      <span>
-      <i class="trash alternate icon eventIcon" id="delete-${events.id}"></i>
-      <i class="edit icon eventIcon" id="edit-${events.id}"></i>
-      </span>
-      <p>${events.location}</p>
-      <p>${events.date}</p>
+      <div class="event-card">
+        <div class="event-details-container">
+          <p>${events.name}</p>
+          <p>${events.location}</p>
+          <p>${events.date}</p>
+        </div>
+        <div class="event-buttons-container">
+          <i class="trash alternate icon eventIcon" id="delete-${events.id}"></i>
+          <i class="edit icon eventIcon" id="edit-${events.id}"></i>
+        </div>
       </div>
       `;
   }

@@ -4,7 +4,13 @@
     background-color: var(--white-text);
 }
 
-.eventIcon {
-    float: right;
-    margin-left: 5px;
+.event-card {
+	display: flex;
+	justify-content: space-between;
+	/* align-content: stretch; */
+	/* Add shadows to create the "card" effect */
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	width: 75%;
+	margin: 10px;
 }
