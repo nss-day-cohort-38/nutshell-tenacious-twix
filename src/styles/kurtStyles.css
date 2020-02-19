@@ -1,3 +1,5 @@
+
+
 /* Friends  and messages Styling */
 #friendsBody {
     display: flex;
@@ -236,7 +238,7 @@ margin-bottom: 5px;
 /* add friends section  */
 
 #addFriends-container {
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px 0px 0px 10px;
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -266,4 +268,39 @@ margin-bottom: 5px;
 .addNewFriend-btn:hover {
     background-color: white;
 	color: var(--fierce-red-opactiy);
+}
+
+@media only screen and (max-width: 600px) {
+    #friendsBody {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        
+  }
+   #top-container{
+       width:85%;
+       margin: auto;
+       margin-top: 5%;
+       border-radius: 10px;
+   }
+   #bottom-container{
+       width: 85%;
+       margin:auto;
+       margin-top: 5%;
+   }
+   #friends-container{
+       height: 300px;
+   }
+   #addFriends-container{
+    width: 85%;
+    margin:auto;
+    margin-top: 5%;
+    border-radius: 10px;
+   }
+   #friend-card-container{
+       height: 300px;
+   }
+   #chat-field{
+       height: 300px;
+   }
 }
