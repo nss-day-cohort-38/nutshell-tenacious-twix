@@ -15,7 +15,6 @@ const allNews = {
 
 				newsConvert.newsCardHTML(friends, document.getElementById("allNews-container"));
 			})
-			// .then(data => console.log(data));
 	}
 };
 

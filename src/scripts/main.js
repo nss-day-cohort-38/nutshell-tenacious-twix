@@ -11,17 +11,15 @@ const activeUser = sessionStorage.getItem('activeUsers');
 const getURL = () => {
   let url = window.location.href;
   var queryString = url ? url.split("?")[1] : window.location.search.slice(1);
-  console.log()
   
   if (activeUser) {
      
     if(queryString !== undefined) tasks.runIt();
   
-    console.log(queryString);
 
      if(queryString == "home"){
        document.getElementById("container").innerHTML = `
-       
+
        <a class="navButton" href="?home&events" id="Home">Events</a>
        <a class="navButton" href="?home&news" id="eventNavButton">News</a>
      

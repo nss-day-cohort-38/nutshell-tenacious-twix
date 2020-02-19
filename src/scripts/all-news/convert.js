@@ -12,7 +12,6 @@ const convert = {
 	},
 	allNewsSections(articleContainer) {
 		articleContainer.innerHTML = `
-        <button id="open-add-news">Add News</button>
         <div id="news-header">
 			<div class="ui text loader">Loading</div>
 		  </div>

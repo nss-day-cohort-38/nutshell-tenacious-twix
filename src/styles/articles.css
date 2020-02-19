@@ -15,6 +15,8 @@
         transition: 0.3s;
         width: 75%;
         margin: 10px;
+        overflow: hidden;
+        background-color: rgb(244, 245, 248);
     }
 
     .news-card:hover {
@@ -23,11 +25,15 @@
 
     .newsFeed-img-container {
         width: 25%;
+        max-height: 400px;
+        /* height: 750px; */
+        
         overflow: hidden;
     }
 
         .newsFeed-img {
-            width: 100%;
+            align-items: center;
+            height: 400px;
             background-color: gray;
         }
 
@@ -35,14 +41,16 @@
 
     .news-card-text-container {
         display: flex;
-        width: 50%;
+        width: 65%;
         flex-direction: column;
         padding: 2px 16px;
+        
     }
 
     .card-buttons {
         display: flex;
         flex-direction: column;
+        width:5%;
 
     }
 
@@ -52,8 +60,8 @@
 
     .news-link {
         text-align: center;
-        color: white;
-        background-color: red;
+        color: #E8E9EB;
+        background-color:#F8333C;
         padding: 10px;
         margin: 5px;
     }
@@ -61,7 +69,3 @@
     .news-description {
         word-wrap: break-word;
     }
-
-
-
-
