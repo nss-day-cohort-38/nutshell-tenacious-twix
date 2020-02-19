@@ -31,8 +31,8 @@
 #sidebar-button {
     transform: rotate(-90deg);
     position: fixed;
-    right: 0px;
-    bottom: 100px;
+    right: -75px;
+    top: 170px;
 }
 
 #task-date-input {
