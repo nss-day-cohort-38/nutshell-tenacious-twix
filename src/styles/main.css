@@ -11,9 +11,10 @@
     --white-text:  #E8E9EB;
     --black-text: #313638;
     --orange-accent: #F09D51;
-    --fierce-red: #F8333C;
-    --fierce-red-opactiy: rgba(248,51,60,0.8);;
+    --fierce-red: rgb(66,103,178);
+    --fierce-red-opactiy: rgba(66,103,178, 0.6);
     --gold: #FCAB10;
+    --brown: #C69C72;
 }
 * {
     margin: 0;
