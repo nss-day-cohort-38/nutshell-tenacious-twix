@@ -17,9 +17,15 @@ const getURL = () => {
      
     if(queryString !== undefined) tasks.runIt();
   
+    console.log(queryString);
 
      if(queryString == "home"){
-        allNews.runIt();
+       document.getElementById("container").innerHTML = `
+       
+       <a class="navButton" href="?home&events" id="Home">Events</a>
+       <a class="navButton" href="?home&news" id="eventNavButton">News</a>
+     
+       `;
      }else if (queryString == "personalnews") {
       article.runIt();
     } else if (queryString == "friends") {
@@ -31,6 +37,10 @@ const getURL = () => {
       eventsMainManager.eventNavButton(sessionStorage.getItem(`activeUsers`));
     } else if (queryString == undefined){
       auth.runIt();
+    } else if (queryString == "home&news"){
+      allNews.runIt();
+    } else if(queryString == "home&events"){
+
     }
   }else {
     auth.runIt()

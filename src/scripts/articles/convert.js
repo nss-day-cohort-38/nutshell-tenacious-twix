@@ -33,12 +33,9 @@ const convert = {
 	newsCardHTML(userId, containerNode, name) {
 		let sorted;
 		if (typeof userId == 'object') {
-			// sorted = apiManager.getUserNews(userId)
 			const promiseArray = userId.map(element =>
 				apiManager.getUserNews(element[0])
 			);
-
-			
 
 			sorted = Promise.all(promiseArray).then(resp => {
 				const messageArray = [];
@@ -76,17 +73,18 @@ const convert = {
 				.then(data => data);
 		}
 
-		// console.log(sortedData)
 		const cardContainer = containerNode;
 
-		// console.log(sorted)
 
 		sorted
 			.then(sortedData => {
 				console.log(sortedData);
 				sortedData.forEach(element => {
-					name = userId.filter(user => element.userId == user[0] ? user[1] : false)
-					console.log(name[1])
+					if(typeof userId == "object"){
+						name = userId.filter(user => console.log(user[1]))
+					console.log(name)
+					}
+					
 					const id = element.id;
 					let url = element.url;
 
