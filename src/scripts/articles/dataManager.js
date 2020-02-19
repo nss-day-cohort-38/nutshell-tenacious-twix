@@ -7,9 +7,9 @@ const dataManager = {
 	runIt() {},
 	getUserInput(updating, id) {
 		const activeUserId = sessionStorage.getItem("activeUsers");
-		let url = document.getElementById('url-input').value;
-		const title = document.getElementById('title-input').value;
-        const description = document.getElementById('description-input').value;
+		let url = document.getElementById('news-url-input').value;
+		const title = document.getElementById('news-title-input').value;
+        const description = document.getElementById('news-description-input').value;
 		
 		if (!url.startsWith("http")){
 			url = `https://${url}`;
@@ -51,12 +51,12 @@ const dataManager = {
 			alert(alertMessage.join("\n"))
 
 		} else if (valid && updating == 'add') {
-			document.getElementById('modal').classList.add('hidden-item');
+			document.getElementById('news-modal').classList.add('hidden-item');
 			apiManager.addUserNews(inputObj).then(() => {
 				convert.runIt();
 			});
 		} else if (valid && updating == 'edit') {
-            document.getElementById('modal').classList.add('hidden-item');
+            document.getElementById('news-modal').classList.add('hidden-item');
             apiManager.editUserNews(id, inputObj).then(() => {
 				convert.runIt();
 			});
