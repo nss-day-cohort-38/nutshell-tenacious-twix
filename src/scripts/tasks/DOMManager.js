@@ -35,6 +35,15 @@ const DOMManager = {
         document.getElementById("task-done-input").value = data.done;
 
  
+    },
+    createOpenButton(){
+        document.getElementById("sidebar-button").innerHTML = `
+        <div class="ui red button">
+        Open Taskbar
+      </div>
+      <a class="ui basic red left pointing label">
+        <i class="tasks icon"></i>
+      </a>`
     }
 
 

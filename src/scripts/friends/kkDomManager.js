@@ -1,3 +1,5 @@
+//Kurt Krafft => this handles how all the date relates to the DOM
+
 import apiManager from "./kkApiManager.js";
 import renderManager from "../renderManager.js";
 import htmlFactoryManager from "./kkHtmlFactories.js";

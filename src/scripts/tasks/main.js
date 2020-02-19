@@ -8,6 +8,7 @@ import eventListeners from './eventListeners.js'
 // TODO 
 const tasks = {
     runIt(){
+        DOMManager.createOpenButton();
         DOMManager.createDivs();
         convert.runIt();
         eventListeners.openTask();
