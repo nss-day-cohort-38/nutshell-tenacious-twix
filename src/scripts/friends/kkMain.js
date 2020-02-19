@@ -1,3 +1,5 @@
+//Kurt Krafft => this is my initialization function that runs all my event listeners etc. 
+
 import chatEventsManager from "./eventListeners.js";
 import renderManager from "../renderManager.js";
 import mainDomManager from"./kkMainDomManager.js";
