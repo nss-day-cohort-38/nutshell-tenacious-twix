@@ -16,6 +16,8 @@ const kkMainManager = {
       domManager.addChatBoxInfo(sessionStorage.getItem(`activeUsers`))
       chatEventsManager.addSendMessageListener(sessionStorage.getItem(`activeUsers`));
       chatEventsManager.editButtonListener(sessionStorage.getItem(`activeUsers`));
+      chatEventsManager.searchFriendsListener();
+      chatEventsManager.addFriendButtonListener();
   
     
            

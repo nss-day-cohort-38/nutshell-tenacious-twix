@@ -23,6 +23,12 @@ const mainDomManager = {
       <input type="text" id="user-input" placeholder="Say Hello!">
       </fieldset>
       </div>
+      <div id="addFriends-container">
+      <h1>Add Friends...</h1>
+      <input id="search-friends" type="text" placeholder="Search for Friends here">
+      <div id="friend-card-container">
+      </div>
+      </div>
       </div>`
      
     }

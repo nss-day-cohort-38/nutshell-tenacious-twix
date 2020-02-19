@@ -15,11 +15,13 @@ const checkingManager = {
                alert("This user is already your friend! You can't fake friends!");
                 
             } else {
+         
                 const newObj = {
                     "userId": Number(friendId),
                     friendUserId: Number(id)
                   }
                   apiManager.addFriend(newObj).then(() => {
+                  
                     domManager.getFriendCardData(id);
                   }).then(() => {
                     domManager.addChatBoxInfo(id);
@@ -27,6 +29,33 @@ const checkingManager = {
             }
         })
         
+      }
+    },
+    differentCheck:(friendId) => {
+      if(friendId === sessionStorage.getItem(`activeUsers`)){
+        alert("You can't add yourself as a friend")
+      } else {
+        apiManager.checkOneFriend(friendId, sessionStorage.getItem(`activeUsers`)).then(arr=> {
+          if(arr.length>=1){
+            alert("This user is already your friend! You can't fake friends!");
+             
+         } else {
+         
+          const newObj = {
+              "userId": Number(friendId),
+              friendUserId: Number(sessionStorage.getItem(`activeUsers`))
+            }
+            apiManager.addFriend(newObj).then(() => {
+            
+              domManager.getFriendCardData(sessionStorage.getItem(`activeUsers`));
+              const addFriendButton = document.getElementById('friend-card-container')
+              addFriendButton.innerHTML = "";
+              const input = document.getElementById('search-friends')
+              input.value = "";
+             
+            })
+      }
+        })
       }
     }
 }
