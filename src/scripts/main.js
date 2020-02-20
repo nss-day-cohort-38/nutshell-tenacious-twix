@@ -23,8 +23,8 @@ const getURL = () => {
      if(queryString == "home"){
        document.getElementById("container").innerHTML = `
        
-       <a class="navButton" href="?home&events" id="friendsEvents">Events</a>
-       <a class="navButton" href="?home&news" id="eventNavButton">News</a>
+       <a class="" href="?home&events" id="friendEvents">Events</a>
+       <a class="" href="?home&news" id="eventNavButton">News</a>
      
        `;
      }else if (queryString == "personalnews") {

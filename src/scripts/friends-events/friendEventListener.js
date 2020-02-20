@@ -2,25 +2,32 @@ import renderManager from "../renderManager.js";
 import eventAPI from "./friendEventsAPI.js";
 import htmlManager from "./friendEventsHtmlCreator.js";
 
+let array = [];
+
 const eventsEventListenerManager = {
   refreshEventContainer: activeUserId => {
-    eventAPI.getEvents(activeUserId).then(events => {
-      events.sort((a, b) => new Date(a.date) - new Date(b.date));
-      renderManager.renderFriendEventsToContainer(
-        events,
-        htmlManager.eventsHtmlCreator
-      );
-      if (document.getElementById("container").childElementCount !== 0) {
-        eventsEventListenerManager.signifyNextEvent();
-      }
+    eventAPI.getFriends(activeUserId).then(friends => {
+      console.log("1");
+      friends.forEach(friend => {
+        console.log("2");
+        eventAPI.getEvents(friend.userId).then(data => {
+            console.log("3");
+            data.forEach(datum => array.push(datum));
+            array.sort((a, b) => new Date(a.date) - new Date(b.date));
+            console.log("array", array);
+          })
+      });
     });
   },
 
   signifyNextEvent: () => {
-    let firstEvent = document.getElementById("container")
-      .firstElementChild;
+    let firstEvent = document.getElementById("container").firstElementChild;
     firstEvent.classList.add("first-event");
-  },
+  }
 };
 
 export default eventsEventListenerManager;
+
+// if (document.getElementById("container").childElementCount !== 0) {
+//   eventsEventListenerManager.signifyNextEvent();
+// }

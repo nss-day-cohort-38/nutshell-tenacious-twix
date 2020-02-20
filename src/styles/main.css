@@ -11,9 +11,10 @@
     --white-text:  #E8E9EB;
     --black-text: #313638;
     --orange-accent: #F09D51;
-    --fierce-red: #F8333C;
-    --fierce-red-opactiy: rgba(248,51,60,0.8);;
+    --fierce-red: rgb(66,103,178);
+    --fierce-red-opactiy: rgba(66,103,178, 0.6);
     --gold: #FCAB10;
+    --brown: #C69C72;
 }
 * {
     margin: 0;
@@ -37,33 +38,17 @@ nav {
     flex-wrap: wrap;
     justify-content: flex-end;
 }
-.button-set {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-}
 .navButton {
-    text-align: center;
-    width: 62px;
-    padding: 4px;
-    margin-left: 30px;
-    font-family: 'Rubik', sans-serif;
-    font-size: 15px;
-    background-color: var(--white-text);
-    color: var(--fierce-red);
-    border-radius: 5%;
-    transition: 0.3s ease;
-    margin-bottom: 4px;
+    height: 20%;
+    align-self: flex-end;
+    color: white!important;
+  
+} 
+.navBar {
+    background-color: var(--fierce-red)!important;
+    border: none !important;
 }
-.navButton:hover {
-    color: var(--white-text);
-    background-color: #9e1927;
-    transition: 0.3s ease ;
-    border: 1px solid white;
-}
-button {
-    font-family: 'Rubik', sans-serif;
-}
+
 
 /* end of trial style */
 /* .navButton {
@@ -77,10 +62,10 @@ button {
     font-size: 75px;
     font-family: 'Rubik', sans-serif;
     color: white;
+    margin-right: 20%!important;
 }
 
 
     /* font-size: x-large;
 } */
-
 

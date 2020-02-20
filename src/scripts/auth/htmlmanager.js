@@ -30,6 +30,10 @@ const htmlManager = {
           <label for="confirm-password">Confirm Password: </label>
           <input type="text" name="confirm-password" id="confirm-password" placeholder="..." required>
         </fieldset>
+          <fieldset class="createForm">
+          <label for="profPic">Profile Picture URL: </label>
+          <input type="text" name="profPic" id="profPic" placeholder="...">
+        </fieldset>
 
           <button type="button" id="join-button">Join!</button>
         </div>
