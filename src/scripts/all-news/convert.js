@@ -1,5 +1,7 @@
+/* Author: Trinity Terry */
+/* Purpose: Creates html for friend article page */
+
 import renderManager from '../renderManager.js'
-import articleConvert from "../articles/convert.js"
 
 const convert = {
 	runIt(){
@@ -11,9 +13,10 @@ const convert = {
 
 	},
 	allNewsSections(articleContainer) {
+
 		articleContainer.innerHTML = `
         <div id="news-header">
-			<div class="ui text loader">Loading</div>
+			<h1>Friend's News</h1>
 		  </div>
 		<div id="allnews-card-container">
 			<div class="ui active dimmer">

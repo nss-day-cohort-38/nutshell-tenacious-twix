@@ -43,7 +43,7 @@
 }
 
 .hidden-item {
-	display: none;
+	display: none !important;
 }
 
 #news-form {

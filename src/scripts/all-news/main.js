@@ -1,23 +1,38 @@
+/* Author: Trinity Terry */
+/* Purpose: Runs initial functions for load of friend article page */
+
 import apiManager from './apiManager.js';
 import newsApi from '../articles/apiManager.js';
-import newsConvert from "../articles/convert.js";
-import convert from './convert.js'
+import newsConvert from '../articles/convert.js';
+import convert from './convert.js';
+import friendApi from '../friends/kkApiManager.js';
 const allNews = {
 	runIt() {
 		convert.runIt();
 		apiManager
 			.getFriends()
-			.then(data => data.map(item => [item.userId, item.nickName]))
-			.then(friends => {
-				
-				// newsConvert.newsCardHTML(friends, document.getElementById("allNews-container"), friend[1])
-				// const friendId = friends.map(friend => friend[0]);
+			.then(data => {
+				let friendArray;
+				const promises = data.map(item => {
+					if (!item.nickName || item.nickName == '') {
+						return friendApi
+							.getUser(item.userId)
+							.then(data => [data[0].id, data[0].username]);
+					} else {
+						return [item.userId, item.nickName];
+					}
+				});
 
-				newsConvert.newsCardHTML(friends, document.getElementById("allNews-container"));
+				Promise.all(promises).then((results) => {
+					friendArray = results;
+					newsConvert.newsCardHTML(
+						friendArray,
+						document.getElementById('allNews-container')
+					);
+				});
+
 			})
 	}
 };
 
 export default allNews;
-
-// TODO: Look at photo's duplicateding every other reload
