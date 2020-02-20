@@ -1,12 +1,14 @@
+/* Author: Trinity Terry */
+/* Purpose: Fetches Data from JSON file for article page*/
+
 const apiManager = {
 	getUserNews(userId) {
-		
 		return fetch(
 			`http://localhost:8088/news?userId=${userId}`
 		).then(resp => resp.json());
 	},
-	getSiteUrl() {
-		return fetch(`https://source.unsplash.com/collection/8833779/300x300`)
+	getSiteUrl(query) {
+		return fetch(`https://source.unsplash.com/collection/${query}`)
 		
 	},
 	addUserNews(newsObj) {

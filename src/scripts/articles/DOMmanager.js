@@ -1,3 +1,6 @@
+/* Author: Trinity Terry */
+/* Purpose: Renders elements to article page*/
+
 import dataManager from './dataManager.js';
 
 const DOMmanager = {

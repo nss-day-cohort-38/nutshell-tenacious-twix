@@ -1,7 +1,9 @@
+/* Author: Trinity Terry */
+/* Purpose: Handles all data (inputs, and api calls) for article page*/
+
 import validate from './validate.js';
 import apiManager from './apiManager.js';
 import convert from './convert.js';
-import DOMmanager from './DOMmanager.js';
 
 const dataManager = {
 	runIt() {},

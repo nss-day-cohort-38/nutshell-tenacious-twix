@@ -1,3 +1,6 @@
+/* Author: Trinity Terry */
+/* Purpose: Converts data to html for article page */
+
 import apiManager from './apiManager.js';
 import renderManager from '../renderManager.js';
 import eventListeners from './eventListeners.js';
@@ -18,8 +21,12 @@ const convert = {
 	},
 	articleSections(articleContainer) {
 		articleContainer.innerHTML = `
-        <div id="news-modal"></div>
-        <button id="open-add-news">Add News</button>
+		<div id="news-modal"></div>
+
+		<div id="open-add-news" class="ui blue button">
+		<i class="plus icon"></i>
+			Add Article 
+		</div>
         <div id="news-header">
 			<div class="ui text loader">Loading</div>
 	  	</div>
@@ -31,9 +38,10 @@ const convert = {
         `;
 	},
 	newsCardHTML(userId, containerNode, name) {
+		
 		let sorted;
 		if (typeof userId == 'object') {
-			const promiseArray = userId.map(element =>
+			const promiseArray = userId.map(element => 
 				apiManager.getUserNews(element[0])
 			);
 
@@ -52,6 +60,7 @@ const convert = {
 				return sortedData;
 			});
 		} else {
+			
 			const promiseArray = apiManager.getUserNews(userId).then(data => {
 				const sortedData = data.sort(function(a, b) {
 					return b.id - a.id;
@@ -75,16 +84,17 @@ const convert = {
 
 		const cardContainer = containerNode;
 
-
 		sorted
 			.then(sortedData => {
-				console.log(sortedData);
 				sortedData.forEach(element => {
-					// if(typeof userId == "object"){
-					// 	name = userId.filter(user => console.log(user[1]))
-					// console.log(name)
-					// }
-					
+					if (typeof userId == 'object') {
+						userId.forEach(user => {
+							if (user[0] == element.userId) {
+								name = user[1];
+							}
+						});
+					}
+
 					const id = element.id;
 					let url = element.url;
 
@@ -98,24 +108,29 @@ const convert = {
 						<img class="newsFeed-img" id="newsFeed-img--${id}" src="scripts/articles/spinner.svg" alt="spinner"></img>
 					</div>
 					<div class="news-card-text-container">
-					<div id="creator-name--${id}"></div>
 					<p class="news-title">${title}</p>
+					<div id="creator-name--${id}" class="creator-name"></div>
 					<p class="news-description">${synopsis}</p>
 					<a href="${url}" target="_blank" class="news-link">Link Here</a>
 					</div>
-					<div class="card-buttons">
-					<button id="news-delete--${id}"><i class="trash alternate icon"></i></button>
-					<button id="news-edit--${id}"><i class="edit icon"></i></button>
+					<div class="card-buttons" id="card-buttons-${id}">
+					
 					</div>
 				</div>
 				`;
-					// if (name) {
-					// 	console.log(element);
-					// 	document.getElementById(
-					// 		`creator-name--${id}`
-					// 	).innerText = name;
-					// 	document.getElementById(`date--${id}`).innerText = name;
-					// }
+					if (name !== undefined) {
+						console.log(name)
+						document.getElementById(
+							`creator-name--${id}`
+						).innerText = `Added By: ${name}`;
+					} else {
+						document.getElementById(
+							`card-buttons-${id}`
+						).innerHTML = `
+						<button id="news-delete--${id}"><i class="trash alternate icon"></i></button>
+						<button id="news-edit--${id}"><i class="edit icon"></i></button>
+						`;
+					}
 				});
 
 				return sortedData;
@@ -123,7 +138,7 @@ const convert = {
 			.then(data => {
 				data.forEach(element => {
 					apiManager
-						.getSiteUrl()
+						.getSiteUrl('8833779/300x300')
 						.then(img => {
 							const cardImg = img.url;
 							document.getElementById(
@@ -131,8 +146,10 @@ const convert = {
 							).src = cardImg;
 						})
 						.then(() => {
-							eventListeners.deleteArticleEvt(element.id);
-							eventListeners.editArticleEvt(element.id);
+							if (name == undefined) {
+								eventListeners.deleteArticleEvt(element.id);
+								eventListeners.editArticleEvt(element.id);
+							}
 						});
 				});
 			});
@@ -149,14 +166,16 @@ const convert = {
                 
                     <input id="news-url-input" type="text" placeholder="Type Url">
                     <input id="news-title-input" type="text" placeholder="Type Title">
-                    <textarea id="news-description-input" type="text" maxlength = "500" col="2000" row="3000" placeholder="Description"></textarea>
+                    <textarea id="news-description-input" type="text" maxlength = "300" col="2000" row="3000" placeholder="Description"></textarea>
                 </div>
                 <div id="news-modal-btn-container">
                 </div>
 
             </div>
         </div>
-        `;
+		`;
+
+		eventListeners.textareaText();
 	}
 };
 
