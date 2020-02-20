@@ -14,3 +14,17 @@
 	width: 75%;
 	margin: 10px;
 }
+
+.event-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+#addEventButton {
+	margin-top: 15px !important;
+	margin-left: 15px !important;
+}
+
+.eventHeader {
+	margin-left: 15px;
+	margin-top: 0px;
+}
