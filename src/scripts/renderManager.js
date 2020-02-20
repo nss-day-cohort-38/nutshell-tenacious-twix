@@ -27,7 +27,8 @@ const renderManager = {
     });
   },
   renderFriendEventsToContainer: (arr, func) => {
-    const eventsContainer = document.getElementById("container");
+    const eventsContainer = document.getElementById("friend-events");
+    eventsContainer.innerHTML = "";
     arr.forEach(event => {
       const eventHtml = func(event);
       eventsContainer.innerHTML += eventHtml;

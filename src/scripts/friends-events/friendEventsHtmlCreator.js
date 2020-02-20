@@ -1,4 +1,10 @@
 const htmlManager = {
+  header: () => {
+    return `
+    <h2>Friends Events</h2>
+    <div id="friend-events"></div>`
+  },
+
   eventsHtmlCreator: events => {
     return `
         <div class="event-card">

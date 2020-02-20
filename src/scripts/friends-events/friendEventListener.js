@@ -6,6 +6,8 @@ let array = [];
 
 const eventsEventListenerManager = {
   refreshEventContainer: activeUserId => {
+    const container = document.getElementById("container")
+    container.innerHTML = htmlManager.header()
     eventAPI.getFriends(activeUserId).then(friends => {
       console.log(friends);
       friends.forEach(friend => {
@@ -15,6 +17,10 @@ const eventsEventListenerManager = {
           data.forEach(datum => array.push(datum));
           array.sort((a, b) => new Date(a.date) - new Date(b.date));
           console.log("array", array);
+          renderManager.renderFriendEventsToContainer(
+            array,
+            htmlManager.eventsHtmlCreator
+          );
         });
       });
     });

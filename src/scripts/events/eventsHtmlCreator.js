@@ -1,9 +1,10 @@
 const htmlManager = {
   addNewEvent: `
   <div id="addEventButton" class="ui blue button">
-  <i class="plus-icon"></i>
+  <i class="plus icon"></i>
     Add Event 
   </div>
+  <h2 class="eventHeader">Events</h2>
     <article id="eventsContainer"><article>
     <p id="updateEvent"></p>
     `,
