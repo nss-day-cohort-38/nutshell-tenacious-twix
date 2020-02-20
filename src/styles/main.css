@@ -67,7 +67,8 @@ nav {
 	justify-content: space-between;
 	background-attachment: fixed;
 	background-size: cover;
-	height: 88vh;
+    height: 88vh;
+
 }
 
 #container {
@@ -100,7 +101,7 @@ margin: 10px;
     top: 50%;
     transform: translate(-50%, -50%);
     font-size: 50px;
-    width: 100%;
+    width: 75%;
     text-align: center;
     color: #e8e9eb;
 }
