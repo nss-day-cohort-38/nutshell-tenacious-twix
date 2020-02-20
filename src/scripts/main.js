@@ -60,7 +60,7 @@ const getURL = () => {
 		} else if (queryString == 'home&events') {
 			document.getElementById('dropdown-nav-text').innerText =
         'Friend Events';
-
+        eventsEventListenerManager.refreshEventContainer(sessionStorage.getItem(`activeUsers`))
 		}
 	} else {
 		auth.runIt();

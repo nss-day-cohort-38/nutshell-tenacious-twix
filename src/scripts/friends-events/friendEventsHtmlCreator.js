@@ -1,7 +1,7 @@
 const htmlManager = {
   header: () => {
     return `
-    <h2>Friends Events</h2>
+    <h2 class="friend-header">Friends Events</h2>
     <div id="friend-events"></div>`
   },
 
