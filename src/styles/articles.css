@@ -55,7 +55,7 @@
 .news-link {
 	text-align: center;
 	color: #e8e9eb;
-	background-color: #f8333c;
+	background-color: var(--fierce-red-opactiy);
 	padding: 10px;
 	margin: 5px;
 }

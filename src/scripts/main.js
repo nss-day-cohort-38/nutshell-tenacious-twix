@@ -15,7 +15,6 @@ const getURL = () => {
 	if (activeUser !== null) {
 		$('.ui.inline.dropdown').dropdown();
 		document.getElementById('big-nav').classList.remove('hidden-item');
-
 		document.getElementById('small-nav').classList.remove('hidden-item');
 
 		if (queryString !== undefined) tasks.runIt();
@@ -24,7 +23,7 @@ const getURL = () => {
 			document.getElementById('dropdown-nav-text').innerText =
 				'Menu';
 			const container = document.getElementById('body-container');
-
+      container.style.height = "88vh"
 			unsplash.getSiteUrl('452289/1000x1000').then(data => {
 				const imgUrl = data.url;
 				container.style.backgroundImage = `url(${imgUrl})`;
@@ -47,7 +46,6 @@ const getURL = () => {
 			}src/index.html`;
 		} else if (queryString == 'events') {
 			document.getElementById('dropdown-nav-text').innerText = 'Events';
-
 			eventsMainManager.eventNavButton(
 				sessionStorage.getItem(`activeUsers`)
 			);
@@ -58,11 +56,11 @@ const getURL = () => {
 		} else if (queryString == 'home&news') {
 			document.getElementById('dropdown-nav-text').innerText =
 				'Friend News';
-
 			allNews.runIt();
 		} else if (queryString == 'home&events') {
 			document.getElementById('dropdown-nav-text').innerText =
-				'Friend Events';
+        'Friend Events';
+
 		}
 	} else {
 		auth.runIt();
