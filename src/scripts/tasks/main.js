@@ -17,8 +17,4 @@ const tasks = {
     }
 }
 
-
-// Fix edit
-// Add submit check
-
 export default tasks;

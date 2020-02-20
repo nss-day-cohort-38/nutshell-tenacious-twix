@@ -9,10 +9,12 @@ const clearModalManager = {
       const usernameInput = document.getElementById('username-input');
       const password = document.getElementById('password-input');
       const confirmPassword = document.getElementById('confirm-password');
+      const urlInput = document.getElementById('profPic');
       emailInput.value = "";
       usernameInput.value ="";
       password.value = "";
       confirmPassword.value = "";
+      urlInput.value="";
     }
 }
 
@@ -48,8 +50,11 @@ const verificationManager = {
             if(arr.length<1){
                 apiManager.getUserProfileViaUsername(obj.username).then(arr=> {
                     if (arr.length<1){
-                        apiManager.addNewProfile(obj)
-                        clearModalManager.clearModal();
+                        apiManager.addNewProfile(obj).then (arr=> {
+                            sessionStorage.setItem('activeUsers', arr.id)
+                            window.location.href = `${window.location.href.split("src")[0]}src/index.html?home`;
+                        })
+                        
                     }else {
                         alert("We're Sorry, it looks like your username has already been taken, please try again.")
                     }

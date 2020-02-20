@@ -11,7 +11,7 @@ const DOMManager = {
     createDivs(){
         document.getElementById("sidebar-menu").innerHTML = `
             <div id="sidebar-top"></div>
-            <div id="add-task-form"></div>
+            <div class="item tasks" id="add-task-form"></div>
             <div id="sidebar-items"></div>
         `;
 

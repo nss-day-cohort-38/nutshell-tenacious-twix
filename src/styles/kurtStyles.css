@@ -41,6 +41,7 @@
 	color:black;
 	display: flex;
 	flex-direction: column;
+	bottom: 0;
 	
 }
 #user-input{
@@ -78,7 +79,8 @@ background-color: var(--white-text);
 
 }
 .kkcard:hover{
-    background-color: var(--brown);
+	background-color: midnightblue;
+	opacity: 0.8;
     color: white;
 
     transition: 0.3s ease;
@@ -98,17 +100,6 @@ background-color: var(--white-text);
     margin-left: 1%;
     font-size: 40px;
     color: white;
-}
-.delete-btn {
-	align-self: flex-end;
-	border-radius: 0px 0px 5px 0px;
-	font-size: 15px;
-	background-color: var(--black-text);
-	color: white;
-}
-.delete-btn:hover{
-	background-color: white;
-	color: var(--fierce-red-opactiy);
 }
 .kk-message{
 	align-self: flex-end;
@@ -185,7 +176,7 @@ background-color: var(--white-text);
 }
 .form-button:hover {
 	color: var(--white-text);
-    background-color: #9e1927;
+    background-color: var(--fierce-red);
     transition: 0.3s ease ;
     border: 1px solid white;
 }
@@ -205,11 +196,12 @@ background-color: var(--white-text);
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 50%;
-	height: 500px;
+	height: auto;
 }
 
 .Kmodal-card {
-	height: 400px;
+	height: auto;
+	padding: 2%;
 	transition: 0.3s;
 	width: 100%;
 	margin: 10px;
@@ -239,7 +231,7 @@ background-color: var(--white-text);
 }
 #join-button:hover {
 	color: var(--white-text);
-    background-color: #9e1927;
+    background-color:var(--fierce-red);
     transition: 0.3s ease ;
 	border: 1px solid white;
 	box-shadow: 1px 1px var(--black-text);
@@ -257,7 +249,7 @@ background-color: var(--white-text);
 /* add friends section  */
 
 #addFriends-container {
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px;
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -288,6 +280,7 @@ background-color: var(--white-text);
     background-color: white;
 	color: var(--fierce-red-opactiy);
 }
+
 
 @media only screen and (max-width: 600px) {
     #friendsBody {
@@ -321,6 +314,7 @@ background-color: var(--white-text);
        height: 300px;
    }
    #chat-field{
-       height: 300px;
+	   height: 300px;
+	   
    }
 }

@@ -25,6 +25,7 @@ const domManager = {
     apiManager.getMessages().then(arr => {
       const chatField = document.getElementById("chat-field");
       chatField.innerHTML = "";
+     
       arr.forEach(obj => {
         const html = htmlFactoryManager.generateMessageHtml(obj);
         renderManager.renderSingleHtmlToContainer(html, "chat-field");
@@ -45,20 +46,9 @@ const domManager = {
         editButtonContainer.innerHTML = ` <i  id="editBtn-${obj.id}"class="edit icon"></i>
                 <i  id="delete-${obj.id}"class="trash alternate outline icon"></i> `;
       });
+      chatField.scrollTop = chatField.scrollHeight;
     });
-  },
-  renderChatBoxData: (friendId, activeUserId) => {
-    apiManager.getUserAndFriendMessages(friendId, activeUserId).then(arr => {
-      arr.forEach(obj => {
-        if (obj.wasSent === true) {
-          const html = htmlFactoryManager.generateMessageHtml(obj);
-          renderManager.renderSingleHtmlToContainer(html, "sent-messages");
-        } else {
-          const html = htmlFactoryManager.generateMessageHtml(obj);
-          renderManager.renderSingleHtmlToContainer(html, "received-messages");
-        }
-      });
-    });
+
   },
   addFriendbox: obj => {
   

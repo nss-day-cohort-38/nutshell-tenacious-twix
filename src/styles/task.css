@@ -13,26 +13,22 @@
 .task-text {
     width:80%;
     word-wrap: break-word;
-    /* margin: 0 !important; */
-    /* padding: 0 !important; */
 }
 
 #sidebar-button-div {
     display: flex;
-    /* justify-content: flex-end; */
-
-    /* z-index: 1; */
-
 }
 .sidebar-top-item {
-    /* padding: 10px; */
     margin: 10px !important;
 }
 #sidebar-button {
-    transform: rotate(-90deg);
-    position: fixed;
-    right: -75px;
-    top: 170px;
+    width: 180px;
+    transform: translate(-158px, -21px) rotate(-90deg);
+    transform-origin: right;
+    position: sticky;
+    top: 10px;
+    
+
 }
 
 #task-date-input {
@@ -41,10 +37,6 @@
 
 .task-item {
 width: 100%;
-}
-
-#sidebar-menu {
-    /* z-index: 1; */
 }
 
 .task-icons {
