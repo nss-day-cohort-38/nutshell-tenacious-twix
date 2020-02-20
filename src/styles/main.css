@@ -43,8 +43,12 @@ nav {
 	height: 20%;
 	align-self: flex-end;
     color: white !important;
-    border: none;
 }
+
+.navButton:hover {
+    box-shadow: rgb(255, 255, 255, .3) 0px 0px 5px inset;
+}
+
 .navBar {
 	background-color: var(--fierce-red) !important;
 	border: none !important;
