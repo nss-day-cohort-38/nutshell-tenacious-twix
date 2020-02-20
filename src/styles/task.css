@@ -29,11 +29,17 @@
     margin: 10px !important;
 }
 #sidebar-button {
-    transform: rotate(-90deg);
-    position: fixed;
-    right: -75px;
-    top: 170px;
+    width: 180px;
+    transform: translate(-158px, -21px) rotate(-90deg);
+    transform-origin: right;
+    position: sticky;
+    top: 10px;
+    
+
 }
+/* .pointing.label{
+    
+} */
 
 #task-date-input {
     width: 100%;

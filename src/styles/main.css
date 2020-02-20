@@ -16,11 +16,12 @@
     --gold: #FCAB10;
     --brown: #C69C72;
 }
-* {
-    margin: 0;
-
+body, html{
+    margin:0;
+    padding:0;
 }
 body {
+    
     background-color: var(--white-text);
 }
 nav {
@@ -69,3 +70,26 @@ nav {
     /* font-size: x-large;
 } */
 
+#body-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#container {
+    width: 90%;
+}
+
+#sidebar-button-container {
+    /* border: 7px solid red; */
+    width:40px;
+    /* overflow: hidden; */
+    /* justify-self: end; */
+}
+
+@media screen and (max-width: 767px) {
+    #container {
+        width: 100%;
+        margin: auto;
+    }
+}

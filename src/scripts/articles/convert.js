@@ -18,8 +18,12 @@ const convert = {
 	},
 	articleSections(articleContainer) {
 		articleContainer.innerHTML = `
-        <div id="news-modal"></div>
-        <button id="open-add-news">Add News</button>
+		<div id="news-modal"></div>
+
+		<div id="open-add-news" class="ui blue button">
+		<i class="plus icon"></i>
+			Add Article 
+		</div>
         <div id="news-header">
 			<div class="ui text loader">Loading</div>
 	  	</div>
@@ -80,11 +84,10 @@ const convert = {
 				sortedData.forEach(element => {
 					if (typeof userId == 'object') {
 						userId.forEach(user => {
-							if(user[0] == element.userId){
+							if (user[0] == element.userId) {
 								name = user[1];
 							}
 						});
-						
 					}
 
 					const id = element.id;
@@ -114,16 +117,13 @@ const convert = {
 						document.getElementById(
 							`creator-name--${id}`
 						).innerText = name;
-
-
 					} else {
 						document.getElementById(
 							`card-buttons-${id}`
 						).innerHTML = `
 						<button id="news-delete--${id}"><i class="trash alternate icon"></i></button>
 						<button id="news-edit--${id}"><i class="edit icon"></i></button>
-						`
-
+						`;
 					}
 				});
 
@@ -140,7 +140,7 @@ const convert = {
 							).src = cardImg;
 						})
 						.then(() => {
-							if(name == undefined){
+							if (name == undefined) {
 								eventListeners.deleteArticleEvt(element.id);
 								eventListeners.editArticleEvt(element.id);
 							}
@@ -168,7 +168,7 @@ const convert = {
             </div>
         </div>
 		`;
-		
+
 		eventListeners.textareaText();
 	}
 };
