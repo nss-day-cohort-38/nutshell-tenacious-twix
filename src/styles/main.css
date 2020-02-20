@@ -93,6 +93,11 @@ nav {
 #big-nav {
     display: flex;
 }
+
+/* .hidden-item {
+    display: none;
+} */
+
 @media screen and (max-width: 767px) {
     .navButton {
 

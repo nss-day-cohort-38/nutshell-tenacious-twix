@@ -11,9 +11,13 @@ const activeUser = sessionStorage.getItem('activeUsers');
 const getURL = () => {
   let url = window.location.href;
   var queryString = url ? url.split("?")[1] : window.location.search.slice(1);
-  
-  if (activeUser) {
+  console.log(activeUser) 
+  if (activeUser !== null) {
+
     $('.ui.inline.dropdown').dropdown();
+    document.getElementById("big-nav").classList.remove("hidden-item");
+    document.getElementById("small-nav").classList.remove("hidden-item");
+
     if(queryString !== undefined) tasks.runIt();
   
 
@@ -40,7 +44,7 @@ const getURL = () => {
 
       eventsMainManager.eventNavButton(sessionStorage.getItem(`activeUsers`));
     } else if (queryString == undefined){
-      auth.runIt();
+      window.location.href = `${window.location.href.split("src")[0]}src/index.html?home`;
     } else if (queryString == "home&news"){
       document.getElementById("dropdown-nav-text").innerText = "Friend News"
 
@@ -51,6 +55,7 @@ const getURL = () => {
       
     }
   }else {
+    // document.getElementById("big-nav").classList.add("hidden-item");
     auth.runIt()
   }
 };

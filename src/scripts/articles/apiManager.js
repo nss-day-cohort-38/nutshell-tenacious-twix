@@ -1,6 +1,5 @@
 const apiManager = {
 	getUserNews(userId) {
-		
 		return fetch(
 			`http://localhost:8088/news?userId=${userId}`
 		).then(resp => resp.json());
