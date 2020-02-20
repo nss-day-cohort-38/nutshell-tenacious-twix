@@ -37,13 +37,15 @@ const DOMManager = {
  
     },
     createOpenButton(){
+
         document.getElementById("sidebar-button").innerHTML = `
-        <div class="ui blue button">
-        Open Taskbar
-      </div>
-      <a class="ui basic blue left pointing label">
-        <i class="tasks icon"></i>
-      </a>`
+            <div class="ui blue button">
+            Open Taskbar
+        </div>
+        <a class="ui basic blue left pointing label">
+            <i class="tasks icon"></i>
+        </a>
+      `
     }
 
 

@@ -37,7 +37,7 @@ const verificationManager = {
         }
        else if(arr[0].password===obj.password&arr[0].email===obj.email){
               sessionStorage.setItem('activeUsers', arr[0].id)
-              window.location.href = `${window.location.href.split("src")[0]}src/index.html?home`;
+              window.location.href = `${window.location.href.split("src")[0]}src/index.html#home`;
 
           }else if (arr[0].username===obj.username || arr[0].email===obj.email) {
               domManager.errorBoxFiller();
@@ -52,7 +52,7 @@ const verificationManager = {
                     if (arr.length<1){
                         apiManager.addNewProfile(obj).then (arr=> {
                             sessionStorage.setItem('activeUsers', arr.id)
-                            window.location.href = `${window.location.href.split("src")[0]}src/index.html?home`;
+                            window.location.href = `${window.location.href.split("src")[0]}src/index.html#home`;
                         })
                         
                     }else {

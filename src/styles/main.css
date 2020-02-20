@@ -42,8 +42,13 @@ nav {
 .navButton {
 	height: 20%;
 	align-self: flex-end;
-	color: white !important;
+    color: white !important;
 }
+
+.navButton:hover {
+    box-shadow: rgb(255, 255, 255, .3) 0px 0px 5px inset;
+}
+
 .navBar {
 	background-color: var(--fierce-red) !important;
 	border: none !important;
@@ -56,8 +61,18 @@ nav {
 	margin-right: -20px;
 	font-size: 75px;
 	font-family: 'Rubik', sans-serif;
-	color: white;
-	margin-right: 20% !important;
+    color: white;
+    margin-bottom: 1%;
+    margin-right: 20% !important;
+    transition: 0.3s  ease;
+}
+
+.heading:hover {
+    cursor: pointer;
+    /* text-shadow: var(--black-text) 0px 0px 5px; */
+    text-shadow: 5px 5px var(--black-text) ;
+    color: var(--white-text);
+    transition: 0.3s  ease;
 }
 
 
@@ -85,6 +100,7 @@ nav {
 #big-nav {
 	display: flex;
 }
+
 
 #nav-drop-text{
 margin: 10px;
