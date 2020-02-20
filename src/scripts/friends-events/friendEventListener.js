@@ -16,10 +16,6 @@ const eventsEventListenerManager = {
           array.sort((a, b) => new Date(a.date) - new Date(b.date));
           console.log("array", array);
         });
-        renderManager.renderFriendEventsToContainer(
-          array,
-          htmlManager.eventsHtmlCreator
-        );
       });
     });
   },
