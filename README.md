@@ -260,18 +260,74 @@ STARTING THE APP INSTRUCTIONS
   ],
   "events": [
     {
-      "id": 1,
-      "userId": 1,
-      "name": "Concert",
-      "location": "Bridgestone Arena",
-      "date": "02/22/20"
+      "userId": 4,
+      "name": "3",
+      "location": "sldkfjklj",
+      "date": "2020-02-13",
+      "id": 9
+    },
+    {
+      "userId": 2,
+      "name": "1",
+      "location": "somewhere",
+      "date": "2020-02-21",
+      "id": 10
+    },
+    {
+      "userId": 2,
+      "name": "2",
+      "location": "here",
+      "date": "2020-02-29",
+      "id": 11
     },
     {
       "userId": 1,
-      "name": "Partty",
-      "location": "party",
-      "date": "2020-03-06",
-      "id": 4
+      "name": "this",
+      "location": "there",
+      "date": "2020-02-28",
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "name": "that",
+      "location": "there",
+      "date": "2020-02-21",
+      "id": 13
+    },
+    {
+      "userId": 3,
+      "name": "party",
+      "location": "in here",
+      "date": "2020-02-29",
+      "id": 14
+    },
+    {
+      "userId": 3,
+      "name": "party",
+      "location": "over there",
+      "date": "2020-02-29",
+      "id": 15
+    },
+    {
+      "userId": 2,
+      "name": "3",
+      "location": "something",
+      "date": "2020-02-21",
+      "id": 16
+    },
+    {
+      "userId": 3,
+      "name": "4",
+      "location": "saldk",
+      "date": "2020-02-29",
+      "id": 17
+    },
+    {
+      "userId": 3,
+      "name": "party",
+      "location": "everywhere",
+      "date": "2020-02-28",
+      "id": 18
     }
   ],
   "news": [

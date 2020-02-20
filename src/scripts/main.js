@@ -24,6 +24,7 @@ const getURL = () => {
 				'Menu';
 			const container = document.getElementById('body-container');
       container.style.height = "88vh"
+      container.style.boxShadow = "rgb(0, 0, 0) 0px 0px 19px inset"
 			unsplash.getSiteUrl('452289/1000x1000').then(data => {
 				const imgUrl = data.url;
 				container.style.backgroundImage = `url(${imgUrl})`;
