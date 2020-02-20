@@ -38,10 +38,10 @@ const DOMManager = {
     },
     createOpenButton(){
         document.getElementById("sidebar-button").innerHTML = `
-        <div class="ui red button">
+        <div class="ui blue button">
         Open Taskbar
       </div>
-      <a class="ui basic red left pointing label">
+      <a class="ui basic blue left pointing label">
         <i class="tasks icon"></i>
       </a>`
     }

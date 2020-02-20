@@ -67,8 +67,6 @@ nav {
 	justify-content: space-between;
 	background-attachment: fixed;
 	background-size: cover;
-    height: 88vh;
-
 }
 
 #container {
@@ -104,6 +102,16 @@ margin: 10px;
     width: 75%;
     text-align: center;
     color: #e8e9eb;
+}
+
+
+.ui.blue.button {
+    background-color: var(--fierce-red) !important;
+}
+
+.ui.blue.label{
+    background-color: var(--fierce-red) !important;
+    border-color: var(--fierce-red) !important;
 }
 
 @media screen and (max-width: 767px) {
