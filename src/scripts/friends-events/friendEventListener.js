@@ -30,7 +30,3 @@ const eventsEventListenerManager = {
 };
 
 export default eventsEventListenerManager;
-
-// if (document.getElementById("container").childElementCount !== 0) {
-//   eventsEventListenerManager.signifyNextEvent();
-// }
