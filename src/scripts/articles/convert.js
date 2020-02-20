@@ -35,9 +35,10 @@ const convert = {
         `;
 	},
 	newsCardHTML(userId, containerNode, name) {
+		
 		let sorted;
 		if (typeof userId == 'object') {
-			const promiseArray = userId.map(element =>
+			const promiseArray = userId.map(element => 
 				apiManager.getUserNews(element[0])
 			);
 
@@ -56,6 +57,7 @@ const convert = {
 				return sortedData;
 			});
 		} else {
+			
 			const promiseArray = apiManager.getUserNews(userId).then(data => {
 				const sortedData = data.sort(function(a, b) {
 					return b.id - a.id;
@@ -114,6 +116,7 @@ const convert = {
 				</div>
 				`;
 					if (name !== undefined) {
+						console.log(name)
 						document.getElementById(
 							`creator-name--${id}`
 						).innerText = `Added By: ${name}`;

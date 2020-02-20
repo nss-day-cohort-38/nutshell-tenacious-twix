@@ -26,10 +26,12 @@ const getURL = () => {
      if(queryString == "home"){
       document.getElementById("dropdown-nav-text").innerText = "Select Page"
        const container = document.getElementById("body-container");
+       
        unsplash.getSiteUrl('452289/800x1000').then(data => {
          const imgUrl = data.url;
           container.style.backgroundImage = `url(${imgUrl})`;
           container.innerHTML += `<h1 id="welcome-message">Welcome to Twixbook</h1>`
+          document.getElementById("container").innerHTML = "";
        });
 
      }else if (queryString == "personalnews") {
@@ -47,7 +49,7 @@ const getURL = () => {
       document.getElementById("dropdown-nav-text").innerText = "Events"
 
       eventsMainManager.eventNavButton(sessionStorage.getItem(`activeUsers`));
-    } else if (queryString == undefined){
+    } else if (queryString == undefined || queryString == ""){
       window.location.href = `${window.location.href.split("src")[0]}src/index.html?home`;
     } else if (queryString == "home&news"){
       document.getElementById("dropdown-nav-text").innerText = "Friend News"
