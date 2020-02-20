@@ -9,14 +9,11 @@ const eventsEventListenerManager = {
     const container = document.getElementById("container")
     container.innerHTML = htmlManager.header()
     eventAPI.getFriends(activeUserId).then(friends => {
-      console.log(friends);
       friends.forEach(friend => {
-        console.log("2");
         eventAPI.getEvents(friend.userId).then(data => {
-          console.log("3");
           data.forEach(datum => array.push(datum));
           array.sort((a, b) => new Date(a.date) - new Date(b.date));
-          console.log("array", array);
+
           renderManager.renderFriendEventsToContainer(
             array,
             htmlManager.eventsHtmlCreator

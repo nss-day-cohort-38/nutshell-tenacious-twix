@@ -119,7 +119,6 @@ const convert = {
 				</div>
 				`;
 					if (name !== undefined) {
-						console.log(name)
 						document.getElementById(
 							`creator-name--${id}`
 						).innerText = `Added By: ${name}`;
