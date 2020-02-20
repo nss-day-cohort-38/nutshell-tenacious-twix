@@ -42,7 +42,8 @@ nav {
 .navButton {
 	height: 20%;
 	align-self: flex-end;
-	color: white !important;
+    color: white !important;
+    border: none;
 }
 .navBar {
 	background-color: var(--fierce-red) !important;
@@ -85,6 +86,7 @@ nav {
 #big-nav {
 	display: flex;
 }
+
 
 #nav-drop-text{
 margin: 10px;
