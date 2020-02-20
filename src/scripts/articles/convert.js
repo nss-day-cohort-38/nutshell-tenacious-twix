@@ -127,8 +127,8 @@ const convert = {
 						document.getElementById(
 							`card-buttons-${id}`
 						).innerHTML = `
-						<div id="news-delete--${id}"><i class="trash alternate icon"></i></div>
-						<div id="news-edit--${id}"><i class="edit icon"></i></div>
+						<div id="news-delete--${id}" class="delete-news"><i class="trash alternate icon"></i></div>
+						<div id="news-edit--${id}" class="edit-news"><i class="edit icon"></i></div>
 						`;
 					}
 				});
