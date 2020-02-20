@@ -22,10 +22,10 @@ const getURL = () => {
 
 		if (queryString == 'home') {
 			document.getElementById('dropdown-nav-text').innerText =
-				'Select Page';
+				'Menu';
 			const container = document.getElementById('body-container');
 
-			unsplash.getSiteUrl('452289/800x1000').then(data => {
+			unsplash.getSiteUrl('452289/1000x1000').then(data => {
 				const imgUrl = data.url;
 				container.style.backgroundImage = `url(${imgUrl})`;
 				container.innerHTML += `<h1 id="welcome-message">Welcome to Twixbook</h1>`;
