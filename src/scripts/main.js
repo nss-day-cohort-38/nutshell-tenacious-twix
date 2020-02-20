@@ -13,7 +13,7 @@ const getURL = () => {
   var queryString = url ? url.split("?")[1] : window.location.search.slice(1);
   
   if (activeUser) {
-     
+    $('.ui.inline.dropdown').dropdown();
     if(queryString !== undefined) tasks.runIt();
   
 
@@ -25,19 +25,29 @@ const getURL = () => {
      
        `;
      }else if (queryString == "personalnews") {
+      document.getElementById("dropdown-nav-text").innerText = "Personal News"
       article.runIt();
     } else if (queryString == "friends") {
+      document.getElementById("dropdown-nav-text").innerText = "Friends"
       kkMainManager.kkRunIt(activeUser);
     } else if (queryString == "logout") {
+      document.getElementById("dropdown-nav-text").innerText = "Logout"
+
       sessionStorage.removeItem('activeUsers')
     window.location.href = `${window.location.href.split("src")[0]}src/index.html`;
     } else if (queryString == "events") {
+      document.getElementById("dropdown-nav-text").innerText = "Events"
+
       eventsMainManager.eventNavButton(sessionStorage.getItem(`activeUsers`));
     } else if (queryString == undefined){
       auth.runIt();
     } else if (queryString == "home&news"){
+      document.getElementById("dropdown-nav-text").innerText = "Friend News"
+
       allNews.runIt();
     } else if(queryString == "home&events"){
+      document.getElementById("dropdown-nav-text").innerText = "Friend Events"
+
       
     }
   }else {

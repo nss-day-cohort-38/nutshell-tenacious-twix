@@ -103,8 +103,8 @@ const convert = {
 						<img class="newsFeed-img" id="newsFeed-img--${id}" src="scripts/articles/spinner.svg" alt="spinner"></img>
 					</div>
 					<div class="news-card-text-container">
-					<div id="creator-name--${id}"></div>
 					<p class="news-title">${title}</p>
+					<div id="creator-name--${id}" class="creator-name"></div>
 					<p class="news-description">${synopsis}</p>
 					<a href="${url}" target="_blank" class="news-link">Link Here</a>
 					</div>
@@ -116,7 +116,7 @@ const convert = {
 					if (name !== undefined) {
 						document.getElementById(
 							`creator-name--${id}`
-						).innerText = name;
+						).innerText = `Added By: ${name}`;
 					} else {
 						document.getElementById(
 							`card-buttons-${id}`

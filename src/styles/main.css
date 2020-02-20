@@ -87,9 +87,26 @@ nav {
     /* justify-self: end; */
 }
 
+#small-nav {
+    display: none;
+}
+#big-nav {
+    display: flex;
+}
 @media screen and (max-width: 767px) {
+    .navButton {
+
+        color: rgb(66,103,178)!important;
+      
+    } 
     #container {
         width: 100%;
         margin: auto;
+    }
+    #small-nav {
+        display: flex;
+    }
+    #big-nav {
+        display: none;
     }
 }
