@@ -9,13 +9,13 @@ const dataManager = {
 	runIt() {},
 	getTaskInput(isEditing) {
 		if (!isEditing) {
-			const text = document.getElementById('task-text-input').value;
+			const text = `${document.getElementById('task-text-input').value}`;
 			const date = document.getElementById('task-date-input').value;
 
 			this.createTaskObj(text, date, false);
 		} else {
 			const id = document.getElementById('item-id').value;
-			const text = document.getElementById('task-text-input').value;
+			const text = `${document.getElementById('task-text-input').value}`;
 			const date = document.getElementById('task-date-input').value;
 			const done = JSON.parse(
 				document.getElementById('task-done-input').value
