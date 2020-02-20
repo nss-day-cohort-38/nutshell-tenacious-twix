@@ -41,6 +41,7 @@
 	color:black;
 	display: flex;
 	flex-direction: column;
+	bottom: 0;
 	
 }
 #user-input{
@@ -321,6 +322,7 @@ background-color: var(--white-text);
        height: 300px;
    }
    #chat-field{
-       height: 300px;
+	   height: 300px;
+	   
    }
 }
