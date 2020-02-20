@@ -176,7 +176,7 @@ background-color: var(--white-text);
 }
 .form-button:hover {
 	color: var(--white-text);
-    background-color: #9e1927;
+    background-color: var(--fierce-red);
     transition: 0.3s ease ;
     border: 1px solid white;
 }
@@ -196,11 +196,12 @@ background-color: var(--white-text);
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 50%;
-	height: 500px;
+	height: auto;
 }
 
 .Kmodal-card {
-	height: 400px;
+	height: auto;
+	padding: 2%;
 	transition: 0.3s;
 	width: 100%;
 	margin: 10px;
@@ -230,7 +231,7 @@ background-color: var(--white-text);
 }
 #join-button:hover {
 	color: var(--white-text);
-    background-color: #9e1927;
+    background-color:var(--fierce-red);
     transition: 0.3s ease ;
 	border: 1px solid white;
 	box-shadow: 1px 1px var(--black-text);
@@ -279,6 +280,7 @@ background-color: var(--white-text);
     background-color: white;
 	color: var(--fierce-red-opactiy);
 }
+
 
 @media only screen and (max-width: 600px) {
     #friendsBody {
