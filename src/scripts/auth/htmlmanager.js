@@ -35,7 +35,7 @@ const htmlManager = {
           <input type="text" name="profPic" id="profPic" placeholder="...">
         </fieldset>
 
-          <button type="button" id="join-button">Join!</button>
+          <button class ="ui secondary button" type="button" id="join-button">Join!</button>
         </div>
       </div>
     </div>`
