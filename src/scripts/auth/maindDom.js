@@ -18,7 +18,7 @@ const inputMainDom = {
           <fieldset id="usernames">
             <label for="password">Password: </label>
             <input
-              type="text"
+              type="password"
               name="password"
               id="password-entry"
               placeholder="Password Here"

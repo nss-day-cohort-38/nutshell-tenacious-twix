@@ -9,7 +9,7 @@ const htmlManager = {
           <h4>Please fill out this form to continue...</h4>
           <fieldset class="createForm">
             <label for="email-sign">Email: </label>
-            <input id="email-input" name="email-sign" "type="text"
+            <input id="email-input" name="email-sign" "type="email"
             placeholder="..." required>
           </fieldset>
           <fieldset class="createForm">
@@ -24,11 +24,11 @@ const htmlManager = {
           </fieldset>
           <fieldset class="createForm">
           <label for="password">Password: </label>
-          <input name="password" type="text" id="password-input" placeholder="..." required>
+          <input name="password" type="password" id="password-input" placeholder="..." required>
           </fieldset>
           <fieldset class="createForm">
           <label for="confirm-password">Confirm Password: </label>
-          <input type="text" name="confirm-password" id="confirm-password" placeholder="..." required>
+          <input type="password" name="confirm-password" id="confirm-password" placeholder="..." required>
         </fieldset>
           <fieldset class="createForm">
           <label for="profPic">Profile Picture URL: </label>
