@@ -1,3 +1,6 @@
+/* Author: Trinity Terry */
+/* Purpose: Validates inputs for article form */
+
 const validate = {
 	createFormChecker(formInputObj) {
 		let checkForm = [];

@@ -1,3 +1,6 @@
+/* Author: Trinity Terry */
+/* Purpose: Fetches Data from JSON file for article page*/
+
 const apiManager = {
 	getUserNews(userId) {
 		return fetch(

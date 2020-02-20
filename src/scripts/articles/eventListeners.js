@@ -1,3 +1,5 @@
+/* Author: Trinity Terry */
+/* Purpose: handle event listlers for article page */
 import convert from './convert.js';
 import dataManager from './dataManager.js';
 import apiManager from './apiManager.js';

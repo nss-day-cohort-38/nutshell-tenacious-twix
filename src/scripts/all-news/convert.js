@@ -1,5 +1,7 @@
+/* Author: Trinity Terry */
+/* Purpose: Creates html for friend article page */
+
 import renderManager from '../renderManager.js'
-import articleConvert from "../articles/convert.js"
 
 const convert = {
 	runIt(){

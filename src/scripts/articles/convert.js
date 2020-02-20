@@ -1,3 +1,6 @@
+/* Author: Trinity Terry */
+/* Purpose: Converts data to html for article page */
+
 import apiManager from './apiManager.js';
 import renderManager from '../renderManager.js';
 import eventListeners from './eventListeners.js';

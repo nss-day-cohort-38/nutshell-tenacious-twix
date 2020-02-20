@@ -1,3 +1,6 @@
+/* Author: Trinity Terry */
+/* Purpose: Runs initial functions for load of friend article page */
+
 import apiManager from './apiManager.js';
 import newsApi from '../articles/apiManager.js';
 import newsConvert from '../articles/convert.js';
@@ -29,15 +32,7 @@ const allNews = {
 				});
 
 			})
-			// .then(friends => {
-			// 	console.log(friends);
-			// 	if (friends[0] !== undefined) {
-					
-			// 	}
-			// });
 	}
 };
 
 export default allNews;
-
-// TODO: Look at photo's duplicateding every other reload

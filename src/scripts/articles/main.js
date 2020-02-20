@@ -1,3 +1,6 @@
+/* Author: Trinity Terry */
+/* Purpose: Runs initial functions for article page load */
+
 import articleEvtManager from './eventListeners.js';
 import convert from './convert.js';
 
