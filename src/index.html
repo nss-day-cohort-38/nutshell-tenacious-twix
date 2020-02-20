@@ -26,19 +26,18 @@
               <div class="text">Home</div>
               <i class="dropdown icon"></i>
               <div class="menu">
-
-                <a class="item" href="?home&events" id="Home">Friend Events</a>
-                <a class="item" href="?home&news" id="eventNavButton">Friend News</a>
+                <button class="item" id="home&events">Friend Events</button>
+                <button class="item" id="home&news">Friend News</button>
 
               </div>
             </div>
 
           </div>
         </div>
-        <a class="item navButton" href="?events" id="eventNavButton">Events</a>
-        <a class="item navButton" href="?personalnews" id="eventNavButton">Own News</a>
-        <a class="item navButton" href="?friends" id="friends-button">Friends</a>
-        <a class="item navButton" href="?logout">Logout</a>
+        <button class="item navButton" id="events">Events</button>
+        <button class="item navButton" id="personalnews">Own News</button>
+        <button class="item navButton" id="friends">Friends</button>
+        <button class="item navButton" id="logout">Logout</button>
       </div>
 
 
@@ -54,14 +53,14 @@
                 <span class="text">Home</span>
                 <i class="dropdown icon"></i>
                 <div class="menu">
-                  <a class="item navButton" href="?home&events" id="Home">Friend Events</a>
-                  <a class="item navButton" href="?home&news" id="eventNavButton">Friend News</a>
+                  <a class="item navButton" href="#home&events" id="Home">Friend Events</a>
+                  <a class="item navButton" href="#home&news" id="eventNavButton">Friend News</a>
                 </div>
               </div>
-              <a class="item navButton" href="?events" id="eventNavButton" data-text="Events">Events</a>
-              <a class="item navButton" href="?personalnews" id="eventNavButton" data-text="Own News">Own News</a>
-              <a class="item navButton" href="?friends" id="friends-button" data-text="Friends">Friends</a>
-              <a class="item navButton" href="?logout" data-text="Logout">Logout</a>
+              <a class="item navButton" href="#events" id="eventNavButton" data-text="Events">Events</a>
+              <a class="item navButton" href="#personalnews" id="eventNavButton" data-text="Own News">Own News</a>
+              <a class="item navButton" href="#friends" id="friends-button" data-text="Friends">Friends</a>
+              <a class="item navButton" href="#logout" data-text="Logout">Logout</a>
             </div>
           </div>
         </div>
@@ -69,9 +68,9 @@
     </nav>
     <div id="body-container">
       <div id="container">
-        <div class="ui active dimmer">
+        <!-- <div class="ui active dimmer">
           <div class="ui text loader">Loading</div>
-        </div>
+        </div> -->
       </div>
       <div id="sidebar-button-container">
         <div id="sidebar-button" class="ui labeled button" tabindex="0">

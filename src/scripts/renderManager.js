@@ -1,9 +1,9 @@
 // import htmlManager from "./events/eventsHtmlCreator.js";
 
-const container = document.getElementById("container");
 
 const renderManager = {
   renderNewPageToDom: html => {
+    const container = document.getElementById("container");
     container.innerHTML = "";
     container.innerHTML = html;
   },
