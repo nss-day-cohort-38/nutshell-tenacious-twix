@@ -14,6 +14,7 @@ const dataManager = {
 
 			this.createTaskObj(text, date, false);
 		} else {
+            
 			const id = document.getElementById('item-id').value;
 			const text = `${document.getElementById('task-text-input').value}`;
 			const date = document.getElementById('task-date-input').value;

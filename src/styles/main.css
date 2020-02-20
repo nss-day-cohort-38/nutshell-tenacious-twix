@@ -61,8 +61,18 @@ nav {
 	margin-right: -20px;
 	font-size: 75px;
 	font-family: 'Rubik', sans-serif;
-	color: white;
-	margin-right: 20% !important;
+    color: white;
+    margin-bottom: 1%;
+    margin-right: 20% !important;
+    transition: 0.3s  ease;
+}
+
+.heading:hover {
+    cursor: pointer;
+    /* text-shadow: var(--black-text) 0px 0px 5px; */
+    text-shadow: 5px 5px var(--black-text) ;
+    color: var(--white-text);
+    transition: 0.3s  ease;
 }
 
 

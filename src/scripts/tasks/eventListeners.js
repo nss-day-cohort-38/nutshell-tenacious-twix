@@ -68,6 +68,7 @@ const eventListeners = {
 		document
 			.getElementById('sidebar-button')
 			.addEventListener('click', () => {
+				console.log("clicked")
 				$('.ui.sidebar').toggleClass('visible');
 			});
 	},
