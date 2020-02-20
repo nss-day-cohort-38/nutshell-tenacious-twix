@@ -132,7 +132,7 @@ const convert = {
 			.then(data => {
 				data.forEach(element => {
 					apiManager
-						.getSiteUrl()
+						.getSiteUrl('8833779/300x300')
 						.then(img => {
 							const cardImg = img.url;
 							document.getElementById(

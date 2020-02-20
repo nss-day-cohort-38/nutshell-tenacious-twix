@@ -15,11 +15,11 @@
   <div id="sidebar-menu" class="ui right sidebar overlay vertical menu"></div>
   <div class="pusher" id="pusher-element">
     <nav>
-
+      <div class="item">
+        <header class="heading">Twixbook</header>
+      </div>
       <div class="ui stackable menu navBar hidden-item" id="big-nav">
-        <div class="item">
-          <header class="heading">Twixbook</header>
-        </div>
+        
         <div class="item navButton">
           <div class="content">
             <div class="ui inline dropdown">
@@ -41,49 +41,49 @@
         <a class="item navButton" href="?friends" id="friends-button">Friends</a>
         <a class="item navButton" href="?logout">Logout</a>
       </div>
-  </div>
 
 
 
-  <h4 class="ui header hidden-item" id="small-nav">
-    <div class="item">
-      <header class="heading">Twixbook</header>
-    </div>
-    <div class="content">
-      <div class="ui inline dropdown">
-        <div class="text" id="dropdown-nav-text"></div>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <div class="ui pointing dropdown link item">
-            <span class="text">Home</span>
+
+      <h4 class="ui header hidden-item" id="small-nav">
+        <!-- <div class="item">
+          <header class="heading">Twixbook</header>
+        </div> -->
+        <div class="content">
+          <div class="ui inline dropdown" id="nav-drop-text">
+            <div class="text" id="dropdown-nav-text"></div>
             <i class="dropdown icon"></i>
             <div class="menu">
-              <a class="item" href="?home&events" id="Home">Friend Events</a>
-              <a class="item" href="?home&news" id="eventNavButton">Friend News</a>
+              <div class="ui pointing dropdown link item">
+                <span class="text">Home</span>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <a class="item navButton" href="?home&events" id="Home">Friend Events</a>
+                  <a class="item navButton" href="?home&news" id="eventNavButton">Friend News</a>
+                </div>
+              </div>
+              <a class="item navButton" href="?events" id="eventNavButton" data-text="Events">Events</a>
+              <a class="item navButton" href="?personalnews" id="eventNavButton" data-text="Own News">Own News</a>
+              <a class="item navButton" href="?friends" id="friends-button" data-text="Friends">Friends</a>
+              <a class="item navButton" href="?logout" data-text="Logout">Logout</a>
             </div>
           </div>
-          <a class="item navButton" href="?events" id="eventNavButton" data-text="events">Events</a>
-          <a class="item navButton" href="?personalnews" id="eventNavButton" data-text="news">Own News</a>
-          <a class="item navButton" href="?friends" id="friends-button" data-text="friends">Friends</a>
-          <a class="item navButton" href="?logout" data-text="logout">Logout</a>
+        </div>
+      </h4>
+    </nav>
+    <div id="body-container">
+      <div id="container">
+
+        <!-- <div class="ui active dimmer">
+        <div class="ui text loader">Loading</div>
+      </div> -->
+      </div>
+      <div id="sidebar-button-container">
+        <div id="sidebar-button" class="ui labeled button" tabindex="0">
+
         </div>
       </div>
     </div>
-  </h4>
-  </nav>
-  <div id="body-container">
-    <div id="container">
-
-      <!-- <div class="ui active dimmer">
-        <div class="ui text loader">Loading</div>
-      </div> -->
-    </div>
-    <div id="sidebar-button-container">
-      <div id="sidebar-button" class="ui labeled button" tabindex="0">
-
-      </div>
-    </div>
-  </div>
   </div>
 
 

@@ -74,7 +74,8 @@ const convert = {
                     <input id="task-text-input" type="text" placeholder="Type Task Here" data-position="bottom left" data-content="Enter task">
                 </div>     
                 <div class="ui transparent input task-input">
-                    <input id="task-date-input" type="date" data-position="bottom left" data-content="enter date">                
+                    <input id="task-date-input" type="date" data-position="bottom left" data-content="enter date">
+                    <i class="x icon discard-task" id="discard-task"></i>                
                 </div>  
             </a>
         `;

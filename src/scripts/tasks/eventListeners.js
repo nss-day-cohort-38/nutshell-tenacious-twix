@@ -12,6 +12,7 @@ const eventListeners = {
 		document.getElementById('add-task').addEventListener('click', () => {
 			DOMManager.renderAddTask(convert.taskFormHTML());
 			this.submitTask();
+			this.discardTask();
 		});
 	},
 	submitTask() {
@@ -99,6 +100,11 @@ const eventListeners = {
 		$('.cal-icon')
 			.popup()
 ;
+	},
+	discardTask(){
+		document.getElementById("discard-task").addEventListener("click", () => {
+			DOMManager.renderAddTask("");
+		})
 	}
 };
 
